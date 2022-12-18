@@ -1,3 +1,4 @@
+import { Pageable, Sort } from "./shared-interface";
 
 
 export interface ITipousuario {
@@ -5,22 +6,6 @@ export interface ITipousuario {
   tipo: string;
   usuarios: number;
 }
-
-export interface Sort {
-  empty: boolean;
-  sorted: boolean;
-  unsorted: boolean;
-}
-
-export interface Pageable {
-  sort: Sort;
-  offset: number;
-  pageNumber: number;
-  pageSize: number;
-  paged: boolean;
-  unpaged: boolean;
-}
-
 
 
 export interface TipoUsuarioResponse {
