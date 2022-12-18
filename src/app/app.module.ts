@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationUnroutedComponent } from './component/application/Usuario/unrouted/pagination-unrouted/pagination-unrouted/pagination-unrouted.component';
 import { UsuarioRemoveAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-remove-admin-routed/usuario-remove-admin-routed/usuario-remove-admin-routed.component';
 import { UsuarioDetailAdminUnroutedComponent } from './component/application/Usuario/unrouted/admin/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted.component';
+import { UsuarioNewAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-new-admin-routed/usuario-new-admin-routed/usuario-new-admin-routed.component';
+import { UsuarioEditAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-edit-admin-routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { UsuarioDetailAdminUnroutedComponent } from './component/application/Usu
     PaginationUnroutedComponent,
     UsuarioRemoveAdminRoutedComponent,
     UsuarioDetailAdminUnroutedComponent,
+    UsuarioNewAdminRoutedComponent,
+    UsuarioEditAdminRoutedComponent,
    
   ],
   imports: [

@@ -1,0 +1,206 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Edición de Usuario</h1>
+
+      <form novalidate [formGroup]="oForm" *ngIf="oForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3 row">
+          <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputID" formControlName="id" readonly>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['required'] &&
+            oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['minlength']
+              && oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['minlength']
+              ||  oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['maxlength'] ||
+              oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['required']}" id="inputName"
+              formControlName="nombre">
+            <div id="inputNameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['minlength']">
+              La longitud mínima es de 5 caracteres.
+            </div>
+            <div id="inputNameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['maxlength']">
+              La longitud máxima es de 10 caracteres.
+            </div>
+            <div id="inputNameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputSurname" class="col-sm-2 col-form-label">Apellidos</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.apellidos.dirty && !oForm.controls.apellidos.errors?.['required'] &&
+            oForm.controls.apellidos.dirty && !oForm.controls.apellidos.errors?.['minlength']
+              && oForm.controls.apellidos.dirty && !oForm.controls.apellidos.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['minlength']
+              ||  oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['maxlength'] ||
+              oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['required']}" id="inputSurname"
+              formControlName="apellidos">
+            <div id="inputSurnameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['minlength']">
+              La longitud mínima es de 5 caracteres.
+            </div>
+            <div id="inputSurnameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['maxlength']">
+              La longitud máxima es de 60 caracteres.
+            </div>
+            <div id="inputSurnameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputLastname" class="col-sm-2 col-form-label">DNI</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.dni.dirty && !oForm.controls.dni.errors?.['required'] &&
+            oForm.controls.dni.dirty && !oForm.controls.dni.errors?.['minlength']
+              && oForm.controls.dni.dirty && !oForm.controls.dni.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['minlength']
+              ||  oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['maxlength'] ||
+              oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['required']}" id="inputLastname"
+              formControlName="dni">
+            <div id="inputLastnameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['minlength']">
+              La longitud mínima es de 9 caracteres.
+            </div>
+            <div id="inputLastnameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['maxlength']">
+              La longitud máxima es de 10 caracteres.
+            </div>
+            <div id="inputLastnameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.email.dirty && !oForm.controls.email.errors?.['required'] &&
+            oForm.controls.email.dirty && !oForm.controls.email.errors?.['pattern'],
+              'is-invalid' :  oForm.controls.email.dirty &&  oForm.controls.email.errors?.['pattern'] ||
+              oForm.controls.email.dirty &&  oForm.controls.email.errors?.['required']}" id="inputEmail"
+              formControlName="email">
+            <div id="inputEmailFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.email.dirty &&  oForm.controls.email.errors?.['pattern']">
+              El formato no es adecuado
+            </div>
+            <div id="inputEmailFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.email.dirty &&  oForm.controls.email.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputUsername" class="col-sm-2 col-form-label">Login</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" id="inputUsername" formControlName="username" [ngClass]="{'is-valid' :
+            oForm.controls.login.dirty && !oForm.controls.login.errors?.['required'] &&
+            oForm.controls.login.dirty && !oForm.controls.login.errors?.['minlength']
+              && oForm.controls.login.dirty && !oForm.controls.login.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.login.dirty &&  oForm.controls.login.errors?.['minlength']
+              ||  oForm.controls.login.dirty &&  oForm.controls.login.errors?.['maxlength'] ||
+              oForm.controls.login.dirty &&  oForm.controls.login.errors?.['required']}">
+            <div class="invalid-feedback"
+              *ngIf="oForm.controls.login.dirty &&  oForm.controls.login.errors?.['minlength']">
+              La longitud mínima es de 5 caracteres.
+            </div>
+            <div class="invalid-feedback"
+              *ngIf="oForm.controls.login.dirty &&  oForm.controls.login.errors?.['maxlength']">
+              La longitud máxima es de 10 caracteres.
+            </div>
+            <div class="invalid-feedback"
+              *ngIf="oForm.controls.login.dirty &&  oForm.controls.login.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="mb-3 row">
+          <label for="inputUsertype" class="col-sm-2 col-form-label">Tipo usuario</label>
+          <div class="col-sm-6 has-validation">
+            <div class="input-group">
+              <span class="input-group-text">Descripcion de la ajena</span>
+              <input type="number" class="form-control" formControlName="id_usertype" [ngClass]="{'is-valid' :
+              oForm.controls.id_tipousuario.dirty && !oForm.controls.id_tipousuario.errors?.['required'] &&
+               !oForm.controls.id_tipousuario.errors?.['pattern'],
+                'is-invalid' :  (oForm.controls.id_tipousuario.dirty &&  oForm.controls.id_tipousuario.errors?.['required'] )
+                || ( oForm.controls.id_tipousuario.dirty &&  oForm.controls.id_tipousuario.errors?.['pattern'])}">
+              <button type="button" class="btn btn-primary" (click)="openModalFindUsertype()">Buscar</button>
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.id_tipousuario.dirty &&  oForm.controls.id_tipousuario.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.id_tipousuario.dirty &&  oForm.controls.id_tipousuario.errors?.['pattern']">
+              El campo ha de ser un entrero de máximo 6 dígitos.
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary"
+        [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        {{modalContent}}
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="findTeam" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- <app-team-finder-admin-unrouted (closeEvent)="closeTeamModal($event)"></app-team-finder-admin-unrouted> -->
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
