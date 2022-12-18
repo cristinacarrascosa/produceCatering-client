@@ -29,4 +29,8 @@ export class UsuarioService {
    getOne(id: number):Observable<IUsuario> {
     return this.oHttp.get<IUsuario>(this.url + "/" + id);
    }
+
+   removeOne(id: number): Observable<number> {
+    return this.oHttp.delete<number>(this.url + '/' + id);
+  }
 }

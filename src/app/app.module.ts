@@ -15,6 +15,9 @@ import { SearchUnroutedComponent } from './component/application/Usuario/unroute
 import { DropdownRegisterPageComponent } from './component/application/Usuario/unrouted/dropdown-register-page/dropdown-register-page/dropdown-register-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationUnroutedComponent } from './component/application/Usuario/unrouted/pagination-unrouted/pagination-unrouted/pagination-unrouted.component';
+import { UsuarioRemoveAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-remove-admin-routed/usuario-remove-admin-routed/usuario-remove-admin-routed.component';
+import { UsuarioDetailAdminUnroutedComponent } from './component/application/Usuario/unrouted/admin/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { PaginationUnroutedComponent } from './component/application/Usuario/unr
     UsuarioPlistAdminRoutedComponent,
     SearchUnroutedComponent,
     DropdownRegisterPageComponent,
-    PaginationUnroutedComponent
+    PaginationUnroutedComponent,
+    UsuarioRemoveAdminRoutedComponent,
+    UsuarioDetailAdminUnroutedComponent,
+   
   ],
   imports: [
     BrowserModule,

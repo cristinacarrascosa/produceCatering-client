@@ -39,7 +39,7 @@
               <button class="btn btn-outline-warning" >
                 <fa-icon [icon]="faUserPen"></fa-icon>
               </button>
-              <button class="btn btn-outline-danger" >
+              <button class="btn btn-outline-danger" [routerLink]="['/admin','usuario','remove',usuario.id]">
                 <fa-icon [icon]="faTrash"></fa-icon>
               </button>
             </td>
