@@ -13,14 +13,14 @@
         </div>
 
         <div class="mb-3 row">
-          <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
+          <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-4 has-validation">
             <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['required'] &&
             oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['minlength']
               && oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['minlength']
               ||  oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['maxlength'] ||
-              oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['required']}" id="inputName"
+              oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['required']}" id="inputNombre"
               formControlName="nombre">
             <div id="inputNameFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['minlength']">
@@ -38,14 +38,14 @@
         </div>
 
         <div class="mb-3 row">
-          <label for="inputSurname" class="col-sm-2 col-form-label">Apellidos</label>
+          <label for="inputApellidos" class="col-sm-2 col-form-label">Apellidos</label>
           <div class="col-sm-4 has-validation">
             <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.apellidos.dirty && !oForm.controls.apellidos.errors?.['required'] &&
             oForm.controls.apellidos.dirty && !oForm.controls.apellidos.errors?.['minlength']
               && oForm.controls.apellidos.dirty && !oForm.controls.apellidos.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['minlength']
               ||  oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['maxlength'] ||
-              oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['required']}" id="inputSurname"
+              oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['required']}" id="inputApellidos"
               formControlName="apellidos">
             <div id="inputSurnameFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.apellidos.dirty &&  oForm.controls.apellidos.errors?.['minlength']">
@@ -63,14 +63,14 @@
         </div>
 
         <div class="mb-3 row">
-          <label for="inputLastname" class="col-sm-2 col-form-label">DNI</label>
+          <label for="inputdni" class="col-sm-2 col-form-label">DNI</label>
           <div class="col-sm-4 has-validation">
             <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.dni.dirty && !oForm.controls.dni.errors?.['required'] &&
             oForm.controls.dni.dirty && !oForm.controls.dni.errors?.['minlength']
               && oForm.controls.dni.dirty && !oForm.controls.dni.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['minlength']
               ||  oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['maxlength'] ||
-              oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['required']}" id="inputLastname"
+              oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['required']}" id="inputdni"
               formControlName="dni">
             <div id="inputLastnameFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['minlength']">
@@ -109,7 +109,7 @@
         <div class="mb-3 row">
           <label for="inputlogin" class="col-sm-2 col-form-label">Login</label>
           <div class="col-sm-4 has-validation">
-            <input type="text" class="form-contrologin" formControlName="login" [ngClass]="{'is-valid' :
+            <input type="text" class="form-contrologin" id="inputlogin" formControlName="login" [ngClass]="{'is-valid' :
             oForm.controls.login.dirty && !oForm.controls.login.errors?.['required'] &&
             oForm.controls.login.dirty && !oForm.controls.login.errors?.['minlength']
               && oForm.controls.login.dirty && !oForm.controls.login.errors?.['maxlength'],
@@ -131,20 +131,24 @@
           </div>
         </div>
 
-
-
-
         <div class="mb-3 row">
-          <label for="inputUsertype" class="col-sm-2 col-form-label">Tipo usuario</label>
+          <label for="inputTeam" class="col-sm-2 col-form-label">Tipo usuario</label>
           <div class="col-sm-6 has-validation">
             <div class="input-group">
-              <span class="input-group-text">Descripcion de la ajena</span>
-              <input type="number" class="form-control" formControlName="id_usertype" [ngClass]="{'is-valid' :
+              <span class="input-group-text">{{tipousuarioDescription}}</span>
+              <input type="text" class="form-control" formControlName="id_tipousuario"
+
+
+              (keyup)="updateTipousuarioDescription(oForm.controls.id_tipousuario.value)"
+
+              [ngClass]="{'is-valid' :
               oForm.controls.id_tipousuario.dirty && !oForm.controls.id_tipousuario.errors?.['required'] &&
-               !oForm.controls.id_tipousuario.errors?.['pattern'],
+               !oForm.controls.id_tipousuario.errors?.['pattern'] && !oForm.controls.id_tipousuario.errors?.['incorrect'],
                 'is-invalid' :  (oForm.controls.id_tipousuario.dirty &&  oForm.controls.id_tipousuario.errors?.['required'] )
-                || ( oForm.controls.id_tipousuario.dirty &&  oForm.controls.id_tipousuario.errors?.['pattern'])}">
-              <button type="button" class="btn btn-primary" (click)="openModalFindUsertype()">Buscar</button>
+                ||
+                ( oForm.controls.id_tipousuario.dirty &&  oForm.controls.id_tipousuario.errors?.['incorrect'])
+              }">
+              <button type="button" class="btn btn-primary" (click)="openModalFindTipousuario()">Buscar</button>
             </div>
             <div class="text-danger"
               *ngIf="oForm.controls.id_tipousuario.dirty &&  oForm.controls.id_tipousuario.errors?.['required']">
@@ -156,6 +160,10 @@
             </div>
           </div>
         </div>
+
+
+
+        
 
         <button type="submit" class="btn btn-primary"
         [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
@@ -186,7 +194,7 @@
 </div>
 
 
-<div class="modal fade" id="findTeam" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="findtipousuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">

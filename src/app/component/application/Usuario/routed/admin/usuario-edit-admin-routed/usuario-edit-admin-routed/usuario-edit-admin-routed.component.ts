@@ -58,7 +58,7 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
           id_tipousuario: [data.tipousuario.id, [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
 
         });
-
+        this.updateTipousuarioDescription(this.oUsuario.tipousuario.id);
       }
     })
   }
