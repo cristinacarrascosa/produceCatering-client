@@ -107,9 +107,9 @@
         </div>
 
         <div class="mb-3 row">
-          <label for="inputUsername" class="col-sm-2 col-form-label">Login</label>
+          <label for="inputlogin" class="col-sm-2 col-form-label">Login</label>
           <div class="col-sm-4 has-validation">
-            <input type="text" class="form-control" id="inputUsername" formControlName="username" [ngClass]="{'is-valid' :
+            <input type="text" class="form-contrologin" formControlName="login" [ngClass]="{'is-valid' :
             oForm.controls.login.dirty && !oForm.controls.login.errors?.['required'] &&
             oForm.controls.login.dirty && !oForm.controls.login.errors?.['minlength']
               && oForm.controls.login.dirty && !oForm.controls.login.errors?.['maxlength'],
@@ -195,7 +195,7 @@
       </div>
       <div class="modal-body">
 
-        <!-- <app-team-finder-admin-unrouted (closeEvent)="closeTeamModal($event)"></app-team-finder-admin-unrouted> -->
+        <app-tipousuario-finder-admin-unrouted (closeEvent)="closeTipousuarioModal($event)"></app-tipousuario-finder-admin-unrouted> -->
 
       </div>
       <div class="modal-footer">
@@ -204,3 +204,4 @@
     </div>
   </div>
 </div>
+

@@ -2,7 +2,7 @@ import { baseURL } from './../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TipoUsuarioResponse } from '../model/tipousuario-interface';
+import { TipoUsuarioResponse, ITipousuario } from '../model/tipousuario-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,9 @@ export class TipousuarioService {
 
     const url : string = `${baseURL}${this.entityURL}`;
     return this.oHttp.get<TipoUsuarioResponse>(url, {params: params});
+  }
+
+  getOne(id: number): Observable<ITipousuario> {
+    return this.oHttp.get<ITipousuario>(`${baseURL}${this.entityURL}` + "/" + id);
   }
 }

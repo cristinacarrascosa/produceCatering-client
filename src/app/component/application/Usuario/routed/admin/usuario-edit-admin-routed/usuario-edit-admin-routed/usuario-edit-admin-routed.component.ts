@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IUsuario, IUsuario2Form, IUsuario2Send } from 'src/app/model/usuario-interface';
 import { TipousuarioService } from 'src/app/service/tipousuario.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { ITipousuario } from '../../../../../../../model/tipousuario-interface';
 
 declare let bootstrap: any;
 @Component({
@@ -13,18 +14,20 @@ declare let bootstrap: any;
 })
 export class UsuarioEditAdminRoutedComponent implements OnInit {
 
-
   id: number = 0;
-  oUsuario!: IUsuario | null;
-  oUsuario2Form!: IUsuario2Form | null;
-  oUsuario2Send: IUsuario2Send | null | undefined;
-  oForm!: FormGroup<IUsuario2Form>
+  oUsuario: IUsuario;
+
+
+  oUsuario2Form: IUsuario2Form;
+  oUsuario2Send: IUsuario2Send;
+  oForm: FormGroup<IUsuario2Form>;
   // modal
   mimodal: string = "miModal";
   myModal: any;
   modalTitle: string = "";
   modalContent: string = "";
-
+  // foreign key
+  tipousuarioDescription: string = "";
 
   constructor(
     private oRouter: Router,
@@ -69,7 +72,7 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
       dni: this.oForm.value.dni,
       email: this.oForm.value.email,
       login: this.oForm.value.login,
-      id_tipousuario: this.oForm.value.id_tipousuario
+      tipousuario: { id: this.oForm.value.id_tipousuario }
 
     }
     if (this.oForm.valid) {
@@ -90,9 +93,36 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
     })
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
-      this.oRouter.navigate(['/admin/developer/view', this.id])
+      this.oRouter.navigate(['/admin/usuario/view', this.id])
     })
     this.myModal.show()
+  }
+
+  openModalFindTipousuario(): void {
+    this.myModal = new bootstrap.Modal(document.getElementById("findtipousuario"), { //pasar el myModal como parametro
+      keyboard: false
+    })
+    this.myModal.show()
+
+
+  }
+
+  closeTipousuarioModal(id_tipousuario: number) {
+    this.oForm.controls['id_tipousuario'].setValue(id_tipousuario);
+    this.updateTipousuarioDescription(id_tipousuario);
+    this.myModal.hide();
+  }
+
+  updateTipousuarioDescription(id_tiposuario: number) {
+    this.oTipousuarioService.getOne(id_tiposuario).subscribe({
+      next: (data: ITipousuario) => {
+        this.tipousuarioDescription = data.tipo;
+      },
+      error: (error: any) => {
+        this.tipousuarioDescription = "Tipo de usuario no encontrado";
+        this.oForm.controls['id_tipousuario'].setErrors({'incorrect': true});
+      }
+    })
   }
 
   openModalFindUsertype(): void {
