@@ -39,6 +39,6 @@ export class UsuarioService {
   }
 
   newOne(oUsuario2Send: IUsuario2Send): Observable<number> {
-    return this.oHttp.post<number>(this.url, oUsuario2Send);
+    return this.oHttp.post<number>(this.url+'/', oUsuario2Send);
   }
 }

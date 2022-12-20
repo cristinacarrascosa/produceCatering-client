@@ -1,4 +1,5 @@
 import { HttpErrorResponse } from "@angular/common/http";
+import { FormControl } from "@angular/forms";
 
 export interface Pageable {
   sort: Sort;
@@ -24,4 +25,9 @@ export interface IResult {
 
 export interface IEntity {
   id: number;
+}
+
+export interface IUser {
+  email: FormControl<string>;
+  password: FormControl<string>;
 }
