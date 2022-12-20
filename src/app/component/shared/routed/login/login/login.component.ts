@@ -59,15 +59,15 @@ export class LoginComponent implements OnInit {
 
   loginAdmin() {
     this.formularioLogin.setValue({
-      login: "administradora",
+      login: "adminin",
       password: "123456789"
     })
   }
 
   loginUser() {
     this.formularioLogin.setValue({
-      login: "usuario",
-      password: "1234"
+      login: "usuariojavi",
+      password: "123456789"
     })
   }
 
