@@ -37,11 +37,16 @@ export class SessionService {
       catchError(this.handleError));
   }
 
-  logout(): Observable<String> {
-    if (environment) console.log("SessionService: logout");
-    return this.http.delete<String>(this.url, httpOptions).pipe(
-      retry(1),
-      catchError(this.handleError));
+  // logout(): Observable<String> {
+  //   if (environment) console.log("SessionService: logout");
+  //   return this.http.delete<String>(this.url, httpOptions).pipe(
+  //     retry(1),
+  //     catchError(this.handleError));
+  // }
+
+  logout(){
+    localStorage.clear();
+    location.reload();
   }
 
   check(): Observable<String> {

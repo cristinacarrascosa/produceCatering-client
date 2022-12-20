@@ -21,6 +21,9 @@ import { UsuarioNewAdminRoutedComponent } from './component/application/Usuario/
 import { UsuarioEditAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-edit-admin-routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
 import { TipousuarioFinderAdminUnroutedComponent } from './component/application/TipoUsuario/unrouted/admin/tipousuario-finder-admin-unrouted/tipousuario-finder-admin-unrouted/tipousuario-finder-admin-unrouted.component';
 import { LoginComponent } from './component/shared/routed/login/login/login.component';
+import { LogoutComponent } from './component/shared/routed/logout/logout/logout.component';
+import { UsuarioService } from './service/usuario.service';
+import { SessionService } from './service/session.service';
 
 
 @NgModule({
@@ -40,7 +43,8 @@ import { LoginComponent } from './component/shared/routed/login/login/login.comp
     UsuarioEditAdminRoutedComponent,
     TipousuarioFinderAdminUnroutedComponent,
     LoginComponent,
-   
+    LogoutComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,8 @@ import { LoginComponent } from './component/shared/routed/login/login/login.comp
 
   ],
   providers: [
-
+    UsuarioService,
+    SessionService
   ],
   bootstrap: [AppComponent]
 })
