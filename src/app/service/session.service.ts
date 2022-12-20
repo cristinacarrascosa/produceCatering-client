@@ -46,7 +46,7 @@ export class SessionService {
 
   logout(){
     localStorage.clear();
-    location.reload();
+    //location.reload();
   }
 
   check(): Observable<String> {

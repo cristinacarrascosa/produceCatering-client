@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const loginData = { login: this.formularioLogin.get('login')!.value, password: (this.formularioLogin.get('password')!.value) };
-    console.log("login:onSubmit: ", loginData);
+    //console.log("login:onSubmit: ", loginData);
     this.oSessionService.login(JSON.stringify(loginData)).subscribe(data => {
       localStorage.setItem("user", JSON.stringify(data.toString()));
       if (data != null) {
@@ -59,15 +59,15 @@ export class LoginComponent implements OnInit {
 
   loginAdmin() {
     this.formularioLogin.setValue({
-      login: "adminin",
+      login: "admin",
       password: "123456789"
     })
   }
 
   loginUser() {
     this.formularioLogin.setValue({
-      login: "usuariojavi",
-      password: "123456789"
+      login: "prueba",
+      password: "1234"
     })
   }
 

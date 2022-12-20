@@ -81,7 +81,7 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
     })
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
-      this.oRouter.navigate(['/admin/usuario/view', this.oUsuario2Send.id])
+      this.oRouter.navigate(['/admin/usuario/plist'])
     })
     this.myModal.show()
   }
