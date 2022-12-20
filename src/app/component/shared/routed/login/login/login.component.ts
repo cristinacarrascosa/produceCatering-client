@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
     }
 
     this.formularioLogin = <UntypedFormGroup>this.FormBuilder.group({
-      email: ['', [Validators.required, Validators.minLength(5)]],
-      password: ['', [Validators.required, Validators.minLength(5)]]
+      login: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
 
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    const loginData = { email: this.formularioLogin.get('email')!.value, password: (this.formularioLogin.get('password')!.value) };
+    const loginData = { login: this.formularioLogin.get('login')!.value, password: (this.formularioLogin.get('password')!.value) };
     console.log("login:onSubmit: ", loginData);
     this.oSessionService.login(JSON.stringify(loginData)).subscribe(data => {
       localStorage.setItem("player", JSON.stringify(data.toString()));
@@ -57,15 +57,15 @@ export class LoginComponent implements OnInit {
 
   loginAdmin() {
     this.formularioLogin.setValue({
-      email: "altaro2002@gmail.com",
-      password: "DIGIMON_DECKS"
+      login: "administradora",
+      password: "123456789"
     })
   }
 
   loginUser() {
     this.formularioLogin.setValue({
-      email: "administradora",
-      password: "123456789"
+      login: "usuario",
+      password: "1234"
     })
   }
 
