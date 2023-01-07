@@ -43,7 +43,7 @@ export class UsuarioRemoveAdminRoutedComponent implements OnInit {
   removeOne() {
     this.oUsuarioService.removeOne(this.id).subscribe({
       next: (data: number) => {
-        this.msg = "Task " + this.id + " removed";
+        this.msg = "Usuario " + this.id + " borrado";
         //open bootstrap modal here
         alert(this.msg);
         this.oLocation.back();

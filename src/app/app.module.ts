@@ -24,6 +24,7 @@ import { LoginComponent } from './component/shared/routed/login/login/login.comp
 
 import { UsuarioService } from './service/usuario.service';
 import { SessionService } from './service/session.service';
+import { GenerateComponent } from './component/shared/routed/generate/generate.component';
 
 
 @NgModule({
@@ -43,7 +44,9 @@ import { SessionService } from './service/session.service';
     UsuarioEditAdminRoutedComponent,
     TipousuarioFinderAdminUnroutedComponent,
     LoginComponent,
-   
+    GenerateComponent,
+    
+
 
   ],
   imports: [

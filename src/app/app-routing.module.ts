@@ -8,13 +8,17 @@ import { UsuarioRemoveAdminRoutedComponent } from './component/application/Usuar
 import { UsuarioNewAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-new-admin-routed/usuario-new-admin-routed/usuario-new-admin-routed.component';
 import { UsuarioEditAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-edit-admin-routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
 import { LoginComponent } from './component/shared/routed/login/login/login.component';
+import { GenerateComponent } from './component/shared/routed/generate/generate.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  //
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent},
- 
+
+  { path: 'admin/random/load', component: GenerateComponent},
+
   { path: 'admin/tipousuario/plist', component: TipousuarioPlistAdminRoutedComponent },
   { path: 'admin/usuario/view/:id', component: UsuarioViewAdminRoutedComponent },
   { path: 'admin/usuario/plist', component: UsuarioPlistAdminRoutedComponent},

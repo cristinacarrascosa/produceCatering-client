@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IUsuario } from 'src/app/model/usuario-interface';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-usuario-view-admin-routed',
@@ -14,6 +16,7 @@ export class UsuarioViewAdminRoutedComponent implements OnInit {
   oUsuario!: IUsuario;
 
   constructor(
+    protected oLocation: Location,
     private oActivatedRoute: ActivatedRoute,
     private oUsuarioService: UsuarioService
   ) {
@@ -28,7 +31,8 @@ export class UsuarioViewAdminRoutedComponent implements OnInit {
     this.oUsuarioService.getOne(this.id).subscribe({
       next: (data: IUsuario) => {
         this.oUsuario = data;
-        console.log(data);
+        //console.log(data);
+        //this.oLocation.back();
       }
     })
   }

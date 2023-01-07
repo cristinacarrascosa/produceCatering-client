@@ -106,12 +106,12 @@
           </div>
         </div>
 
-        
+
 
         <div class="mb-3 row">
           <label for="inputlogin" class="col-sm-2 col-form-label">Login</label>
           <div class="col-sm-4 has-validation">
-            <input type="text" class="form-contrologin" id="inputlogin" formControlName="login" [ngClass]="{'is-valid' :
+            <input type="text" class="form-control" id="inputlogin" formControlName="login" [ngClass]="{'is-valid' :
             oForm.controls.login.dirty && !oForm.controls.login.errors?.['required'] &&
             oForm.controls.login.dirty && !oForm.controls.login.errors?.['minlength']
               && oForm.controls.login.dirty && !oForm.controls.login.errors?.['maxlength'],
