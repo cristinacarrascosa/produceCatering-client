@@ -31,6 +31,7 @@ export class TipousuarioFinderAdminUnroutedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getPage();
   }
 
   getPage() {

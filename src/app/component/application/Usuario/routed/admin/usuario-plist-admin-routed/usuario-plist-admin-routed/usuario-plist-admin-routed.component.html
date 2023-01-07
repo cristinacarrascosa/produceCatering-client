@@ -5,35 +5,49 @@
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
         <a [routerLink]="['/admin/usuario/new']" class="btn btn-primary mx-3">Alta de developer</a>
         <app-search-unrouted [placeHolder]="'Buscar usuario'" (onSearch)="setFilter( $event )"></app-search-unrouted>
-        <app-dropdown-register-page class="mx-2" [PageSize]="this.getPageRegister()"
+        <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"
           (eeRpp)="this.setRpp($event)"></app-dropdown-register-page>
       </div>
       <div class="col-md text-center">
-        <app-pagination-unrouted [nPage]="getPageNumber() + 1" [nTotalPages]="this.getpagesCount()"
+        <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
           (eePage)="setPage($event)"></app-pagination-unrouted>
+      </div>
+      <div class="col-md text-start">
+        <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
+        <button class="btn btn-outline-danger" *ngIf="id_tipousuario!=0" (click)="setFilterByTipousuario(0)">
+          <i class="bi bi-x-circle"></i> Reset usertype {{id_tipousuario}} filter</button>
+      </div>
+      <div class="col-md text-end">
+        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
       </div>
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>TipoUsuario</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>DNI</th>
-            <th>email</th>
-            <th>login</th>
+            <th (click)="setOrder('id')">ID
+              <fa-icon *ngIf="sortField=='id'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
+              <fa-icon *ngIf="sortField=='id'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
+            </th>
+            <th (click)="setOrder('tipousuario.id')">TipoUsuario</th>
+            <th (click)="setOrder('nombre')">Nombre</th>
+            <th (click)="setOrder('apellidos')">Apellidos</th>
+            <th (click)="setOrder('dni')">DNI</th>
+            <th (click)="setOrder('email')">email</th>
+            <th (click)="setOrder('login')">login</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let usuario of this.getPlistContent()">
+          <tr *ngFor="let usuario of responseFromServer.content">
             <td>{{usuario.id}}</td>
-            <td>{{usuario.tipousuario.tipo}}</td>
+            <td (click)="setFilterByTipousuario(usuario.tipousuario.id)">
+              {{usuario.tipousuario.tipo}}-{{usuario.tipousuario.id}}</td>
             <td>{{usuario.nombre}}</td>
             <td>{{usuario.apellidos}}</td>
             <td>{{usuario.dni}}</td>
             <td>{{usuario.email}}</td>
             <td>{{usuario.login}}</td>
             <td>
+              <div class="btn-group" role="group" aria-label="Herramientas">
               <button class="btn btn-outline-primary" [routerLink]="['/admin/usuario/view',usuario.id]">
                 <fa-icon [icon]="faEye"></fa-icon>
               </button>
@@ -43,6 +57,7 @@
               <button class="btn btn-outline-danger" [routerLink]="['/admin','usuario','remove',usuario.id]">
                 <fa-icon [icon]="faTrash"></fa-icon>
               </button>
+              </div>
             </td>
           </tr>
         </tbody>
