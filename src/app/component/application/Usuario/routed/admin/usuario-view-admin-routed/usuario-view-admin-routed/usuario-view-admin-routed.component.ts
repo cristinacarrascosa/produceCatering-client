@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IUsuario } from 'src/app/model/usuario-interface';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { Location } from '@angular/common';
+import { MetadataService } from 'src/app/service/metadata.service';
 
 
 @Component({
@@ -18,7 +19,9 @@ export class UsuarioViewAdminRoutedComponent implements OnInit {
   constructor(
     protected oLocation: Location,
     private oActivatedRoute: ActivatedRoute,
-    private oUsuarioService: UsuarioService
+    private oUsuarioService: UsuarioService,
+
+    public oMetadataService: MetadataService
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
    }

@@ -5,6 +5,9 @@ import { IUsuario, IUsuario2Form, IUsuario2Send } from 'src/app/model/usuario-in
 import { TipousuarioService } from 'src/app/service/tipousuario.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { ITipousuario } from '../../../../../../../model/tipousuario-interface';
+import { MetadataService } from 'src/app/service/metadata.service';
+import { Location } from '@angular/common';
+
 
 declare let bootstrap: any;
 @Component({
@@ -30,6 +33,8 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
   tipousuarioDescription: string = "";
 
   constructor(
+    public oMetadataService: MetadataService,
+    protected oLocation: Location,
     private oRouter: Router,
     private oActivatedRoute: ActivatedRoute,
     private oUsuarioService: UsuarioService,

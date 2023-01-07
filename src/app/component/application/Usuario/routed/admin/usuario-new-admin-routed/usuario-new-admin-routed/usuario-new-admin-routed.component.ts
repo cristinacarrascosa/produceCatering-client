@@ -5,6 +5,9 @@ import { IUsuario, IUsuario2Form, IUsuario2Send } from 'src/app/model/usuario-in
 import { TipousuarioService } from 'src/app/service/tipousuario.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { ITipousuario } from '../../../../../../../model/tipousuario-interface';
+import { Location } from '@angular/common';
+import { MetadataService } from 'src/app/service/metadata.service';
+
 declare let bootstrap: any;
 @Component({
   selector: 'app-usuario-new-admin-routed',
@@ -28,6 +31,9 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
 
   constructor(
     private oRouter: Router,
+    protected oLocation: Location,
+    public oMetadataService: MetadataService,
+
     private oActivatedRoute: ActivatedRoute,
     private oUsuarioService: UsuarioService,
     private oFormBuilder: FormBuilder,
@@ -36,7 +42,7 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
     //this.id = oActivatedRoute.snapshot.params['id'];
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.oForm = <FormGroup>this.oFormBuilder.group({
       id: [""],
       nombre: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
@@ -108,7 +114,7 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
       },
       error: (error: any) => {
         this.tipousuarioDescription = "Tipo de usuario no encontrado";
-        this.oForm.controls['id_tipousuario'].setErrors({'incorrect': true});
+        this.oForm.controls['id_tipousuario'].setErrors({ 'incorrect': true });
       }
     })
   }
