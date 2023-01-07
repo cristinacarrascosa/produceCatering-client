@@ -109,13 +109,14 @@
         <div class="mb-3 row">
           <label for="inputlogin" class="col-sm-2 col-form-label">Login</label>
           <div class="col-sm-4 has-validation">
-            <input type="text" class="form-contrologin" id="inputlogin" formControlName="login" [ngClass]="{'is-valid' :
+            <input type="text" class="form-control"  [ngClass]="{'is-valid' :
             oForm.controls.login.dirty && !oForm.controls.login.errors?.['required'] &&
             oForm.controls.login.dirty && !oForm.controls.login.errors?.['minlength']
               && oForm.controls.login.dirty && !oForm.controls.login.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.login.dirty &&  oForm.controls.login.errors?.['minlength']
               ||  oForm.controls.login.dirty &&  oForm.controls.login.errors?.['maxlength'] ||
-              oForm.controls.login.dirty &&  oForm.controls.login.errors?.['required']}">
+              oForm.controls.login.dirty &&  oForm.controls.login.errors?.['required']}"
+              id="inputlogin" formControlName="login">
             <div class="invalid-feedback"
               *ngIf="oForm.controls.login.dirty &&  oForm.controls.login.errors?.['minlength']">
               La longitud mínima es de 5 caracteres.
@@ -163,7 +164,7 @@
 
 
 
-        
+
 
         <button type="submit" class="btn btn-primary"
         [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
