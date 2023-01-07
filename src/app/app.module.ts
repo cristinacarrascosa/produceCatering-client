@@ -20,11 +20,14 @@ import { UsuarioDetailAdminUnroutedComponent } from './component/application/Usu
 import { UsuarioNewAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-new-admin-routed/usuario-new-admin-routed/usuario-new-admin-routed.component';
 import { UsuarioEditAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-edit-admin-routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
 import { TipousuarioFinderAdminUnroutedComponent } from './component/application/TipoUsuario/unrouted/admin/tipousuario-finder-admin-unrouted/tipousuario-finder-admin-unrouted/tipousuario-finder-admin-unrouted.component';
-import { LoginComponent } from './component/shared/routed/login/login/login.component';
+
 
 import { UsuarioService } from './service/usuario.service';
 import { SessionService } from './service/session.service';
+// shared components
 import { GenerateComponent } from './component/shared/routed/generate/generate.component';
+import { PopupComponent } from './component/shared/unrouted/popup/popup.component';
+import { LoginComponent } from './component/shared/routed/login/login/login.component';
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import { GenerateComponent } from './component/shared/routed/generate/generate.c
     TipousuarioFinderAdminUnroutedComponent,
     LoginComponent,
     GenerateComponent,
-    
+    PopupComponent,
+
+
 
 
   ],
