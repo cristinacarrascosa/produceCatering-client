@@ -59,55 +59,14 @@ export class UsuarioPlistAdminRoutedComponent {
   }
 
 
-  // getPage() {
-  //   this.oUsuarioService.getUsuariosPlist(this.numberPage, this.pageRegister, this.termino)
-  //     .subscribe({
-  //       next: (resp: UsuarioResponse) => {
-  //         this.pListContent = resp.content;
-  //         console.log(this.pListContent);
-  //         this.pagesCount = resp.totalPages;
-  //         this.numberPage = resp.number;
-  //         console.log("pagina", this.numberPage);
-  //       },
-  //       error: (err: HttpErrorResponse) => {
-  //         console.log(err);
-  //       }
-  //     })
-  // }
-
-  // getPageNumber(): number {
-  //   return this.numberPage;
-  // }
-
-  // getPlistContent(): IUsuario[] {
-  //   return this.pListContent;
-  // }
-
-  // getpagesCount(): number {
-  //   return this.pagesCount;
-  // }
+  
 
   setPage(e: number) {
     this.page = e - 1;
     this.getPage();
   }
 
-  // getPageRegister(): number {
-  //   return this.pageRegister;
-  // }
 
-
-
-  // setRpp(registerPage: number) {
-  //   this.pageRegister = registerPage;
-  //   this.getPage();
-  // }
-
-  // setFilter(termino: string): void {
-  //   this.termino = termino;
-  //   this.numberPage = 0;
-  //   this.getPage();
-  // }
 
   setRpp(rpp: number) {
     this.numberOfElements = rpp;
