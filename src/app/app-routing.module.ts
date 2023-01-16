@@ -9,6 +9,7 @@ import { UsuarioNewAdminRoutedComponent } from './component/application/Usuario/
 import { UsuarioEditAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-edit-admin-routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
 import { LoginComponent } from './component/shared/routed/login/login/login.component';
 import { GenerateComponent } from './component/shared/routed/generate/generate.component';
+import { EspacioViewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-view-admin-routed/espacio-view-admin-routed.component';
 
 
 const routes: Routes = [
@@ -20,11 +21,14 @@ const routes: Routes = [
   { path: 'admin/random/load', component: GenerateComponent},
 
   { path: 'admin/tipousuario/plist', component: TipousuarioPlistAdminRoutedComponent },
+  //usuario
   { path: 'admin/usuario/view/:id', component: UsuarioViewAdminRoutedComponent },
   { path: 'admin/usuario/plist', component: UsuarioPlistAdminRoutedComponent},
   { path: 'admin/usuario/remove/:id', component: UsuarioRemoveAdminRoutedComponent},
   { path: 'admin/usuario/new', component: UsuarioNewAdminRoutedComponent},
   { path: 'admin/usuario/edit/:id', component: UsuarioEditAdminRoutedComponent},
+  //espacio
+  { path: 'admin/espacio/view/:id', component: EspacioViewAdminRoutedComponent },
 ];
 
 @NgModule({

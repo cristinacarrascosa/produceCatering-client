@@ -59,7 +59,7 @@ export class UsuarioPlistAdminRoutedComponent {
   }
 
 
-  
+
 
   setPage(e: number) {
     this.page = e - 1;
@@ -70,6 +70,7 @@ export class UsuarioPlistAdminRoutedComponent {
 
   setRpp(rpp: number) {
     this.numberOfElements = rpp;
+
     this.getPage();
   }
 

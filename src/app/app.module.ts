@@ -29,6 +29,7 @@ import { SessionService } from './service/session.service';
 import { GenerateComponent } from './component/shared/routed/generate/generate.component';
 import { PopupComponent } from './component/shared/unrouted/popup/popup.component';
 import { LoginComponent } from './component/shared/routed/login/login/login.component';
+import { EspacioViewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-view-admin-routed/espacio-view-admin-routed.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { LoginComponent } from './component/shared/routed/login/login/login.comp
     LoginComponent,
     GenerateComponent,
     PopupComponent,
+    EspacioViewAdminRoutedComponent,
 
 
 
