@@ -29,11 +29,12 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
   // foreign key
   tipousuarioDescription: string = "";
 
+
+
   constructor(
     private oRouter: Router,
     protected oLocation: Location,
     public oMetadataService: MetadataService,
-
     private oActivatedRoute: ActivatedRoute,
     private oUsuarioService: UsuarioService,
     private oFormBuilder: FormBuilder,
@@ -76,8 +77,35 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
           this.modalTitle = "Produce Catering";
           this.modalContent = "Usuario " + this.oUsuario2Send.id + " creado";
           this.showModal();
+        }, error: (error: any) => {
+          console.log(error);
+          const wapper = document.createElement('div');
+
+          if (error.error.message == "error de validación: campo DNI de Usuario") {
+            wapper.innerHTML = [
+              `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>DNI inexistente!</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>`
+            ].join('');
+          } else {
+            wapper.innerHTML = [
+              `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Login duplicado!</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>`
+            ].join('');
+          }
+          const alertPlaceholder = document.getElementById('alert');
+          alertPlaceholder.append(wapper);
+          setTimeout(() => {
+            wapper.classList.add('d-none');
+          }, 5000);
         }
       })
+    } else {
+      //console.log("Formulario no válido");
+      //alert("Formulario no válido");
     }
   }
 

@@ -1,6 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
+      <div id="alert"></div>
       <h1 class="text-center mb-5">Alta de Usuario</h1>
 
       <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
@@ -83,6 +84,10 @@
             <div id="inputLastnameFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.dni.dirty &&  oForm.controls.dni.errors?.['required']">
               El campo es obligatorio.
+            </div>
+            <div id="inputLastnameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.dni.invalid &&  oForm.controls.dni.errors?.['required']">
+              DNI inexistente.
             </div>
           </div>
         </div>
@@ -220,4 +225,5 @@
     </div>
   </div>
 </div>
+
 

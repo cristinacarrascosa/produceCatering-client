@@ -20,6 +20,7 @@ import { UsuarioDetailAdminUnroutedComponent } from './component/application/Usu
 import { UsuarioNewAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-new-admin-routed/usuario-new-admin-routed/usuario-new-admin-routed.component';
 import { UsuarioEditAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-edit-admin-routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
 import { TipousuarioFinderAdminUnroutedComponent } from './component/application/TipoUsuario/unrouted/admin/tipousuario-finder-admin-unrouted/tipousuario-finder-admin-unrouted/tipousuario-finder-admin-unrouted.component';
+//
 
 
 import { UsuarioService } from './service/usuario.service';
@@ -53,6 +54,7 @@ import { LoginComponent } from './component/shared/routed/login/login/login.comp
 
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -62,14 +64,16 @@ import { LoginComponent } from './component/shared/routed/login/login/login.comp
     HttpClientModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
 
 
 
   ],
   providers: [
     UsuarioService,
-    SessionService
+    SessionService,
+
   ],
   bootstrap: [AppComponent]
 })
