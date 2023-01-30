@@ -31,6 +31,10 @@ export class EspacioPlistAdminRoutedComponent {
     private oEspacioService: EspacioService
   ) { }
 
+  ngOnInit(): void {
+    this.getPage();
+  }
+
   getPage() {
     this.oEspacioService.getUsuarioPlist(this.page, this.numberOfElements,
       this.strTermFilter,  this.sortField, this.sortDirection)
@@ -67,7 +71,7 @@ export class EspacioPlistAdminRoutedComponent {
     this.getPage();
   }
 
-  
+
 
   setOrder(order: string): void {
     this.sortField = order;

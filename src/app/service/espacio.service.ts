@@ -22,7 +22,7 @@ export class EspacioService {
       .set("filter", termino)
       .set("page", page)
       .set("size", size);
-    
+
     if (strSortField != "") { //&sort=codigo,[asc|desc]
       if (strOrderDirection != "") {
         params = params.set("sort", strSortField + "," + strOrderDirection);
@@ -31,5 +31,9 @@ export class EspacioService {
       }
     }
     return this.oHttp.get<IPage<IEspacio>>(this.url, { params: params });
+  }
+
+  getOne(id: number): Observable<IEspacio> {
+    return this.oHttp.get<IEspacio>(this.url + "/" + id);
   }
 }
