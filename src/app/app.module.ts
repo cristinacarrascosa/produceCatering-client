@@ -6,20 +6,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { HomeComponent } from './component/shared/routed/home/home.component';
-import { MenuComponent } from './component/shared/unrouted/menu/menu/menu.component';
-import { TipousuarioPlistAdminRoutedComponent } from './component/application/TipoUsuario/routed/admin/tipousuario-plist-admin-routed/tipousuario-plist-admin-routed.component';
-import { UsuarioViewAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-view-admin-routed/usuario-view-admin-routed/usuario-view-admin-routed.component';
-import { UsuarioPlistAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-plist-admin-routed/usuario-plist-admin-routed/usuario-plist-admin-routed.component';
 import { SearchUnroutedComponent } from './component/application/Usuario/unrouted/search-unrouted/search-unrouted/search-unrouted.component';
 import { DropdownRegisterPageComponent } from './component/application/Usuario/unrouted/dropdown-register-page/dropdown-register-page/dropdown-register-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationUnroutedComponent } from './component/application/Usuario/unrouted/pagination-unrouted/pagination-unrouted/pagination-unrouted.component';
+/** Admin */
+// usuario
+import { TipousuarioPlistAdminRoutedComponent } from './component/application/TipoUsuario/routed/admin/tipousuario-plist-admin-routed/tipousuario-plist-admin-routed.component';
+import { UsuarioViewAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-view-admin-routed/usuario-view-admin-routed/usuario-view-admin-routed.component';
+import { UsuarioPlistAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-plist-admin-routed/usuario-plist-admin-routed/usuario-plist-admin-routed.component';
+
 import { UsuarioRemoveAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-remove-admin-routed/usuario-remove-admin-routed/usuario-remove-admin-routed.component';
 import { UsuarioDetailAdminUnroutedComponent } from './component/application/Usuario/unrouted/admin/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted.component';
 import { UsuarioNewAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-new-admin-routed/usuario-new-admin-routed/usuario-new-admin-routed.component';
 import { UsuarioEditAdminRoutedComponent } from './component/application/Usuario/routed/admin/usuario-edit-admin-routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
 import { TipousuarioFinderAdminUnroutedComponent } from './component/application/TipoUsuario/unrouted/admin/tipousuario-finder-admin-unrouted/tipousuario-finder-admin-unrouted/tipousuario-finder-admin-unrouted.component';
+// espacio
+import { EspacioViewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-view-admin-routed/espacio-view-admin-routed.component';
+import { EspacioPlistAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-plist-admin-routed/espacio-plist-admin-routed.component';
+
 //
 
 
@@ -29,7 +34,8 @@ import { SessionService } from './service/session.service';
 import { GenerateComponent } from './component/shared/routed/generate/generate.component';
 import { PopupComponent } from './component/shared/unrouted/popup/popup.component';
 import { LoginComponent } from './component/shared/routed/login/login/login.component';
-import { EspacioViewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-view-admin-routed/espacio-view-admin-routed.component';
+import { HomeComponent } from './component/shared/routed/home/home.component';
+import { MenuComponent } from './component/shared/unrouted/menu/menu/menu.component';
 
 
 @NgModule({
@@ -52,6 +58,7 @@ import { EspacioViewAdminRoutedComponent } from './component/application/Espacio
     GenerateComponent,
     PopupComponent,
     EspacioViewAdminRoutedComponent,
+    EspacioPlistAdminRoutedComponent,
 
 
 
