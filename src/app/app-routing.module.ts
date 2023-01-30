@@ -12,6 +12,7 @@ import { GenerateComponent } from './component/shared/routed/generate/generate.c
 import { EspacioViewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-view-admin-routed/espacio-view-admin-routed.component';
 import { EspacioPlistAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-plist-admin-routed/espacio-plist-admin-routed.component';
 import { EspacioRemoveAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-remove-admin-routed/espacio-remove-admin-routed.component';
+import { EspacioNewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-new-admin-routed/espacio-new-admin-routed.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
   //espacio
   { path: 'admin/espacio/view/:id', component: EspacioViewAdminRoutedComponent },
   { path: 'admin/espacio/plist' , component: EspacioPlistAdminRoutedComponent},
-  { path: 'admin/espacio/remove/:id', component: EspacioRemoveAdminRoutedComponent}
+  { path: 'admin/espacio/remove/:id', component: EspacioRemoveAdminRoutedComponent},
+  { path: 'admin/espacio/new', component: EspacioNewAdminRoutedComponent},
 ];
 
 @NgModule({

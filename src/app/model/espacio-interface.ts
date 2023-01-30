@@ -1,3 +1,4 @@
+import { FormControl } from "@angular/forms";
 import { Pageable, Sort } from "./shared-interface";
 
   export interface IEspacio {
@@ -22,6 +23,23 @@ import { Pageable, Sort } from "./shared-interface";
       numberOfElements: number;
       empty: boolean;
   }
+
+  export interface IEspacio2Form {
+    id: FormControl<number>;
+    nombre: FormControl<string>;
+    direccion: FormControl<string>;
+    telefono: FormControl<string>;
+
+}
+
+
+  export interface IEspacio2Send {
+    id: number;
+    nombre: string;
+    direccion: string;
+    telefono: string;
+
+}
 
 
 

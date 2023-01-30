@@ -44,6 +44,7 @@ import { PaginationService } from './service/pagination.service';
 import { TipousuarioService } from './service/tipousuario.service';
 import { EspacioService } from './service/espacio.service';
 import { EspacioRemoveAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-remove-admin-routed/espacio-remove-admin-routed.component';
+import { EspacioNewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-new-admin-routed/espacio-new-admin-routed.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { EspacioRemoveAdminRoutedComponent } from './component/application/Espac
     EspacioViewAdminRoutedComponent,
     EspacioPlistAdminRoutedComponent,
     EspacioRemoveAdminRoutedComponent,
+    EspacioNewAdminRoutedComponent,
 
 
 

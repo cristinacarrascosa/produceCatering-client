@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { baseURL } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { IPage } from '../model/shared-interface';
-import { IEspacio } from '../model/espacio-interface';
+import { IEspacio, IEspacio2Send } from '../model/espacio-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,9 @@ export class EspacioService {
 
   removeOne(id: number): Observable<number> {
     return this.oHttp.delete<number>(this.url + '/' + id);
+  }
+
+  newOne(oEspacio2Send: IEspacio2Send): Observable<number> {
+    return this.oHttp.post<number>(this.url+'/', oEspacio2Send);
   }
 }
