@@ -70,7 +70,7 @@
               && oForm.controls.telefono.dirty && !oForm.controls.telefono.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.telefono.dirty &&  oForm.controls.telefono.errors?.['minlength']
               ||  oForm.controls.telefono.dirty &&  oForm.controls.telefono.errors?.['maxlength'] ||
-              oForm.controls.telefono.dirty &&  oForm.controls.telefono.errors?.['required']}" id="inputdni"
+              oForm.controls.telefono.dirty &&  oForm.controls.telefono.errors?.['required']}" id="inputTelefono"
               formControlName="telefono">
             <div id="inputLastnameFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.telefono.dirty &&  oForm.controls.telefono.errors?.['minlength']">
@@ -127,10 +127,7 @@
         <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-
-
-      </div>
+     
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
       </div>
