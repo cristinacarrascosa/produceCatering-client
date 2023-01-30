@@ -11,6 +11,7 @@ import { LoginComponent } from './component/shared/routed/login/login/login.comp
 import { GenerateComponent } from './component/shared/routed/generate/generate.component';
 import { EspacioViewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-view-admin-routed/espacio-view-admin-routed.component';
 import { EspacioPlistAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-plist-admin-routed/espacio-plist-admin-routed.component';
+import { EspacioRemoveAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-remove-admin-routed/espacio-remove-admin-routed.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'admin/usuario/edit/:id', component: UsuarioEditAdminRoutedComponent},
   //espacio
   { path: 'admin/espacio/view/:id', component: EspacioViewAdminRoutedComponent },
-  { path: 'admin/espacio/plist' , component: EspacioPlistAdminRoutedComponent}
+  { path: 'admin/espacio/plist' , component: EspacioPlistAdminRoutedComponent},
+  { path: 'admin/espacio/remove/:id', component: EspacioRemoveAdminRoutedComponent}
 ];
 
 @NgModule({

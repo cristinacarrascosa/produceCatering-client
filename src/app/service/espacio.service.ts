@@ -36,4 +36,8 @@ export class EspacioService {
   getOne(id: number): Observable<IEspacio> {
     return this.oHttp.get<IEspacio>(this.url + "/" + id);
   }
+
+  removeOne(id: number): Observable<number> {
+    return this.oHttp.delete<number>(this.url + '/' + id);
+  }
 }
