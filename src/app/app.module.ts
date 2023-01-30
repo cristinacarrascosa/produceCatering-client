@@ -21,6 +21,9 @@ import { TipousuarioFinderAdminUnroutedComponent } from './component/application
 // espacio
 import { EspacioViewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-view-admin-routed/espacio-view-admin-routed.component';
 import { EspacioPlistAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-plist-admin-routed/espacio-plist-admin-routed.component';
+import { EspacioRemoveAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-remove-admin-routed/espacio-remove-admin-routed.component';
+import { EspacioNewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-new-admin-routed/espacio-new-admin-routed.component';
+import { EspacioEditAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-edit-admin-routed/espacio-edit-admin-routed.component';
 
 //
 
@@ -43,8 +46,6 @@ import { PaginationUnroutedComponent } from './component/shared/unrouted/paginat
 import { PaginationService } from './service/pagination.service';
 import { TipousuarioService } from './service/tipousuario.service';
 import { EspacioService } from './service/espacio.service';
-import { EspacioRemoveAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-remove-admin-routed/espacio-remove-admin-routed.component';
-import { EspacioNewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-new-admin-routed/espacio-new-admin-routed.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { EspacioNewAdminRoutedComponent } from './component/application/Espacio/
     EspacioPlistAdminRoutedComponent,
     EspacioRemoveAdminRoutedComponent,
     EspacioNewAdminRoutedComponent,
+    EspacioEditAdminRoutedComponent,
 
 
 
@@ -93,7 +95,7 @@ import { EspacioNewAdminRoutedComponent } from './component/application/Espacio/
   providers: [
     UsuarioService,
     SessionService,
-    
+
 
 
   ],

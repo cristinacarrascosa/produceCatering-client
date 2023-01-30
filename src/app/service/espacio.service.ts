@@ -41,6 +41,10 @@ export class EspacioService {
     return this.oHttp.delete<number>(this.url + '/' + id);
   }
 
+  updateOne(oEspacio2Send: IEspacio2Send): Observable<number> {
+    return this.oHttp.put<number>(this.url, oEspacio2Send);
+  }
+
   newOne(oEspacio2Send: IEspacio2Send): Observable<number> {
     return this.oHttp.post<number>(this.url+'/', oEspacio2Send);
   }
