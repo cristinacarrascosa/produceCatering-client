@@ -37,4 +37,8 @@ export class ServicioService {
     }
     return this.oHttp.get<IPage<IServicio>>(this.url, { params: params });
   }
+
+  getOne(id: number): Observable<IServicio> {
+    return this.oHttp.get<IServicio>(this.url + "/" + id);
+  }
 }

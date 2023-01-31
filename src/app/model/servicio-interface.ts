@@ -12,6 +12,7 @@ import { IUsuario } from "./usuario-interface";
       usuario: IUsuario;
       salon: ISalon;
       lineasServicio: number;
+      fechaHora: Date;
   }
 
 
@@ -35,6 +36,7 @@ import { IUsuario } from "./usuario-interface";
     comensales: FormControl<number>;
     id_usuario: FormControl<number>;
     id_salon: FormControl<number>;
+
 
 }
 

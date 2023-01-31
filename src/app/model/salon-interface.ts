@@ -7,6 +7,7 @@ export interface ISalon {
   nombre: string;
   espacio: IEspacio;
   servicios: number;
+  
 }
 
 export interface SalonResponse {

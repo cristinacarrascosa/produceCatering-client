@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Lista de Usuarios</h1>
+      <h1 class="text-center mb-5">Lista de Servicios</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
         <a [routerLink]="['/admin/usuario/new']" class="btn btn-primary mx-3">Nuevo Salon</a>
         <app-search-unrouted [placeHolder]="'Buscar salon'" (onSearch)="setFilter( $event )"></app-search-unrouted>
@@ -48,8 +48,8 @@
             <td>{{servicio.fechahora}}</td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
-                <!-- [routerLink]="['/admin/salon/view',salon.id]" -->
-              <button class="btn btn-outline-primary" >
+                <!--  -->
+              <button class="btn btn-outline-primary" [routerLink]="['/admin/servicio/view',servicio.id]">
                 <fa-icon [icon]="faEye"></fa-icon>
               </button>
               <!-- [routerLink]="['/admin/salon/edit',salon.id]" -->
