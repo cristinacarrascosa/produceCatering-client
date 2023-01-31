@@ -49,6 +49,8 @@ import { EspacioService } from './service/espacio.service';
 import { SalonPlistAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-plist-admin-routed/salon-plist-admin-routed.component';
 import { SalonViewAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-view-admin-routed/salon-view-admin-routed.component';
 import { SalonRemoveAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-remove-admin-routed/salon-remove-admin-routed.component';
+import { SalonNewAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-new-admin-routed/salon-new-admin-routed.component';
+import { EspacioFinderAdminUnroutedComponent } from './component/application/Espacio/unrouted/admin/espacio-finder-admin-unrouted/espacio-finder-admin-unrouted.component';
 
 
 @NgModule({
@@ -78,6 +80,8 @@ import { SalonRemoveAdminRoutedComponent } from './component/application/Salon/r
     SalonPlistAdminRoutedComponent,
     SalonViewAdminRoutedComponent,
     SalonRemoveAdminRoutedComponent,
+    SalonNewAdminRoutedComponent,
+    EspacioFinderAdminUnroutedComponent,
 
 
 

@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 import { IEspacio } from './espacio-interface';
-import { Pageable, Sort } from './shared-interface';
+import { IEntity, Pageable, Sort } from './shared-interface';
 
 export interface ISalon {
   id: number;
@@ -26,11 +26,11 @@ export interface SalonResponse {
 export interface ISalon2Form {
   id: FormControl<number>;
   nombre: FormControl<string>;
-  id_espacio: IEspacio;
+  id_espacio: FormControl<number>;
 }
 
 export interface ISalon2Send {
   id: number;
   nombre: string;
-  espacio: IEspacio;
+  espacio: IEntity;
 }

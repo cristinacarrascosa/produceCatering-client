@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { baseURL } from 'src/environments/environment';
-import { ISalon } from '../model/salon-interface';
+import { ISalon, ISalon2Send } from '../model/salon-interface';
 import { Observable } from 'rxjs';
 import { IPage } from '../model/shared-interface';
 
@@ -41,5 +41,9 @@ export class SalonService {
 
   removeOne(id: number): Observable<number> {
     return this.oHttp.delete<number>(this.url + '/' + id);
+  }
+
+  newOne(oSalon2Send: ISalon2Send): Observable<number> {
+    return this.oHttp.post<number>(this.url+'/', oSalon2Send);
   }
 }

@@ -1,0 +1,130 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div id="alert"></div>
+      <h1 class="text-center mb-5">Alta de Salon</h1>
+
+      <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3 row">
+          <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputID" formControlName="id" readonly>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['required'] &&
+            oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['minlength']
+              && oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['minlength']
+              ||  oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['maxlength'] ||
+              oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['required']}" id="inputNombre"
+              formControlName="nombre">
+            <div id="inputNameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['minlength']">
+              La longitud mínima es de 5 caracteres.
+            </div>
+            <div id="inputNameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['maxlength']">
+              La longitud máxima es de 15 caracteres.
+            </div>
+            <div id="inputNameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mb-3 row">
+          <label for="inputTeam" class="col-sm-2 col-form-label">Espacio</label>
+          <div class="col-sm-6 has-validation">
+            <div class="input-group">
+              <span class="input-group-text">{{espacioDescription}}</span>
+              <input type="text" class="form-control" formControlName="id_espacio"
+
+
+              (keyup)="updateEspacioDescription(oForm.controls.id_espacio.value)"
+
+              [ngClass]="{'is-valid' :
+              oForm.controls.id_espacio.dirty && !oForm.controls.id_espacio.errors?.['required'] &&
+               !oForm.controls.id_espacio.errors?.['pattern'] && !oForm.controls.id_espacio.errors?.['incorrect'],
+                'is-invalid' :  (oForm.controls.id_espacio.dirty &&  oForm.controls.id_espacio.errors?.['required'] )
+                ||
+                ( oForm.controls.id_espacio.dirty &&  oForm.controls.id_espacio.errors?.['incorrect'])
+              }">
+              <button type="button" class="btn btn-primary" (click)="openModalFindEspacio()">Buscar</button>
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.id_espacio.dirty &&  oForm.controls.id_espacio.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.id_espacio.dirty &&  oForm.controls.id_espacio.errors?.['pattern']">
+              El campo ha de ser un entrero de máximo 6 dígitos.
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <button type="submit" class="btn btn-primary"
+        [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
+
+      </form>
+      <div class="row justify-content-center">
+        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
+          <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i [ngClass]="oMetadataService.getIcon('home')"></i> {{oMetadataService.getName('home')}}</a>
+          <a class="btn btn-primary mx-2" (click)="oLocation.back()"><i [ngClass]="oMetadataService.getIcon('return')"></i> {{oMetadataService.getName('return')}} </a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        {{modalContent}}
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="findEspacio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <app-espacio-finder-admin-unrouted (closeEvent)="closeEspacioModal($event)"></app-espacio-finder-admin-unrouted>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
