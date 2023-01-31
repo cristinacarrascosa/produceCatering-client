@@ -64,8 +64,8 @@ export class EspacioEditAdminRoutedComponent implements OnInit {
       id: this.oForm.value.id,
       nombre: this.oForm.value.nombre,
       direccion: this.oForm.value.direccion,
-      telefono: this.oForm.value.telefono,
-
+      telefono: this.oForm.value.telefono
+      
     }
     if (this.oForm.valid) {
       this.oEspacioService.updateOne(this.oEspacio2Send).subscribe({
