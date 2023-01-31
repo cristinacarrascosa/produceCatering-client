@@ -34,4 +34,8 @@ export class SalonService {
     }
     return this.oHttp.get<IPage<ISalon>>(this.url, { params: params });
   }
+
+  getOne(id: number): Observable<ISalon> {
+    return this.oHttp.get<ISalon>(this.url + "/" + id);
+  }
 }

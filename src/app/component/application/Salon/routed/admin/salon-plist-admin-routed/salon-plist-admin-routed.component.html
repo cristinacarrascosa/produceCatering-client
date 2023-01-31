@@ -39,9 +39,9 @@
               {{salon.espacio.nombre}}-{{salon.espacio.id}}</td>
             <td>{{salon.nombre}}</td>
             <td>
-              <!-- [routerLink]="['/admin/salon/view',salon.id]" -->
+              <!--  -->
               <div class="btn-group" role="group" aria-label="Herramientas">
-              <button class="btn btn-outline-primary" >
+              <button class="btn btn-outline-primary" [routerLink]="['/admin/salon/view',salon.id]">
                 <fa-icon [icon]="faEye"></fa-icon>
               </button>
               <!-- [routerLink]="['/admin/salon/edit',salon.id]" -->
@@ -57,7 +57,7 @@
           </tr>
         </tbody>
       </table>
-      
+
     </div>
   </div>
 </div>
