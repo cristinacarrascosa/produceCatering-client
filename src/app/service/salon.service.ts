@@ -46,4 +46,8 @@ export class SalonService {
   newOne(oSalon2Send: ISalon2Send): Observable<number> {
     return this.oHttp.post<number>(this.url+'/', oSalon2Send);
   }
+
+  updateOne(oSalon2Send: ISalon2Send): Observable<number> {
+    return this.oHttp.put<number>(this.url, oSalon2Send);
+  }
 }

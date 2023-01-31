@@ -18,6 +18,7 @@ import { SalonPlistAdminRoutedComponent } from './component/application/Salon/ro
 import { SalonViewAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-view-admin-routed/salon-view-admin-routed.component';
 import { SalonRemoveAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-remove-admin-routed/salon-remove-admin-routed.component';
 import { SalonNewAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-new-admin-routed/salon-new-admin-routed.component';
+import { SalonEditAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-edit-admin-routed/salon-edit-admin-routed.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'admin/salon/view/:id', component: SalonViewAdminRoutedComponent},
   { path: 'admin/salon/remove/:id', component: SalonRemoveAdminRoutedComponent},
   { path: 'admin/salon/new', component: SalonNewAdminRoutedComponent},
+  { path: 'admin/salon/edit/:id', component: SalonEditAdminRoutedComponent}
 ];
 
 @NgModule({
