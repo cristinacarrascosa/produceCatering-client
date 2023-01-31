@@ -28,7 +28,7 @@
               <fa-icon *ngIf="sortField=='id'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
             <th (click)="setOrder('espacio.id')">Espacio</th>
-            <th (click)="setOrder('nombre')">Nombre</th>
+            <th (click)="setOrder('nombre')">Salon</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -48,8 +48,8 @@
               <button class="btn btn-outline-warning" >
                 <fa-icon [icon]="faUserPen"></fa-icon>
               </button>
-              <!-- [routerLink]="['/admin','salon','remove',salon.id]" -->
-              <button class="btn btn-outline-danger" >
+              <!--  -->
+              <button class="btn btn-outline-danger" [routerLink]="['/admin','salon','remove',salon.id]">
                 <fa-icon [icon]="faTrash"></fa-icon>
               </button>
               </div>

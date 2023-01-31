@@ -48,6 +48,7 @@ import { TipousuarioService } from './service/tipousuario.service';
 import { EspacioService } from './service/espacio.service';
 import { SalonPlistAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-plist-admin-routed/salon-plist-admin-routed.component';
 import { SalonViewAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-view-admin-routed/salon-view-admin-routed.component';
+import { SalonRemoveAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-remove-admin-routed/salon-remove-admin-routed.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { SalonViewAdminRoutedComponent } from './component/application/Salon/rou
     EspacioEditAdminRoutedComponent,
     SalonPlistAdminRoutedComponent,
     SalonViewAdminRoutedComponent,
+    SalonRemoveAdminRoutedComponent,
 
 
 

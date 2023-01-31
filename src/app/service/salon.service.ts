@@ -38,4 +38,8 @@ export class SalonService {
   getOne(id: number): Observable<ISalon> {
     return this.oHttp.get<ISalon>(this.url + "/" + id);
   }
+
+  removeOne(id: number): Observable<number> {
+    return this.oHttp.delete<number>(this.url + '/' + id);
+  }
 }
