@@ -1,0 +1,63 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Lista de Salones</h1>
+      <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
+        <a [routerLink]="['/admin/usuario/new']" class="btn btn-primary mx-3">Nuevo Salon</a>
+        <app-search-unrouted [placeHolder]="'Buscar usuario'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+        <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.size"
+          (eeRpp)="this.setRpp($event)"></app-dropdown-register-page>
+      </div>
+      <div class="col-md text-center">
+        <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
+          (eePage)="setPage($event)"></app-pagination-unrouted>
+      </div>
+      <div class="col-md text-start">
+        <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
+        <button class="btn btn-outline-danger" *ngIf="id_espacio!=0" (click)="setFilterByTipousuario(0)">
+          <i class="bi bi-x-circle"></i> Reset usertype {{id_espacio}} filter</button>
+      </div>
+      <div class="col-md text-end">
+        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th (click)="setOrder('id')">ID
+              <fa-icon *ngIf="sortField=='id'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
+              <fa-icon *ngIf="sortField=='id'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
+            </th>
+            <th (click)="setOrder('espacio.id')">Espacio</th>
+            <th (click)="setOrder('nombre')">Nombre</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let salon of responseFromServer.content">
+            <td>{{salon.id}}</td>
+            <td (click)="setFilterByTipousuario(salon.espacio.id)">
+              {{salon.espacio.nombre}}-{{salon.espacio.id}}</td>
+            <td>{{salon.nombre}}</td>
+            <td>
+              <!-- [routerLink]="['/admin/salon/view',salon.id]" -->
+              <div class="btn-group" role="group" aria-label="Herramientas">
+              <button class="btn btn-outline-primary" >
+                <fa-icon [icon]="faEye"></fa-icon>
+              </button>
+              <!-- [routerLink]="['/admin/salon/edit',salon.id]" -->
+              <button class="btn btn-outline-warning" >
+                <fa-icon [icon]="faUserPen"></fa-icon>
+              </button>
+              <!-- [routerLink]="['/admin','salon','remove',salon.id]" -->
+              <button class="btn btn-outline-danger" >
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+</div>

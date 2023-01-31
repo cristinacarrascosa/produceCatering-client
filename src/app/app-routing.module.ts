@@ -14,6 +14,7 @@ import { EspacioPlistAdminRoutedComponent } from './component/application/Espaci
 import { EspacioRemoveAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-remove-admin-routed/espacio-remove-admin-routed.component';
 import { EspacioNewAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-new-admin-routed/espacio-new-admin-routed.component';
 import { EspacioEditAdminRoutedComponent } from './component/application/Espacio/routed/admin/espacio-edit-admin-routed/espacio-edit-admin-routed.component';
+import { SalonPlistAdminRoutedComponent } from './component/application/Salon/routed/admin/salon-plist-admin-routed/salon-plist-admin-routed.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
 
   { path: 'admin/random/load', component: GenerateComponent},
-
   { path: 'admin/tipousuario/plist', component: TipousuarioPlistAdminRoutedComponent },
   //usuario
   { path: 'admin/usuario/view/:id', component: UsuarioViewAdminRoutedComponent },
@@ -36,7 +36,9 @@ const routes: Routes = [
   { path: 'admin/espacio/plist' , component: EspacioPlistAdminRoutedComponent},
   { path: 'admin/espacio/remove/:id', component: EspacioRemoveAdminRoutedComponent},
   { path: 'admin/espacio/new', component: EspacioNewAdminRoutedComponent},
-  { path: 'admin/espacio/edit/:id', component: EspacioEditAdminRoutedComponent}
+  { path: 'admin/espacio/edit/:id', component: EspacioEditAdminRoutedComponent},
+  // salon
+  { path: 'admin/salon/plist', component: SalonPlistAdminRoutedComponent}
 ];
 
 @NgModule({
