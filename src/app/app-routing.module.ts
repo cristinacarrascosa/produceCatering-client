@@ -22,6 +22,7 @@ import { SalonEditAdminRoutedComponent } from './component/application/Salon/rou
 import { ServicioPlistAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-plist-admin-routed/servicio-plist-admin-routed.component';
 import { ServicioViewAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-view-admin-routed/servicio-view-admin-routed.component';
 import { ServicioRemoveAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-remove-admin-routed/servicio-remove-admin-routed.component';
+import { ServicioNewAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-new-admin-routed/servicio-new-admin-routed.component';
 
 
 const routes: Routes = [
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'admin/servicio/plist', component: ServicioPlistAdminRoutedComponent},
   { path: 'admin/servicio/view/:id', component: ServicioViewAdminRoutedComponent},
   { path: 'admin/servicio/remove/:id', component: ServicioRemoveAdminRoutedComponent},
+  { path: 'admin/servicio/new', component: ServicioNewAdminRoutedComponent},
 
 ];
 

@@ -44,8 +44,8 @@ export interface IServicio2Send {
   id: number;
   fechahora: string;
   comensales: number;
-  id_usuario: IEntity;
-  id_salon: IEntity;
+  usuario: IEntity;
+  salon: IEntity;
 }
 
 

@@ -55,6 +55,8 @@ import { SalonEditAdminRoutedComponent } from './component/application/Salon/rou
 import { ServicioPlistAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-plist-admin-routed/servicio-plist-admin-routed.component';
 import { ServicioViewAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-view-admin-routed/servicio-view-admin-routed.component';
 import { ServicioRemoveAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-remove-admin-routed/servicio-remove-admin-routed.component';
+import { ServicioNewAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-new-admin-routed/servicio-new-admin-routed.component';
+import { SalonFinderAdminUnroutedComponent } from './component/application/Salon/unrouted/admin/salon-finder-admin-unrouted/salon-finder-admin-unrouted.component';
 
 
 @NgModule({
@@ -90,6 +92,8 @@ import { ServicioRemoveAdminRoutedComponent } from './component/application/Serv
     ServicioPlistAdminRoutedComponent,
     ServicioViewAdminRoutedComponent,
     ServicioRemoveAdminRoutedComponent,
+    ServicioNewAdminRoutedComponent,
+    SalonFinderAdminUnroutedComponent,
 
 
 

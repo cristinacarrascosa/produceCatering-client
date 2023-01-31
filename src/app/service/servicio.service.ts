@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { baseURL } from 'src/environments/environment';
 import { IPage } from '../model/shared-interface';
-import { IServicio } from '../model/servicio-interface';
+import { IServicio, IServicio2Send } from '../model/servicio-interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -44,5 +44,9 @@ export class ServicioService {
 
   removeOne(id: number): Observable<number> {
     return this.oHttp.delete<number>(this.url + '/' + id);
+  }
+
+  newOne(oServicio2Send: IServicio2Send): Observable<number> {
+    return this.oHttp.post<number>(this.url+'/', oServicio2Send);
   }
 }
