@@ -30,6 +30,8 @@ import { TipoplatoRemoveAdminRoutedComponent } from './component/application/Tip
 import { TipoplatoNewAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-new-admin-routed/tipoplato-new-admin-routed.component';
 import { TipoplatoEditAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-edit-admin-routed/tipoplato-edit-admin-routed.component';
 import { EscandalloPlistAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-plist-admin-routed/escandallo-plist-admin-routed.component';
+import { EscandalloViewAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-view-admin-routed/escandallo-view-admin-routed.component';
+import { EscandalloRemoveAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-remove-admin-routed/escandallo-remove-admin-routed.component';
 
 
 const routes: Routes = [
@@ -72,6 +74,8 @@ const routes: Routes = [
   { path: 'admin/tipoplato/edit/:id', component: TipoplatoEditAdminRoutedComponent},
   // escandallo
   { path: 'admin/escandallo/plist', component: EscandalloPlistAdminRoutedComponent},
+  { path: 'admin/escandallo/view/:id', component: EscandalloViewAdminRoutedComponent},
+  { path: 'admin/escandallo/remove/:id', component: EscandalloRemoveAdminRoutedComponent},
 
 
 ];
