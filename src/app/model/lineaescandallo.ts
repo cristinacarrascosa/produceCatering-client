@@ -28,8 +28,8 @@ import { IEntity, Pageable, Sort } from "./shared-interface";
 
   export interface ILineaescandallo2Form {
     id: FormControl<number>;
-    escandallo: FormControl<number>;
-    referencia: FormControl<number>;
+    id_escandallo: FormControl<number>;
+    id_referencia: FormControl<number>;
 }
 
 export interface ILineaescandallo2Send {
