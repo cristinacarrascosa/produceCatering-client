@@ -1,9 +1,10 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Edición de Tipo de plato</h1>
+      <div id="alert"></div>
+      <h1 class="text-center mb-5">Creación de Referencia</h1>
 
-      <form novalidate [formGroup]="oForm" *ngIf="oForm" (ngSubmit)="onSubmit()">
+      <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
 
         <div class="mb-3 row">
           <label for="inputID" class="col-sm-2 col-form-label">ID</label>
@@ -28,7 +29,7 @@
             </div>
             <div id="inputNameFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['maxlength']">
-              La longitud máxima es de 50 caracteres.
+              La longitud máxima es de 60 caracteres.
             </div>
             <div id="inputNameFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['required']">
@@ -45,10 +46,11 @@
           <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i [ngClass]="oMetadataService.getIcon('home')"></i> {{oMetadataService.getName('home')}}</a>
           <a class="btn btn-primary mx-2" (click)="oLocation.back()"><i [ngClass]="oMetadataService.getIcon('return')"></i> {{oMetadataService.getName('return')}} </a>
       </div>
+      </div>
     </div>
   </div>
 </div>
-<!-- //modal -->
+
 <div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -67,5 +69,7 @@
     </div>
   </div>
 </div>
+
+
 
 

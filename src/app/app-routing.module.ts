@@ -34,7 +34,11 @@ import { EscandalloViewAdminRoutedComponent } from './component/application/Esca
 import { EscandalloRemoveAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-remove-admin-routed/escandallo-remove-admin-routed.component';
 import { EscandalloNewAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-new-admin-routed/escandallo-new-admin-routed.component';
 import { EscandalloEditAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-edit-admin-routed/escandallo-edit-admin-routed.component';
-
+import { ReferenciaPlistAdminRoutedComponent } from './component/application/Referencia/routed/admin/referencia-plist-admin-routed/referencia-plist-admin-routed.component';
+import { ReferenciaViewAdminRoutedComponent } from './component/application/Referencia/routed/admin/referencia-view-admin-routed/referencia-view-admin-routed.component';
+import { ReferenciaRemoveAdminRoutedComponent } from './component/application/Referencia/routed/admin/referencia-remove-admin-routed/referencia-remove-admin-routed.component';
+import { ReferenciaNewAdminRoutedComponent } from './component/application/Referencia/routed/admin/referencia-new-admin-routed/referencia-new-admin-routed.component';
+import { ReferenciaEditAdminRoutedComponent } from './component/application/Referencia/routed/admin/referencia-edit-admin-routed/referencia-edit-admin-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -80,8 +84,12 @@ const routes: Routes = [
   { path: 'admin/escandallo/remove/:id', component: EscandalloRemoveAdminRoutedComponent},
   { path: 'admin/escandallo/new', component: EscandalloNewAdminRoutedComponent},
   { path: 'admin/escandallo/edit/:id', component: EscandalloEditAdminRoutedComponent},
-
-
+  // referencia
+  { path: 'admin/referencia/plist', component: ReferenciaPlistAdminRoutedComponent},
+  { path: 'admin/referencia/view/:id', component: ReferenciaViewAdminRoutedComponent},
+  { path: 'admin/referencia/remove/:id', component: ReferenciaRemoveAdminRoutedComponent},
+  { path: 'admin/referencia/new', component: ReferenciaNewAdminRoutedComponent},
+  { path: 'admin/referencia/edit/:id', component: ReferenciaEditAdminRoutedComponent},
 ];
 
 @NgModule({

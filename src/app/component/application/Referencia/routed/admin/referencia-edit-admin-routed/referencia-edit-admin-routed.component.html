@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Edición de Tipo de plato</h1>
+      <h1 class="text-center mb-5">Edición de Referencia</h1>
 
       <form novalidate [formGroup]="oForm" *ngIf="oForm" (ngSubmit)="onSubmit()">
 
@@ -28,7 +28,7 @@
             </div>
             <div id="inputNameFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['maxlength']">
-              La longitud máxima es de 50 caracteres.
+              La longitud máxima es de 10 caracteres.
             </div>
             <div id="inputNameFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.nombre.dirty &&  oForm.controls.nombre.errors?.['required']">
