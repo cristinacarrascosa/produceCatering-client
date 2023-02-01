@@ -64,7 +64,8 @@ import { ServicioEditAdminRoutedComponent } from './component/application/Servic
 import { TipoplatoPlistAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-plist-admin-routed/tipoplato-plist-admin-routed.component';
 import { TipoplatoViewAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-view-admin-routed/tipoplato-view-admin-routed.component';
 import { TipoplatoRemoveAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-remove-admin-routed/tipoplato-remove-admin-routed.component';
-
+import { TipoplatoNewAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-new-admin-routed/tipoplato-new-admin-routed.component';
+import { TipoplatoEditAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-edit-admin-routed/tipoplato-edit-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,9 @@ import { TipoplatoRemoveAdminRoutedComponent } from './component/application/Tip
     TipoplatoPlistAdminRoutedComponent,
     TipoplatoViewAdminRoutedComponent,
     TipoplatoRemoveAdminRoutedComponent,
+    TipoplatoNewAdminRoutedComponent,
+    TipoplatoEditAdminRoutedComponent,
+
 
 
 
