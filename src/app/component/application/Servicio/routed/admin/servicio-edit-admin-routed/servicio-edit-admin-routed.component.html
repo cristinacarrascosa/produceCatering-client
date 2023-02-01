@@ -1,0 +1,184 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Edición de Servicio</h1>
+
+      <form novalidate [formGroup]="oForm" *ngIf="oForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3 row">
+          <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputID" formControlName="id" readonly>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputfechahora" class="col-sm-2 col-form-label">Feha y Hora</label>
+          <div class="col-sm-4 has-validation">
+          <p-calendar [(ngModel)]="fechahora" [showTime]="true" [showSeconds]="true" [showIcon]="true" inputId="time"
+          class="form-control" [ngClass]="{'is-valid' : oForm.controls.fechahora.dirty && !oForm.controls.fechahora.errors?.['required'] &&
+            oForm.controls.fechahora.dirty && !oForm.controls.fechahora.errors?.['minlength']
+              && oForm.controls.fechahora.dirty && !oForm.controls.fechahora.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.fechahora.dirty &&  oForm.controls.fechahora.errors?.['minlength']
+              ||  oForm.controls.fechahora.dirty &&  oForm.controls.fechahora.errors?.['maxlength'] ||
+              oForm.controls.fechahora.dirty &&  oForm.controls.fechahora.errors?.['required']}" id="inputfechahora"
+              formControlName="fechahora"></p-calendar>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="inputComensales" class="col-sm-2 col-form-label">Comensales</label>
+      <div class="col-sm-4 has-validation">
+        <input type="number" class="form-control" [ngClass]="{'is-valid' : oForm.controls.comensales.dirty && !oForm.controls.comensales.errors?.['required'] &&
+        oForm.controls.comensales.dirty && !oForm.controls.comensales.errors?.['minlength']
+          && oForm.controls.comensales.dirty && !oForm.controls.comensales.errors?.['maxlength'],
+          'is-invalid' :  oForm.controls.comensales.dirty &&  oForm.controls.comensales.errors?.['minlength']
+          ||  oForm.controls.comensales.dirty &&  oForm.controls.comensales.errors?.['maxlength'] ||
+          oForm.controls.comensales.dirty &&  oForm.controls.comensales.errors?.['required']}" id="inputComensales"
+          formControlName="comensales">
+        <div id="inputComensalesFeedback" class="invalid-feedback"
+          *ngIf="oForm.controls.comensales.dirty &&  oForm.controls.comensales.errors?.['minlength']">
+          La longitud mínima es de 2 caracteres.
+        </div>
+        <div id="inputComensalesFeedback" class="invalid-feedback"
+          *ngIf="oForm.controls.comensales.dirty &&  oForm.controls.comensales.errors?.['maxlength']">
+          La longitud máxima es de 5 caracteres.
+        </div>
+        <div id="inputComensalesFeedback" class="invalid-feedback"
+          *ngIf="oForm.controls.comensales.dirty &&  oForm.controls.comensales.errors?.['required']">
+          El campo es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="inputUsuario" class="col-sm-2 col-form-label">Usuario</label>
+      <div class="col-sm-6 has-validation">
+        <div class="input-group">
+          <span class="input-group-text">{{usuarioDescription}}</span>
+          <input type="text" class="form-control" formControlName="id_usuario"
+
+
+          (keyup)="updateUsuarioDescription(oForm.controls.id_usuario.value)"
+
+          [ngClass]="{'is-valid' :
+          oForm.controls.id_usuario.dirty && !oForm.controls.id_usuario.errors?.['required'] &&
+           !oForm.controls.id_usuario.errors?.['pattern'] && !oForm.controls.id_usuario.errors?.['incorrect'],
+            'is-invalid' :  (oForm.controls.id_usuario.dirty &&  oForm.controls.id_usuario.errors?.['required'] )
+            ||
+            ( oForm.controls.id_usuario.dirty &&  oForm.controls.id_usuario.errors?.['incorrect'])
+          }">
+          <button type="button" class="btn btn-primary" (click)="openModalFindUsuario()">Buscar</button>
+        </div>
+        <div class="text-danger"
+          *ngIf="oForm.controls.id_usuario.dirty &&  oForm.controls.id_usuario.errors?.['required']">
+          El campo es obligatorio.
+        </div>
+        <div class="text-danger"
+          *ngIf="oForm.controls.id_usuario.dirty &&  oForm.controls.id_usuario.errors?.['pattern']">
+          El campo ha de ser un entrero de máximo 6 dígitos.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="inputSalon" class="col-sm-2 col-form-label">Salon</label>
+      <div class="col-sm-6 has-validation">
+        <div class="input-group">
+          <span class="input-group-text">{{salonDescription}}</span>
+          <input type="text" class="form-control" formControlName="id_salon"
+
+
+          (keyup)="updateSalonDescription(oForm.controls.id_salon.value)"
+
+          [ngClass]="{'is-valid' :
+          oForm.controls.id_salon.dirty && !oForm.controls.id_salon.errors?.['required'] &&
+           !oForm.controls.id_salon.errors?.['pattern'] && !oForm.controls.id_salon.errors?.['incorrect'],
+            'is-invalid' :  (oForm.controls.id_salon.dirty &&  oForm.controls.id_salon.errors?.['required'] )
+            ||
+            ( oForm.controls.id_salon.dirty &&  oForm.controls.id_salon.errors?.['incorrect'])
+          }">
+          <button type="button" class="btn btn-primary" (click)="openModalFindSalon()">Buscar</button>
+        </div>
+        <div class="text-danger"
+          *ngIf="oForm.controls.id_salon.dirty &&  oForm.controls.id_salon.errors?.['required']">
+          El campo es obligatorio.
+        </div>
+        <div class="text-danger"
+          *ngIf="oForm.controls.id_salon.dirty &&  oForm.controls.id_salon.errors?.['pattern']">
+          El campo ha de ser un entrero de máximo 6 dígitos.
+        </div>
+      </div>
+    </div>
+
+        <button type="submit" class="btn btn-primary"
+        [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
+
+      </form>
+      <div class="row justify-content-center">
+        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
+          <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i [ngClass]="oMetadataService.getIcon('home')"></i> {{oMetadataService.getName('home')}}</a>
+          <a class="btn btn-primary mx-2" (click)="oLocation.back()"><i [ngClass]="oMetadataService.getIcon('return')"></i> {{oMetadataService.getName('return')}} </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //modal -->
+<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        {{modalContent}}
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="findUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <app-usuario-finder-admin-unrouted (closeEvent)="closeUsuarioModal($event)"></app-usuario-finder-admin-unrouted>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="findSalon" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <app-salon-finder-admin-unrouted (closeEvent)="closeSalonModal($event)"></app-salon-finder-admin-unrouted>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

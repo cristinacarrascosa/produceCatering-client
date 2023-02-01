@@ -60,6 +60,8 @@ import { ServicioRemoveAdminRoutedComponent } from './component/application/Serv
 import { ServicioNewAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-new-admin-routed/servicio-new-admin-routed.component';
 import { SalonFinderAdminUnroutedComponent } from './component/application/Salon/unrouted/admin/salon-finder-admin-unrouted/salon-finder-admin-unrouted.component';
 import { UsuarioFinderAdminUnroutedComponent } from './component/application/Usuario/unrouted/admin/usuario-finder-admin-unrouted/usuario-finder-admin-unrouted.component';
+import { ServicioEditAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-edit-admin-routed/servicio-edit-admin-routed.component';
+import { TipoplatoPlistAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-plist-admin-routed/tipoplato-plist-admin-routed.component';
 
 
 @NgModule({
@@ -98,6 +100,8 @@ import { UsuarioFinderAdminUnroutedComponent } from './component/application/Usu
     ServicioNewAdminRoutedComponent,
     SalonFinderAdminUnroutedComponent,
     UsuarioFinderAdminUnroutedComponent,
+    ServicioEditAdminRoutedComponent,
+    TipoplatoPlistAdminRoutedComponent,
 
 
 

@@ -49,4 +49,8 @@ export class ServicioService {
   newOne(oServicio2Send: IServicio2Send): Observable<number> {
     return this.oHttp.post<number>(this.url+'/', oServicio2Send);
   }
+
+  updateOne(oServicio2Send: IServicio2Send): Observable<number> {
+    return this.oHttp.put<number>(this.url, oServicio2Send);
+  }
 }
