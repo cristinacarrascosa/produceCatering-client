@@ -43,6 +43,7 @@ import { LineaescandalloPlistAdminRoutedComponent } from './component/applicatio
 import { LineaescandalloViewAdminRoutedComponent } from './component/application/LineaEscandallo/routed/admin/lineaescandallo-view-admin-routed/lineaescandallo-view-admin-routed.component';
 import { LineaescandalloRemoveAdminRoutedComponent } from './component/application/LineaEscandallo/routed/admin/lineaescandallo-remove-admin-routed/lineaescandallo-remove-admin-routed.component';
 import { LineaescandalloNewAdminRoutedComponent } from './component/application/LineaEscandallo/routed/admin/lineaescandallo-new-admin-routed/lineaescandallo-new-admin-routed.component';
+import { LineaescandalloEditAdminRoutedComponent } from './component/application/LineaEscandallo/routed/admin/lineaescandallo-edit-admin-routed/lineaescandallo-edit-admin-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -99,6 +100,7 @@ const routes: Routes = [
   { path: 'admin/lineaescandallo/view/:id', component: LineaescandalloViewAdminRoutedComponent},
   { path: 'admin/lineaescandallo/remove/:id', component: LineaescandalloRemoveAdminRoutedComponent},
   { path: 'admin/lineaescandallo/new', component: LineaescandalloNewAdminRoutedComponent},
+  { path: 'admin/lineaescandallo/edit/:id', component: LineaescandalloEditAdminRoutedComponent},
 ];
 
 @NgModule({

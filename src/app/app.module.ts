@@ -83,6 +83,7 @@ import { LineaescandalloRemoveAdminRoutedComponent } from './component/applicati
 import { LineaescandalloNewAdminRoutedComponent } from './component/application/LineaEscandallo/routed/admin/lineaescandallo-new-admin-routed/lineaescandallo-new-admin-routed.component';
 import { EscandalloFinderAdminUnroutedComponent } from './component/application/Escandallo/unrouted/admin/escandallo-finder-admin-unrouted/escandallo-finder-admin-unrouted.component';
 import { ReferenciaFinderAdminUnroutedComponent } from './component/application/Referencia/unrouted/admin/referencia-finder-admin-unrouted/referencia-finder-admin-unrouted.component';
+import { LineaescandalloEditAdminRoutedComponent } from './component/application/LineaEscandallo/routed/admin/lineaescandallo-edit-admin-routed/lineaescandallo-edit-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -143,6 +144,7 @@ import { ReferenciaFinderAdminUnroutedComponent } from './component/application/
     LineaescandalloNewAdminRoutedComponent,
     EscandalloFinderAdminUnroutedComponent,
     ReferenciaFinderAdminUnroutedComponent,
+    LineaescandalloEditAdminRoutedComponent,
 
 
 
