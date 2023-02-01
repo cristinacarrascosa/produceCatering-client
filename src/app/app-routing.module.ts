@@ -25,6 +25,8 @@ import { ServicioRemoveAdminRoutedComponent } from './component/application/Serv
 import { ServicioNewAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-new-admin-routed/servicio-new-admin-routed.component';
 import { ServicioEditAdminRoutedComponent } from './component/application/Servicio/routed/admin/servicio-edit-admin-routed/servicio-edit-admin-routed.component';
 import { TipoplatoPlistAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-plist-admin-routed/tipoplato-plist-admin-routed.component';
+import { TipoplatoViewAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-view-admin-routed/tipoplato-view-admin-routed.component';
+import { TipoplatoRemoveAdminRoutedComponent } from './component/application/TipoPlato/routed/admin/tipoplato-remove-admin-routed/tipoplato-remove-admin-routed.component';
 
 
 const routes: Routes = [
@@ -61,6 +63,8 @@ const routes: Routes = [
   { path: 'admin/servicio/edit/:id', component: ServicioEditAdminRoutedComponent},
   // tipoplato
   { path: 'admin/tipoplato/plist', component: TipoplatoPlistAdminRoutedComponent},
+  { path: 'admin/tipoplato/view/:id', component: TipoplatoViewAdminRoutedComponent},
+  { path: 'admin/tipoplato/remove/:id', component: TipoplatoRemoveAdminRoutedComponent},
 
 ];
 
