@@ -41,7 +41,7 @@
           <tr *ngFor="let servicio of responseFromServer.content">
             <td>{{servicio.id}}</td>
             <td (click)="setFilterByUsuario(servicio.usuario.id)">
-              {{servicio.usuario.nombre}}</td>
+              {{servicio.usuario.nombre}} {{servicio.usuario.apellidos}}</td>
               <td (click)="setFilterBySalon(servicio.salon.id)">
                {{servicio.salon.nombre}}</td>
             <td>{{servicio.comensales}}</td>

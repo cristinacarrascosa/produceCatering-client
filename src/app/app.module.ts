@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {CalendarModule} from 'primeng/calendar';
+
 /** Admin */
 // usuario
 import { TipousuarioPlistAdminRoutedComponent } from './component/application/TipoUsuario/routed/admin/tipousuario-plist-admin-routed/tipousuario-plist-admin-routed.component';
@@ -111,6 +113,7 @@ import { UsuarioFinderAdminUnroutedComponent } from './component/application/Usu
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    CalendarModule
 
 
 

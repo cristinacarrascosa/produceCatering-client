@@ -32,7 +32,8 @@ export class ServicioNewAdminRoutedComponent implements OnInit {
   // foreign key
   usuarioDescription: string = "";
   salonDescription: string = "";
-
+//
+fechahora: Date;
 
 
   constructor(
@@ -57,6 +58,11 @@ export class ServicioNewAdminRoutedComponent implements OnInit {
       id_salon: ["", [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
     });
   }
+
+
+
+
+
 
 
 
