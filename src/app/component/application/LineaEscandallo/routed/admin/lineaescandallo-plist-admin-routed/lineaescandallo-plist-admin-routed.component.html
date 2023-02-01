@@ -1,0 +1,68 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Lista de LineasEscandallo</h1>
+      <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
+        <a [routerLink]="['/admin/lineaescandallo/new']" class="btn btn-primary mx-3">Nueva Lineaescandallo</a>
+        <app-search-unrouted [placeHolder]="'Buscar salon'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+        <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.size"
+          (eeRpp)="this.setRpp($event)"></app-dropdown-register-page>
+      </div>
+      <div class="col-md text-center">
+        <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
+          (eePage)="setPage($event)"></app-pagination-unrouted>
+      </div>
+      <div class="col-md text-start">
+        <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
+        <button class="btn btn-outline-danger" *ngIf="id_escandallo!=0" (click)="setFilterByEscandallo(0)">
+          <i class="bi bi-x-circle"></i> Reset usertype {{id_escandallo}} filter</button>
+
+        <button class="btn btn-outline-danger" *ngIf="id_referencia!=0" (click)="setFilterByReferencia(0)">
+          <i class="bi bi-x-circle"></i> Reset usertype {{id_referencia}} filter</button>
+      </div>
+      <div class="col-md text-end">
+        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th (click)="setOrder('id')">ID
+              <fa-icon *ngIf="sortField=='id'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
+              <fa-icon *ngIf="sortField=='id'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
+            </th>
+            <th (click)="setOrder('escandallo.id')">Escandallo</th>
+            <th (click)="setOrder('referencia.id')">Referencia</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lineaescandallo of responseFromServer.content">
+            <td>{{lineaescandallo.id}}</td>
+            <td (click)="setFilterByEscandallo(lineaescandallo.escandallo.id)">
+              {{lineaescandallo.escandallo.id}} - {{lineaescandallo.escandallo.nombre}}</td>
+              <td (click)="setFilterByReferencia(lineaescandallo.referencia.id)">
+               {{lineaescandallo.referencia.nombre}}</td>
+           
+            <td>
+              <div class="btn-group" role="group" aria-label="Herramientas">
+                <!--  -->
+              <button class="btn btn-outline-primary" [routerLink]="['/admin/lineaescandallo/view',lineaescandallo.id]">
+                <fa-icon [icon]="faEye"></fa-icon>
+              </button>
+              <!--  -->
+              <button class="btn btn-outline-warning" [routerLink]="['/admin/lineaescandallo/edit',lineaescandallo.id]">
+                <fa-icon [icon]="faUserPen"></fa-icon>
+              </button>
+              <!--  -->
+              <button class="btn btn-outline-danger" [routerLink]="['/admin','lineaescandallo','remove',lineaescandallo.id]">
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
