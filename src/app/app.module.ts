@@ -69,6 +69,9 @@ import { TipoplatoEditAdminRoutedComponent } from './component/application/TipoP
 import { EscandalloPlistAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-plist-admin-routed/escandallo-plist-admin-routed.component';
 import { EscandalloViewAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-view-admin-routed/escandallo-view-admin-routed.component';
 import { EscandalloRemoveAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-remove-admin-routed/escandallo-remove-admin-routed.component';
+import { EscandalloNewAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-new-admin-routed/escandallo-new-admin-routed.component';
+import { TipoplatoFinderAdminUnroutedComponent } from './component/application/TipoPlato/unrouted/admin/tipoplato-finder-admin-unrouted/tipoplato-finder-admin-unrouted.component';
+import { EscandalloEditAdminRoutedComponent } from './component/application/Escandallo/routed/admin/escandallo-edit-admin-routed/escandallo-edit-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -115,6 +118,9 @@ import { EscandalloRemoveAdminRoutedComponent } from './component/application/Es
     EscandalloPlistAdminRoutedComponent,
     EscandalloViewAdminRoutedComponent,
     EscandalloRemoveAdminRoutedComponent,
+    EscandalloNewAdminRoutedComponent,
+    TipoplatoFinderAdminUnroutedComponent,
+    EscandalloEditAdminRoutedComponent,
 
 
 
