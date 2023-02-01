@@ -38,7 +38,7 @@ export class EscandalloFinderAdminUnroutedComponent implements OnInit {
 
   getPage() {
     this.oEscandalloService.getEscandalloPlist(
-      this.numberPage, this.pagesCount, this.termino, this.id_tipoplato, this.strSortField, this.strOrderDirection)
+      this.numberPage, this.pageRegister, this.termino, this.id_tipoplato, this.strSortField, this.strOrderDirection)
       .subscribe({
         next: (resp: EscandalloResponse) => {
           this.pListContent = resp.content;

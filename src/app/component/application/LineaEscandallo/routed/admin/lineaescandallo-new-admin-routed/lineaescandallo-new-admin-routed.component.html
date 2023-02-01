@@ -73,12 +73,8 @@
           </div>
         </div>
 
-
-
-
-
         <button type="submit" class="btn btn-primary"
-        [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
+        >Guardar</button>
 
       </form>
       <div class="row justify-content-center">
@@ -139,7 +135,7 @@
       </div>
       <div class="modal-body">
 
-        <app-salon-finder-admin-unrouted (closeEvent)="closeReferenciaModal($event)"></app-salon-finder-admin-unrouted>
+        <app-referencia-finder-admin-unrouted (closeEvent)="closeReferenciaModal($event)"></app-referencia-finder-admin-unrouted>
 
       </div>
       <div class="modal-footer">

@@ -1,20 +1,20 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { EspacioResponse, IEspacio } from '../../../../../../model/espacio-interface';
 import { faEye, faTrash, faUserPen } from '@fortawesome/free-solid-svg-icons';
-import { EspacioService } from 'src/app/service/espacio.service';
+import { IReferencia, ReferenciaResponse } from '../../../../../../model/referencia-interface';
+import { ReferenciaService } from 'src/app/service/referencia.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
-  selector: 'app-espacio-finder-admin-unrouted',
-  templateUrl: './espacio-finder-admin-unrouted.component.html',
-  styleUrls: ['./espacio-finder-admin-unrouted.component.css']
+  selector: 'app-referencia-finder-admin-unrouted',
+  templateUrl: './referencia-finder-admin-unrouted.component.html',
+  styleUrls: ['./referencia-finder-admin-unrouted.component.css']
 })
-export class EspacioFinderAdminUnroutedComponent implements OnInit {
+export class ReferenciaFinderAdminUnroutedComponent implements OnInit {
 
   @Output() closeEvent = new EventEmitter<number>();
 
-  private pListContent!: IEspacio[];
+  private pListContent!: IReferencia[];
   private pagesCount!: number;
   private numberPage: number = 0;
   private pageRegister: number = 5;
@@ -22,14 +22,12 @@ export class EspacioFinderAdminUnroutedComponent implements OnInit {
   private strSortField: string = "";
   private strOrderDirection: string = "";
 
-  id_espacio: number = 0;
-
   faEye = faEye;
   faUserPen = faUserPen;
   faTrash = faTrash;
 
   constructor(
-    private oEspacioService: EspacioService
+    private oReferenciaService: ReferenciaService
   ) { }
 
   ngOnInit(): void {
@@ -37,10 +35,10 @@ export class EspacioFinderAdminUnroutedComponent implements OnInit {
   }
 
   getPage() {
-    this.oEspacioService.getUsuarioPlist(
+    this.oReferenciaService.getReferenciaPlist(
       this.numberPage, this.pageRegister, this.termino, this.strSortField, this.strOrderDirection)
       .subscribe({
-        next: (resp: EspacioResponse) => {
+        next: (resp: ReferenciaResponse) => {
           this.pListContent = resp.content;
           this.pagesCount = resp.totalPages;
           this.numberPage = resp.number;
@@ -55,7 +53,7 @@ export class EspacioFinderAdminUnroutedComponent implements OnInit {
     return this.numberPage;
   }
 
-  getPlistContent(): IEspacio[] {
+  getPlistContent(): IReferencia[] {
     return this.pListContent;
   }
 
@@ -84,15 +82,14 @@ export class EspacioFinderAdminUnroutedComponent implements OnInit {
   }
 
   filterByEspacio(id: number): void {
-    this.id_espacio = id;
+
     this.numberPage = 0;
     this.getPage();
   }
 
-  selectionEspacio(id: number): void {
+  seleccionReferencia(id: number): void {
     this.closeEvent.emit(id);
   }
-
 
 }
 
