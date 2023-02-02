@@ -62,24 +62,11 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
         this.oServicio = data;
         console.log('datos: ' + data);
         this.oForm = <FormGroup>this.oFormBuilder.group({
-          id: [''],
-          comensales: [
-            '',
-            [
-              Validators.required,
-              Validators.minLength(2),
-              Validators.maxLength(4),
-            ],
-          ],
-          fechahora: ['', [Validators.required]],
-          id_usuario: [
-            '',
-            [Validators.required, Validators.pattern(/^\d{1,6}$/)],
-          ],
-          id_salon: [
-            '',
-            [Validators.required, Validators.pattern(/^\d{1,6}$/)],
-          ],
+          id: [data.id, [Validators.required]],
+          comensales: [data.comensales, [Validators.required]],
+          fechahora: [data.fechahora, [Validators.required]],
+          id_usuario: [data.usuario.nombre + ' ' + data.usuario.apellidos, [Validators.required]],
+          id_salon: [data.salon.nombre, [Validators.required]]
         });
         this.updateUsuarioDescription(this.oServicio.usuario.id);
         this.updateSalonDescription(this.oServicio.salon.id);
@@ -115,7 +102,7 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
     });
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
-      this.oRouter.navigate(['/admin/salon/view', this.id]);
+      this.oRouter.navigate(['/admin/servicio/view', this.id]);
     });
     this.myModal.show();
   };
