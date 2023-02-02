@@ -47,6 +47,7 @@ import { LineaescandalloEditAdminRoutedComponent } from './component/application
 import { LineaservicioPlistAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-plist-admin-routed/lineaservicio-plist-admin-routed.component';
 import { LineaservicioViewAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-view-admin-routed/lineaservicio-view-admin-routed.component';
 import { LineaservicioRemoveAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-remove-admin-routed/lineaservicio-remove-admin-routed.component';
+import { LineaservicioNewAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-new-admin-routed/lineaservicio-new-admin-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -108,6 +109,8 @@ const routes: Routes = [
   { path: 'admin/lineaservicio/plist', component: LineaservicioPlistAdminRoutedComponent},
   { path: 'admin/lineaservicio/view/:id', component: LineaservicioViewAdminRoutedComponent},
   { path: 'admin/lineaservicio/remove/:id', component: LineaservicioRemoveAdminRoutedComponent},
+  { path: 'admin/lineaservicio/new', component: LineaservicioNewAdminRoutedComponent},
+
 ];
 
 @NgModule({

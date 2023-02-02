@@ -1,0 +1,47 @@
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Lista de Servicios</h1>
+      <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
+        <app-search-unrouted [placeHolder]="'Buscar Servicios'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+        <app-dropdown-register-page class="mx-2" [PageSize]="this.getPageRegister()" (eeRpp)="this.setRpp($event)">
+        </app-dropdown-register-page>
+      </div>
+      <div class="col-md text-center">
+        <app-pagination-unrouted [nPage]="getPageNumber() + 1" [nTotalPages]="this.getpagesCount()"
+          (eePage)="setPage($event)"></app-pagination-unrouted>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Salon</th>
+            <th>Fecha y Hora</th>
+            <th>Comensales</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let servicio of this.getPlistContent()">
+            <td>{{servicio.id}}</td>
+            <td>{{servicio.usuario.nombre}} {{servicio.usuario.apellidos}}</td>
+            <td>{{servicio.salon.nombre}}</td>
+            <td>{{servicio.fechaHora}}</td>
+            <td>{{servicio.comensales}}</td>
+
+            <td>
+              <div class="btn-group" role="group" aria-label="Herramientas">
+                <button class="btn btn-sm btn-primary" (click)="selectionServicio(servicio.id)">
+                  Seleccionar
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

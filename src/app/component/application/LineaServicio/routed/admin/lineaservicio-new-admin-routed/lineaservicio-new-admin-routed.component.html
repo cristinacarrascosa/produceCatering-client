@@ -1,0 +1,150 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div id="alert"></div>
+      <h1 class="text-center mb-5">Alta de Línea de Servicio</h1>
+
+      <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3 row">
+          <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputID" formControlName="id" readonly>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputEscandallo" class="col-sm-2 col-form-label">Escandallo</label>
+          <div class="col-sm-6 has-validation">
+            <div class="input-group">
+              <span class="input-group-text">{{escandalloDescription}}</span>
+              <input type="text" class="form-control" formControlName="id_escandallo"
+                (keyup)="updateEscandalloDescription(oForm.controls.id_escandallo.value)" [ngClass]="{'is-valid' :
+              oForm.controls.id_escandallo.dirty && !oForm.controls.id_escandallo.errors?.['required'] &&
+               !oForm.controls.id_escandallo.errors?.['pattern'] && !oForm.controls.id_escandallo.errors?.['incorrect'],
+                'is-invalid' :  (oForm.controls.id_escandallo.dirty &&  oForm.controls.id_escandallo.errors?.['required'] )
+                ||
+                ( oForm.controls.id_escandallo.dirty &&  oForm.controls.id_escandallo.errors?.['incorrect'])
+              }">
+              <button type="button" class="btn btn-primary" (click)="openModalFindEscandallo()">Buscar</button>
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.id_escandallo.dirty &&  oForm.controls.id_escandallo.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.id_escandallo.dirty &&  oForm.controls.id_escandallo.errors?.['pattern']">
+              El campo ha de ser un entrero de máximo 6 dígitos.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputServicio" class="col-sm-2 col-form-label">Servicio</label>
+          <div class="col-sm-6 has-validation">
+            <div class="input-group">
+              <span class="input-group-text">{{servicioDescription}}</span>
+              <input type="text" class="form-control" formControlName="id_servicio"
+                (keyup)="updateServicioDescription(oForm.controls.id_servicio.value)" [ngClass]="{'is-valid' :
+              oForm.controls.id_servicio.dirty && !oForm.controls.id_servicio.errors?.['required'] &&
+               !oForm.controls.id_servicio.errors?.['pattern'] && !oForm.controls.id_servicio.errors?.['incorrect'],
+                'is-invalid' :  (oForm.controls.id_servicio.dirty &&  oForm.controls.id_servicio.errors?.['required'] )
+                ||
+                ( oForm.controls.id_servicio.dirty &&  oForm.controls.id_servicio.errors?.['incorrect'])
+              }">
+              <button type="button" class="btn btn-primary" (click)="openModalFindServicio()">Buscar</button>
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.id_servicio.dirty &&  oForm.controls.id_servicio.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.id_servicio.dirty &&  oForm.controls.id_servicio.errors?.['pattern']">
+              El campo ha de ser un entrero de máximo 6 dígitos.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputPax" class="col-sm-2 col-form-label">Pax</label>
+          <div class="col-sm-6 has-validation">
+            <div class="input-group">
+              <input type="number" class="form-control" id="inputID" formControlName="pax">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+
+      </form>
+      <div class="row justify-content-center">
+        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
+          <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i [ngClass]="oMetadataService.getIcon('home')"></i>
+            {{oMetadataService.getName('home')}}</a>
+          <a class="btn btn-primary mx-2" (click)="oLocation.back()"><i
+              [ngClass]="oMetadataService.getIcon('return')"></i> {{oMetadataService.getName('return')}} </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        {{modalContent}}
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="findEscandallo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <app-escandallo-finder-admin-unrouted (closeEvent)="closeEscandalloModal($event)">
+        </app-escandallo-finder-admin-unrouted>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="findServicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <app-servicio-finder-admin-unrouted (closeEvent)="closeServicioModal($event)">
+        </app-servicio-finder-admin-unrouted>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

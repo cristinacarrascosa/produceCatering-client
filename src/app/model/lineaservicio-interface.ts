@@ -39,8 +39,8 @@ import { IEntity, Pageable, Sort } from "./shared-interface";
 export interface ILineaservicio2Send {
   id: number;
   pax: number;
-  id_servicio: IEntity;
-  id_escandallo: IEntity;
+  servicio: IEntity;
+  escandallo: IEntity;
 }
 
 
