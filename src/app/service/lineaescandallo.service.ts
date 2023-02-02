@@ -24,10 +24,10 @@ export class LineaescandalloService {
       .set("page", page)
       .set("size", size);
     if (id_escandallo != 0) {
-      params = params.set("usuario", id_escandallo);
+      params = params.set("escandallo", id_escandallo);
     }
     if (id_referencia != 0) {
-      params = params.set("salon", id_referencia);
+      params = params.set("referencia", id_referencia);
     }
     if (strSortField != "") { //&sort=codigo,[asc|desc]
       if (strOrderDirection != "") {

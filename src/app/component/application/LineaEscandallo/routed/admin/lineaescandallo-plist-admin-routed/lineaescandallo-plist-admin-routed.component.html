@@ -4,7 +4,7 @@
       <h1 class="text-center mb-5">Lista de LineasEscandallo</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
         <a [routerLink]="['/admin/lineaescandallo/new']" class="btn btn-primary mx-3">Nueva Lineaescandallo</a>
-        <app-search-unrouted [placeHolder]="'Buscar salon'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+        <app-search-unrouted [placeHolder]="'Buscar Línea de Escandallo'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.size"
           (eeRpp)="this.setRpp($event)"></app-dropdown-register-page>
       </div>
@@ -15,10 +15,10 @@
       <div class="col-md text-start">
         <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
         <button class="btn btn-outline-danger" *ngIf="id_escandallo!=0" (click)="setFilterByEscandallo(0)">
-          <i class="bi bi-x-circle"></i> Reset usertype {{id_escandallo}} filter</button>
+          <i class="bi bi-x-circle"></i> Reset escandallo {{id_escandallo}} filter</button>
 
         <button class="btn btn-outline-danger" *ngIf="id_referencia!=0" (click)="setFilterByReferencia(0)">
-          <i class="bi bi-x-circle"></i> Reset usertype {{id_referencia}} filter</button>
+          <i class="bi bi-x-circle"></i> Reset referencia {{id_referencia}} filter</button>
       </div>
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
@@ -42,7 +42,7 @@
               {{lineaescandallo.escandallo.id}} - {{lineaescandallo.escandallo.nombre}}</td>
               <td (click)="setFilterByReferencia(lineaescandallo.referencia.id)">
                {{lineaescandallo.referencia.nombre}}</td>
-           
+
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
                 <!--  -->

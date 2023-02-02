@@ -84,6 +84,9 @@ import { LineaescandalloNewAdminRoutedComponent } from './component/application/
 import { EscandalloFinderAdminUnroutedComponent } from './component/application/Escandallo/unrouted/admin/escandallo-finder-admin-unrouted/escandallo-finder-admin-unrouted.component';
 import { ReferenciaFinderAdminUnroutedComponent } from './component/application/Referencia/unrouted/admin/referencia-finder-admin-unrouted/referencia-finder-admin-unrouted.component';
 import { LineaescandalloEditAdminRoutedComponent } from './component/application/LineaEscandallo/routed/admin/lineaescandallo-edit-admin-routed/lineaescandallo-edit-admin-routed.component';
+import { LineaservicioPlistAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-plist-admin-routed/lineaservicio-plist-admin-routed.component';
+import { LineaservicioViewAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-view-admin-routed/lineaservicio-view-admin-routed.component';
+import { LineaservicioRemoveAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-remove-admin-routed/lineaservicio-remove-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -145,6 +148,12 @@ import { LineaescandalloEditAdminRoutedComponent } from './component/application
     EscandalloFinderAdminUnroutedComponent,
     ReferenciaFinderAdminUnroutedComponent,
     LineaescandalloEditAdminRoutedComponent,
+    LineaservicioPlistAdminRoutedComponent,
+    LineaservicioViewAdminRoutedComponent,
+    LineaservicioRemoveAdminRoutedComponent,
+    
+
+
 
 
 
