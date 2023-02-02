@@ -14,14 +14,9 @@
 
         <div class="mb-3 row">
           <label for="inputfechahora" class="col-sm-2 col-form-label">Feha y Hora</label>
-          <div class="col-sm-4 has-validation">
+          <div class="col-sm-10">
           <p-calendar [(ngModel)]="fechahora" [showTime]="true" [showSeconds]="true" [showIcon]="true" inputId="time"
-          class="form-control" [ngClass]="{'is-valid' : oForm.controls.fechahora.dirty && !oForm.controls.fechahora.errors?.['required'] &&
-            oForm.controls.fechahora.dirty && !oForm.controls.fechahora.errors?.['minlength']
-              && oForm.controls.fechahora.dirty && !oForm.controls.fechahora.errors?.['maxlength'],
-              'is-invalid' :  oForm.controls.fechahora.dirty &&  oForm.controls.fechahora.errors?.['minlength']
-              ||  oForm.controls.fechahora.dirty &&  oForm.controls.fechahora.errors?.['maxlength'] ||
-              oForm.controls.fechahora.dirty &&  oForm.controls.fechahora.errors?.['required']}" id="inputfechahora"
+           id="inputfechahora"
               formControlName="fechahora"></p-calendar>
       </div>
     </div>
