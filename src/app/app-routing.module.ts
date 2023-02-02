@@ -48,6 +48,7 @@ import { LineaservicioPlistAdminRoutedComponent } from './component/application/
 import { LineaservicioViewAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-view-admin-routed/lineaservicio-view-admin-routed.component';
 import { LineaservicioRemoveAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-remove-admin-routed/lineaservicio-remove-admin-routed.component';
 import { LineaservicioNewAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-new-admin-routed/lineaservicio-new-admin-routed.component';
+import { LineaservicioEditAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-edit-admin-routed/lineaservicio-edit-admin-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -110,6 +111,7 @@ const routes: Routes = [
   { path: 'admin/lineaservicio/view/:id', component: LineaservicioViewAdminRoutedComponent},
   { path: 'admin/lineaservicio/remove/:id', component: LineaservicioRemoveAdminRoutedComponent},
   { path: 'admin/lineaservicio/new', component: LineaservicioNewAdminRoutedComponent},
+  { path: 'admin/lineaservicio/edit/:id', component: LineaservicioEditAdminRoutedComponent},
 
 ];
 

@@ -89,6 +89,7 @@ import { LineaservicioViewAdminRoutedComponent } from './component/application/L
 import { LineaservicioRemoveAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-remove-admin-routed/lineaservicio-remove-admin-routed.component';
 import { LineaservicioNewAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-new-admin-routed/lineaservicio-new-admin-routed.component';
 import { ServicioFinderAdminUnroutedComponent } from './component/application/Servicio/unrouted/admin/servicio-finder-admin-unrouted/servicio-finder-admin-unrouted.component';
+import { LineaservicioEditAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-edit-admin-routed/lineaservicio-edit-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -155,6 +156,7 @@ import { ServicioFinderAdminUnroutedComponent } from './component/application/Se
     LineaservicioRemoveAdminRoutedComponent,
     LineaservicioNewAdminRoutedComponent,
     ServicioFinderAdminUnroutedComponent,
+    LineaservicioEditAdminRoutedComponent,
     
 
 
