@@ -46,7 +46,7 @@ export class EscandalloNewAdminRoutedComponent implements OnInit {
   ngOnInit() {
     this.oForm = <FormGroup>this.oFormBuilder.group({
       id: [""],
-      nombre: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+      nombre: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       id_tipoplato: ["", [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
     });
   }
