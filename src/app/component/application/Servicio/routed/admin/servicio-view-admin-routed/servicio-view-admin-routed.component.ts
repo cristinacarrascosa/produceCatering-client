@@ -44,7 +44,7 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
     this.oServicioService.getOne(this.id).subscribe({
       next: (data: IServicio) => {
         this.oServicio = data;
-        //console.log(data);
+        console.log(data);
         //this.oLocation.back();
       }
     })
@@ -64,7 +64,7 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
   getReferencia() {
     let lineasServicio: any = this.oLineaServicio;
     lineasServicio.forEach(element => {
-      console.log(element);
+      //console.log(element);
       this.oLineaEscandalloService.getLineaescandalloPlist(0, 9999, '', element.escandallo.id, 0, '', '')
       .subscribe({
         next: (data: any) => {
@@ -72,7 +72,7 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
         }
       });
     });
-    console.log(this.oReferencia);
+    //console.log(this.oReferencia);
   }
 
   imprimirEtiquetas() {

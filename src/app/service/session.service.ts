@@ -1,41 +1,112 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Observable, catchError, retry, tap, throwError } from 'rxjs';
+import { Observable, Subject, catchError, filter, map, retry, tap, throwError } from 'rxjs';
 import { baseURL, httpOptions } from 'src/environments/environment';
 import { environment } from 'src/environments/environment.prod';
+import { CryptoService } from './crypto.service';
+import { DecodeService } from './decode.service';
+import { IToken } from '../model/token-interface';
+
+export enum Events {
+  login,
+  logout
+}
+
+export class EmitEvent {
+  constructor(public event: Events, public token?: string) { }
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
 
-  constructor(private http: HttpClient) { }
+  private entityURL = '/session';
+  sURL: string = `${baseURL}${this.entityURL}`;
+  subject = new Subject<EmitEvent>();
 
-  url = baseURL + '/session';
 
-  onCheck = new EventEmitter<any>();
+  constructor(
+    private oCryptoService: CryptoService,
+    private oHttpClient: HttpClient,
+    private oDecodeService: DecodeService
+  ) { }
 
-  handleError(error: HttpErrorResponse) {
-    let errorMessage = 'Unknown error!';
-    if (error.error instanceof ErrorEvent) {
-      // Client-side errors
-      errorMessage = `Error: ${error.error.message}`;
-      if (environment) console.log("SessionService: error: " + errorMessage);
+  login(strLogin: string, strPassword: string): Observable<string> {
+    const loginData = JSON.stringify({ login: strLogin, password: this.oCryptoService.getSHA256(strPassword) });
+    return this.oHttpClient.post<string>(this.sURL, loginData, httpOptions);
+  }
+
+  getUserName(): string {
+    if (!this.isSessionActive()) {
+      return "";
     } else {
-      // Server-side errors
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-      if (environment) console.log("SessionService: error: " + errorMessage);
+      let token: string = localStorage.getItem("token");
+      return this.oDecodeService.parseJwt(token).name;
     }
-    return throwError(errorMessage);
   }
 
-  login(loginData: String): Observable<String> {
-    if (environment) console.log("SessionService: login");
-    return this.http.post<String>(this.url, loginData, httpOptions).pipe(
-      tap((u: String) => console.log("session.service login HTTP request executed", u)),
-      retry(1),
-      catchError(this.handleError));
+  getToken(): string {
+    return localStorage.getItem("token");
   }
+
+  isSessionActive(): Boolean {
+    let strToken: string = localStorage.getItem("token");
+    if (strToken) {
+      let oDecodedToken: IToken = this.oDecodeService.parseJwt(strToken);
+      if (Date.now() >= oDecodedToken.exp * 1000) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  logout() {
+    localStorage.removeItem("token");
+  }
+
+  on(event: Events): Observable<String> {
+    return this.subject.pipe(
+      filter((e: EmitEvent) => {
+        return e.event === event;
+      }),
+      map((e: EmitEvent) => {
+        return e.token;
+      })
+    )
+  }
+
+  emit(event: EmitEvent) {
+    this.subject.next(event);
+  }
+
+
+  // onCheck = new EventEmitter<any>();
+
+  // handleError(error: HttpErrorResponse) {
+  //   let errorMessage = 'Unknown error!';
+  //   if (error.error instanceof ErrorEvent) {
+  //     // Client-side errors
+  //     errorMessage = `Error: ${error.error.message}`;
+  //     if (environment) console.log("SessionService: error: " + errorMessage);
+  //   } else {
+  //     // Server-side errors
+  //     errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  //     if (environment) console.log("SessionService: error: " + errorMessage);
+  //   }
+  //   return throwError(errorMessage);
+  // }
+
+  // login(loginData: String): Observable<String> {
+  //   if (environment) console.log("SessionService: login");
+  //   return this.http.post<String>(this.url, loginData, httpOptions).pipe(
+  //     tap((u: String) => console.log("session.service login HTTP request executed", u)),
+  //     retry(1),
+  //     catchError(this.handleError));
+  // }
 
   // logout(): Observable<String> {
   //   if (environment) console.log("SessionService: logout");
@@ -44,12 +115,12 @@ export class SessionService {
   //     catchError(this.handleError));
   // }
 
-  logout(){
-    localStorage.clear();
-    //location.reload();
-  }
+  // logout(){
+  //   localStorage.clear();
+  //   //location.reload();
+  // }
 
-  check(): Observable<String> {
-    return this.http.get<String>(this.url, httpOptions)
-  }
+  // check(): Observable<String> {
+  //   return this.http.get<String>(this.url, httpOptions)
+  // }
 }

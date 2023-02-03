@@ -4,7 +4,7 @@
       <h1 class="text-center mb-5">Lista de Servicios</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
         <a [routerLink]="['/admin/servicio/new']" class="btn btn-primary mx-3">Nuevo Servicio</a>
-        <app-search-unrouted [placeHolder]="'Buscar salon'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+        <app-search-unrouted [placeHolder]="'Filtrar por fecha'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.size"
           (eeRpp)="this.setRpp($event)"></app-dropdown-register-page>
       </div>

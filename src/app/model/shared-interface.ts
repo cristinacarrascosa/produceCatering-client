@@ -28,7 +28,7 @@ export interface IEntity {
 }
 
 export interface IUser {
-  email: FormControl<string>;
+  login: FormControl<string>;
   password: FormControl<string>;
 }
 

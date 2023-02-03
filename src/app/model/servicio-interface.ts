@@ -42,7 +42,8 @@ import { IUsuario } from "./usuario-interface";
 
 export interface IServicio2Send {
   id: number;
-  fechahora: string;
+  //fechahora: string;
+  fechaHora: string;
   comensales: number;
   usuario: IEntity;
   salon: IEntity;

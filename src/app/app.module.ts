@@ -91,6 +91,8 @@ import { LineaservicioNewAdminRoutedComponent } from './component/application/Li
 import { ServicioFinderAdminUnroutedComponent } from './component/application/Servicio/unrouted/admin/servicio-finder-admin-unrouted/servicio-finder-admin-unrouted.component';
 import { LineaservicioEditAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-edit-admin-routed/lineaservicio-edit-admin-routed.component';
 import { PrintreferenciaUnroutedComponent } from './component/shared/unrouted/printreferencia-unrouted/printreferencia-unrouted.component';
+import { LogoutComponent } from './component/shared/routed/logout/logout.component';
+import { FooterComponent } from './component/shared/unrouted/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -159,6 +161,8 @@ import { PrintreferenciaUnroutedComponent } from './component/shared/unrouted/pr
     ServicioFinderAdminUnroutedComponent,
     LineaservicioEditAdminRoutedComponent,
     PrintreferenciaUnroutedComponent,
+    LogoutComponent,
+    FooterComponent,
     
 
 

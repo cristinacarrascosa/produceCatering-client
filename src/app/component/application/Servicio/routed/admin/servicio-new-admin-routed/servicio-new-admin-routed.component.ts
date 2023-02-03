@@ -71,7 +71,7 @@ fechahora: Date;
     this.oServicio2Send = {
       id: this.oForm.value.id,
       comensales: this.oForm.value.comensales,
-      fechahora: this.oForm.value.fechahora,
+      fechaHora: this.oForm.value.fechahora,
       usuario: { id: this.oForm.value.id_usuario },
       salon: { id: this.oForm.value.id_salon }
 

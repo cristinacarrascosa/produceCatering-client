@@ -1,50 +1,124 @@
-<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-<!-- <nav id="nav-1">
-  <a class="link-1" href="#">Home</a>
-  <a class="link-1" href="#">About</a>
-  <a class="link-1" href="#">Contact</a>
-  <a class="link-1" href="#">Shop</a>
+  <div class="container-fluid">
+
+    <a class="navbar-brand">ProduceCatering</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="login">Login</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav link-3 dropdown-toggle " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gestión de usuarios</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/tipousuario/plist">Tipos de Usuario</a></li>
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/usuario/plist">Usuarios</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav link-3 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gestión de Espacios</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/espacio/plist">Espacios</a></li>
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/salon/plist">Salon</a></li>
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/servicio/plist">Servicio</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav link-3 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gestión de Gastronomía</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/escandallo/plist">Escandallos</a></li>
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/referencia/plist">Referencias</a></li>
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/tipoplato/plist">Tipos de Plato</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/lineaescandallo/plist">Lineas-Escandallo</a></li>
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/lineaservicio/plist">Lineas-Servicio</a></li>
+          </ul>
+        </li>
+
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="usuario" *ngIf="strUserName">Logged
+              in as: {{strUserName}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="logout"
+              *ngIf="strUserName">Logout</a>
+          </li>
+        </ul>
+
+
+                  <!-- <nav id="nav-1">
+            <a class="link-1" href="#">Home</a>
+            <a class="link-1" href="#">About</a>
+            <a class="link-1" href="#">Contact</a>
+            <a class="link-1" href="#">Shop</a>
+          </nav>
+
+          <nav id="nav-2">
+            <a class="link-2" href="#">Home</a>
+            <a class="link-2" href="#">About</a>
+            <a class="link-2" href="#">Contact</a>
+            <a class="link-2" href="#">Shop</a>
+          </nav> -->
+
+
+
+                  <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Gestión de Usuarios
+              </a>
+              <ul class="dropdown-menu link-3" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item link-3" routerLinkActive="active" routerLink="admin/tipousuario/plist">Tipos de Usuario</a></li>
+                <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/usuario/plist">Usuarios</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> -->
+
+        <!-- <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/tipousuario/plist">Tipos de Usuario</a>
+        </li>
+        <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/usuario/plist">Usuarios</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/espacio/plist">Espacios</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/salon/plist">Salon</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/servicio/plist">Servicio</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/escandallo/plist">Escandallos</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/referencia/plist">Referencias</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/tipoplato/plist">Tipos de Plato</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/lineaescandallo/plist">Lineas-Escandallo</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="link-3" routerLinkActive="active" routerLink="admin/lineaservicio/plist">Lineas-Servicio</a>
+        </li> -->
+        <!-- <a class="link-3" routerLinkActive="active" routerLink="user" *ngIf="oUsuarioSession">{{strUserName}}</a> -->
+        <!-- <button (click)="logout()" class="btn btn-danger" routerLink="login">Logout</button> -->
+      </ul>
+
+
+
+
+    </div>
+
+  </div>
 </nav>
-
-<nav id="nav-2">
-  <a class="link-2" href="#">Home</a>
-  <a class="link-2" href="#">About</a>
-  <a class="link-2" href="#">Contact</a>
-  <a class="link-2" href="#">Shop</a>
-</nav> -->
-
-<nav id="nav-3">
-
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Gestión de Usuarios
-    </a>
-    <ul class="dropdown-menu link-3" aria-labelledby="navbarDropdownMenuLink">
-      <li><a class="dropdown-item link-3" routerLinkActive="active" routerLink="admin/tipousuario/plist">Tipos de Usuario</a></li>
-      <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/usuario/plist">Usuarios</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-    </ul>
-  </li>
-
-  <a class="link-3" routerLinkActive="active" routerLink="home">Home</a>
-  <a class="link-3" routerLinkActive="active" routerLink="login">Login</a>
-  <a class="link-3" routerLinkActive="active" routerLink="admin/tipousuario/plist">Tipos de Usuario</a>
-  <a class="link-3" routerLinkActive="active" routerLink="admin/usuario/plist">Usuarios</a>
-  <a class="link-3" routerLinkActive="active" routerLink="admin/espacio/plist">Espacios</a>
-  <a class="link-3" routerLinkActive="active" routerLink="admin/salon/plist">Salon</a>
-  <a class="link-3" routerLinkActive="active" routerLink="admin/servicio/plist">Servicio</a>
-  <a class="link-3" routerLinkActive="active" routerLink="admin/escandallo/plist">Escandallos</a>
-  <a class="link-3" routerLinkActive="active" routerLink="admin/referencia/plist">Referencias</a>
-  <a class="link-3" routerLinkActive="active" routerLink="admin/tipoplato/plist">Tipos de Plato</a>
-
-  <a class="link-3" routerLinkActive="active" routerLink="admin/lineaescandallo/plist">Lineas-Escandallo</a>
-  <a class="link-3" routerLinkActive="active" routerLink="admin/lineaservicio/plist">Lineas-Servicio</a>
-
-  <!-- <a class="link-3" routerLinkActive="active" routerLink="user" *ngIf="oUsuarioSession">{{strUserName}}</a> -->
-
- <button (click)="logout()" class="btn btn-danger" routerLink="login">Logout</button>
-
-</nav>
-
-</div>

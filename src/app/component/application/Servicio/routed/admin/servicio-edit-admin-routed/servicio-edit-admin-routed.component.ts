@@ -37,7 +37,7 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
   usuarioDescription: string = '';
   salonDescription: string = '';
   //
-  fechahora: Date;
+  fechaHora: Date;
 
   constructor(
     private oRouter: Router,
@@ -64,9 +64,10 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id, [Validators.required]],
           comensales: [data.comensales, [Validators.required]],
-          fechahora: [data.fechahora, [Validators.required]],
+          fechaHora: [data.fechaHora, [Validators.required]],
           id_usuario: [data.usuario.nombre + ' ' + data.usuario.apellidos, [Validators.required]],
           id_salon: [data.salon.nombre, [Validators.required]]
+
         });
         this.updateUsuarioDescription(this.oServicio.usuario.id);
         this.updateSalonDescription(this.oServicio.salon.id);
@@ -79,7 +80,7 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
     this.oServicio2Send = {
       id: this.oForm.value.id,
       comensales: this.oForm.value.comensales,
-      fechahora: this.oForm.value.fechahora,
+      fechaHora: this.oForm.value.fechahora,
       usuario: { id: this.oForm.value.id_usuario },
       salon: { id: this.oForm.value.id_salon },
     };
