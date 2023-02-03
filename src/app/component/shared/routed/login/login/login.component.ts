@@ -92,6 +92,7 @@ export class LoginComponent implements OnInit {
   // }
 
   login() {
+    console.log(this.oFormularioLogin);
     this.oSessionService.login(this.oFormularioLogin.get('login')!.value, this.oFormularioLogin.get('password')!.value)
       .subscribe({
         next: (data: string) => {

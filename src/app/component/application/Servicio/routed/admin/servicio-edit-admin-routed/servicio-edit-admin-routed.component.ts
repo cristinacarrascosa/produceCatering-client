@@ -64,7 +64,7 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id, [Validators.required]],
           comensales: [data.comensales, [Validators.required]],
-          fechaHora: [data.fechaHora, [Validators.required]],
+          fechahora: [data.fechahora, [Validators.required]],
           id_usuario: [data.usuario.nombre + ' ' + data.usuario.apellidos, [Validators.required]],
           id_salon: [data.salon.nombre, [Validators.required]]
 
