@@ -15,8 +15,9 @@
         <div class="mb-3 row">
           <label for="inputfechahora" class="col-sm-2 col-form-label">Feha y Hora</label>
           <div class="col-sm-10">
-            <p-calendar [(ngModel)]="fechaHora" [showTime]="true" [showSeconds]="true" [showIcon]="true" inputId="time"
-              id="inputfechahora" formControlName="fechaHora"></p-calendar>
+            <input type="datetime-local"  formControlName="fechaHora">
+            <!-- <p-calendar [(ngModel)]="fechaHora" dateFormat="" [showTime]="true" [showSeconds]="true" [showIcon]="true" inputId="time"
+              id="inputfechahora" formControlName="fechaHora" dataType="string"></p-calendar> -->
           </div>
         </div>
 
@@ -76,7 +77,7 @@
           <div class="col-sm-6 has-validation">
             <div class="input-group">
               <span class="input-group-text">{{salonDescription}}</span>
-              <input type="text" class="form-control" formControlName="id_salon"
+              <input type="number" class="form-control" formControlName="id_salon"
                 (keyup)="updateSalonDescription(oForm.controls.id_salon.value)" [ngClass]="{'is-valid' :
           oForm.controls.id_salon.dirty && !oForm.controls.id_salon.errors?.['required'] &&
            !oForm.controls.id_salon.errors?.['pattern'] && !oForm.controls.id_salon.errors?.['incorrect'],

@@ -1,42 +1,42 @@
-
-
-
 <div class="container mt-5">
   <div class="row">
-      <div class="col">
-          <h1 class="text-center mb-5">Vista de un Servicio</h1>
-          <table class="table table-bordered table-striped">
-              <tbody>
-                  <tr>
-                      <th>Id</th>
-                      <td>{{oServicio.id}}</td>
-                  </tr>
-                <tr>
-                  <td>Usuario</td>
-                  <td>{{oServicio.usuario.nombre}}</td>
-              </tr>
-                <tr>
-                  <td>Servicio</td>
-                  <td>{{oServicio.salon.nombre}}</td>
-              </tr>
-              <tr>
-                <td>Comensales</td>
-                <td>{{oServicio.comensales}}</td>
-            </tr>
-            <tr>
-              <td>Fecha y Hora</td>
-              <td>{{oServicio.fechaHora}}</td>
+    <div class="col">
+      <h1 class="text-center mb-5">Vista de un Servicio</h1>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <th>Id</th>
+            <td>{{oServicio.id}}</td>
           </tr>
-              </tbody>
+          <tr>
+            <td>Usuario</td>
+            <td>{{oServicio.usuario.nombre}}</td>
+          </tr>
+          <tr>
+            <td>Servicio</td>
+            <td>{{oServicio.salon.nombre}}</td>
+          </tr>
+          <tr>
+            <td>Comensales</td>
+            <td>{{oServicio.comensales}}</td>
+          </tr>
+          <tr>
+            <td>Fecha y Hora</td>
+            <td>{{oServicio.fechaHora | date: 'dd/MM/yy HH:mm'}}</td>
+          </tr>
+        </tbody>
 
-          </table>
-          <div class="row justify-content-center">
-            <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
-                <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i [ngClass]="oMetadataService.getIcon('home')"></i> {{oMetadataService.getName('home')}}</a>
-                <a class="btn btn-primary mx-2" (click)="oLocation.back()"><i [ngClass]="oMetadataService.getIcon('return')"></i> {{oMetadataService.getName('return')}} </a>
-                <a class="btn btn-success mx-2" (click)="imprimirEtiquetas()"><i [ngClass]="oMetadataService.getIcon('print')"></i> {{oMetadataService.getName('print')}} </a>
-            </div>
+      </table>
+      <div class="row justify-content-center">
+        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
+          <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i [ngClass]="oMetadataService.getIcon('home')"></i>
+            {{oMetadataService.getName('home')}}</a>
+          <a class="btn btn-primary mx-2" (click)="oLocation.back()"><i
+              [ngClass]="oMetadataService.getIcon('return')"></i> {{oMetadataService.getName('return')}} </a>
+          <a class="btn btn-success mx-2" (click)="imprimirEtiquetas()"><i
+              [ngClass]="oMetadataService.getIcon('print')"></i> {{oMetadataService.getName('print')}} </a>
         </div>
       </div>
+    </div>
   </div>
 </div>

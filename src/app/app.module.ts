@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -93,6 +93,11 @@ import { LineaservicioEditAdminRoutedComponent } from './component/application/L
 import { PrintreferenciaUnroutedComponent } from './component/shared/unrouted/printreferencia-unrouted/printreferencia-unrouted.component';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 import { FooterComponent } from './component/shared/unrouted/footer/footer.component';
+import { DecodeService } from './service/decode.service';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { CryptoService } from './service/crypto.service';
+import { showDateTimePipe } from './pipes/show-date-time.pipe';
+
 
 @NgModule({
   declarations: [
@@ -163,7 +168,8 @@ import { FooterComponent } from './component/shared/unrouted/footer/footer.compo
     PrintreferenciaUnroutedComponent,
     LogoutComponent,
     FooterComponent,
-    
+    showDateTimePipe,
+
 
 
 
@@ -193,6 +199,9 @@ import { FooterComponent } from './component/shared/unrouted/footer/footer.compo
   providers: [
     UsuarioService,
     SessionService,
+    CryptoService,
+    DecodeService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
 
 
 

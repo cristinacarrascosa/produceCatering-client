@@ -42,7 +42,7 @@ export class SessionService {
       return "";
     } else {
       let token: string = localStorage.getItem("token");
-      return this.oDecodeService.parseJwt(token).name;
+      return this.oDecodeService.parseJwt(token).usuario;
     }
   }
 

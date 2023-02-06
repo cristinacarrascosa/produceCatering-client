@@ -29,6 +29,7 @@
             </th>
             <th (click)="setOrder('tipoplato.nombre')">Tipo de plato</th>
             <th (click)="setOrder('nombre')">Nombre</th>
+            <th>Servicios</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -38,6 +39,8 @@
             <td (click)="setFilterByTipoplato(escandallo.tipoplato.id)">
               {{escandallo.tipoplato.nombre}}</td>
             <td>{{escandallo.nombre}}</td>
+            <td *ngIf="escandallo.lineasServicio==0">{{escandallo.lineasServicio}}</td>
+            <td *ngIf="escandallo.lineasServicio>0"><a [routerLink]="['/admin' , 'lineaservicio','plist','escandallo',escandallo.id]">{{escandallo.lineasServicio}}</a></td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
               <button class="btn btn-outline-primary" [routerLink]="['/admin/escandallo/view',escandallo.id]">

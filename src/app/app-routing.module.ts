@@ -110,6 +110,7 @@ const routes: Routes = [
   { path: 'admin/lineaescandallo/edit/:id', component: LineaescandalloEditAdminRoutedComponent},
   // lineaservicio
   { path: 'admin/lineaservicio/plist', component: LineaservicioPlistAdminRoutedComponent},
+  { path: 'admin/lineaservicio/plist/:id', component: LineaservicioPlistAdminRoutedComponent},//para ver las lineas de un servicio
   { path: 'admin/lineaservicio/view/:id', component: LineaservicioViewAdminRoutedComponent},
   { path: 'admin/lineaservicio/remove/:id', component: LineaservicioRemoveAdminRoutedComponent},
   { path: 'admin/lineaservicio/new', component: LineaservicioNewAdminRoutedComponent},

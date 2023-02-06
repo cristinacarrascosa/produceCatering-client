@@ -4,7 +4,7 @@
       <h1 class="text-center mb-5">Lista de Lineas de Servicio</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
         <a [routerLink]="['/admin/lineaservicio/new']" class="btn btn-primary mx-3">Nueva Linea de Servicio</a>
-        <app-search-unrouted [placeHolder]="'Buscar salon'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+        <app-search-unrouted [placeHolder]="'Buscar '" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.size" (eeRpp)="this.setRpp($event)">
         </app-dropdown-register-page>
       </div>
@@ -38,7 +38,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let lineaservicio of responseFromServer.content">
-            
+
             <td>{{lineaservicio.id}}</td>
 
             <td (click)="setFilterByEscandallo(lineaservicio.escandallo.id)">

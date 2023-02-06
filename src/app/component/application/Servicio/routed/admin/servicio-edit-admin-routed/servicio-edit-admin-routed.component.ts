@@ -60,13 +60,14 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
     this.oServicioService.getOne(this.id).subscribe({
       next: (data: IServicio) => {
         this.oServicio = data;
+        this.fechaHora = data.fechaHora;
         console.log('datos: ' + data);
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id, [Validators.required]],
           comensales: [data.comensales, [Validators.required]],
-          fechahora: [data.fechahora, [Validators.required]],
-          id_usuario: [data.usuario.nombre + ' ' + data.usuario.apellidos, [Validators.required]],
-          id_salon: [data.salon.nombre, [Validators.required]]
+          fechaHora: [data.fechaHora, [Validators.required]],
+          id_usuario: [data.usuario.id, [Validators.required]],
+          id_salon: [data.salon.id, [Validators.required]]
 
         });
         this.updateUsuarioDescription(this.oServicio.usuario.id);
@@ -80,7 +81,7 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
     this.oServicio2Send = {
       id: this.oForm.value.id,
       comensales: this.oForm.value.comensales,
-      fechaHora: this.oForm.value.fechahora,
+      fechaHora: this.oForm.value.fechaHora,
       usuario: { id: this.oForm.value.id_usuario },
       salon: { id: this.oForm.value.id_salon },
     };
@@ -121,6 +122,10 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
 
   closeUsuarioModal(id_usuario: number) {
     this.oForm.controls['id_usuario'].setValue(id_usuario);
+    /* if (id_usuario != this.oForm.controls.id_usuario.value) {
+      this.oForm.markAsDirty()
+    } */
+    this.oForm.markAsDirty()
     this.updateUsuarioDescription(id_usuario);
     this.myModal.hide();
   }
@@ -151,6 +156,10 @@ export class ServicioEditAdminRoutedComponent implements OnInit {
 
   closeSalonModal(id_salon: number) {
     this.oForm.controls['id_salon'].setValue(id_salon);
+    /* if (id_salon != this.oForm.controls.id_salon.value) {
+
+    } */
+    this.oForm.markAsDirty()
     this.updateSalonDescription(id_salon);
     this.myModal.hide();
   }

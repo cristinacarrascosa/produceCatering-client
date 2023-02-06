@@ -7,12 +7,11 @@ import { IUsuario } from "./usuario-interface";
 
   export interface IServicio {
       id: number;
-      fechahora: Date;
+      fechaHora: Date;
       comensales: number;
       usuario: IUsuario;
       salon: ISalon;
       lineasServicio: number;
-      fechaHora: Date;
   }
 
 
@@ -32,7 +31,7 @@ import { IUsuario } from "./usuario-interface";
 
   export interface IServicio2Form {
     id: FormControl<number>;
-    fechahora: FormControl<string>;
+    fechaHora: FormControl<string>;
     comensales: FormControl<number>;
     id_usuario: FormControl<number>;
     id_salon: FormControl<number>;
