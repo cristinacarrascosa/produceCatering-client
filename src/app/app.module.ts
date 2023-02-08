@@ -97,6 +97,7 @@ import { DecodeService } from './service/decode.service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { CryptoService } from './service/crypto.service';
 import { showDateTimePipe } from './pipes/show-date-time.pipe';
+import { UsuarioViewUserRoutedComponent } from './component/application/Usuario/routed/user/usuario-view-user-routed/usuario-view-user-routed.component';
 
 
 @NgModule({
@@ -169,6 +170,7 @@ import { showDateTimePipe } from './pipes/show-date-time.pipe';
     LogoutComponent,
     FooterComponent,
     showDateTimePipe,
+    UsuarioViewUserRoutedComponent,
 
 
 

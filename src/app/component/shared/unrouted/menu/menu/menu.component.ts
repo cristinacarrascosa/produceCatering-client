@@ -11,16 +11,17 @@ import { MetadataService } from 'src/app/service/metadata.service';
 })
 export class MenuComponent implements OnInit {
 
-  // oUsuarioSession: IUser;
-  // strUserName: string = "";
-  // strUrl: String = "";
+  oUsuarioSession: any;
+  strTipoUsuario: string = "";
+  strUrl: String = "";
+  strId: number = 0;
 
   strUserName: string = "";
 
   constructor(
     private oSessionService: SessionService,
-    // private router: Router,
-    // public oMetadataService: MetadataService
+    private router: Router,
+    public oMetadataService: MetadataService
     ) {
       // this.oUsuarioSession = JSON.parse(localStorage.getItem("user"));
       // this.router.events.subscribe((ev) => {
@@ -28,7 +29,17 @@ export class MenuComponent implements OnInit {
       //     this.strUrl = ev.url;
       //   }
       // })
+
       this.strUserName = oSessionService.getUserName();
+      this.strTipoUsuario = oSessionService.getTipoUsuario();
+      if(this.strUserName){
+        this.oSessionService.getUserId().subscribe({
+          next: (n: number) => {
+            this.strId = n
+          }
+        })
+
+    }
 
 
     }

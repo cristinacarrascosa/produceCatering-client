@@ -45,7 +45,7 @@
               <td (click)="setFilterBySalon(servicio.salon.id)">
                {{servicio.salon.nombre}}</td>
             <td>{{servicio.comensales}}</td>
-            <td>{{servicio.fechaHora}}</td>
+            <td>{{servicio.fechaHora | date: 'dd/MM/yy HH:mm'}}</td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
                 <!--  -->

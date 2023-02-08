@@ -4,4 +4,5 @@ export interface IToken {
     iat: number;
     exp: number;
     usuario: string;
+    tipousuario: string;
 }

@@ -16,30 +16,33 @@
           <a class="link-3" routerLinkActive="active" routerLink="login"
           *ngIf="!strUserName">Login</a>
         </li>
-        <li class="nav-item dropdown">
+
+        <!-- *ngIf="oUsuarioSession.tipousuario.id==1" -->
+        <li class="nav-item dropdown" *ngIf="strUserName">
           <a class="nav link-3 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gestión de usuarios</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/tipousuario/plist">Tipos de Usuario</a></li>
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/usuario/plist">Usuarios</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item"  routerLinkActive="active" routerLink="admin/tipousuario/plist">Tipos de Usuario</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active" routerLink="admin/usuario/plist">Usuarios</a></li>
+            <li *ngIf="strUserName=='user'"><a class="dropdown-item" routerLinkActive="active" [routerLink]="['user/usuario/view', strId]">Mi Usuario</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="strUserName">
           <a class="nav link-3 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gestión de Espacios</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/espacio/plist">Espacios</a></li>
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/salon/plist">Salon</a></li>
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/servicio/plist">Servicio</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active" routerLink="admin/espacio/plist">Espacios</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active" routerLink="admin/salon/plist">Salon</a></li>
+            <li ><a class="dropdown-item" routerLinkActive="active" routerLink="admin/servicio/plist">Servicio</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="strUserName=='admin'">
           <a class="nav link-3 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gestión de Gastronomía</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/escandallo/plist">Escandallos</a></li>
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/referencia/plist">Referencias</a></li>
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/tipoplato/plist">Tipos de Plato</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/lineaescandallo/plist">Lineas-Escandallo</a></li>
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/lineaservicio/plist">Lineas-Servicio</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active" routerLink="admin/escandallo/plist">Escandallos</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active" routerLink="admin/referencia/plist">Referencias</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active" routerLink="admin/tipoplato/plist">Tipos de Plato</a></li>
+            <li *ngIf="strUserName=='admin'"><hr class="dropdown-divider"></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active" routerLink="admin/lineaescandallo/plist">Lineas-Escandallo</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active" routerLink="admin/lineaservicio/plist">Lineas-Servicio</a></li>
           </ul>
         </li>
 

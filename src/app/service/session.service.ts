@@ -21,6 +21,7 @@ export class EmitEvent {
 })
 export class SessionService {
 
+
   private entityURL = '/session';
   sURL: string = `${baseURL}${this.entityURL}`;
   subject = new Subject<EmitEvent>();
@@ -35,6 +36,10 @@ export class SessionService {
   login(strLogin: string, strPassword: string): Observable<string> {
     const loginData = JSON.stringify({ login: strLogin, password: this.oCryptoService.getSHA256(strPassword) });
     return this.oHttpClient.post<string>(this.sURL, loginData, httpOptions);
+  }
+
+  getUserId(): Observable<number> {
+    return this.oHttpClient.get<number>(this.sURL + "/getUserId", {withCredentials:true});
   }
 
   getUserName(): string {
@@ -82,6 +87,15 @@ export class SessionService {
   emit(event: EmitEvent) {
     this.subject.next(event);
   }
+
+  getTipoUsuario(): string {
+    if (!this.isSessionActive()) {
+        return "";
+    } else {
+        let token: string = localStorage.getItem("token");
+        return this.oDecodeService.parseJwt(token).tipousuario;
+    }
+}
 
 
   // onCheck = new EventEmitter<any>();

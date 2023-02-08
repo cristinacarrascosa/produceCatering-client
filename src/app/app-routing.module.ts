@@ -50,6 +50,7 @@ import { LineaservicioRemoveAdminRoutedComponent } from './component/application
 import { LineaservicioNewAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-new-admin-routed/lineaservicio-new-admin-routed.component';
 import { LineaservicioEditAdminRoutedComponent } from './component/application/LineaServicio/routed/admin/lineaservicio-edit-admin-routed/lineaservicio-edit-admin-routed.component';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
+import { UsuarioViewUserRoutedComponent } from './component/application/Usuario/routed/user/usuario-view-user-routed/usuario-view-user-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -66,6 +67,7 @@ const routes: Routes = [
   { path: 'admin/usuario/remove/:id', component: UsuarioRemoveAdminRoutedComponent},
   { path: 'admin/usuario/new', component: UsuarioNewAdminRoutedComponent},
   { path: 'admin/usuario/edit/:id', component: UsuarioEditAdminRoutedComponent},
+  { path: 'user/usuario/view/:id', component: UsuarioViewUserRoutedComponent },
   //espacio
   { path: 'admin/espacio/view/:id', component: EspacioViewAdminRoutedComponent },
   { path: 'admin/espacio/plist' , component: EspacioPlistAdminRoutedComponent},
@@ -110,7 +112,7 @@ const routes: Routes = [
   { path: 'admin/lineaescandallo/edit/:id', component: LineaescandalloEditAdminRoutedComponent},
   // lineaservicio
   { path: 'admin/lineaservicio/plist', component: LineaservicioPlistAdminRoutedComponent},
-  { path: 'admin/lineaservicio/plist/:id', component: LineaservicioPlistAdminRoutedComponent},//para ver las lineas de un servicio
+  { path: 'admin/lineaservicio/plist/servicio:id_servicio', component: LineaservicioPlistAdminRoutedComponent},//para ver las lineas de un servicio
   { path: 'admin/lineaservicio/view/:id', component: LineaservicioViewAdminRoutedComponent},
   { path: 'admin/lineaservicio/remove/:id', component: LineaservicioRemoveAdminRoutedComponent},
   { path: 'admin/lineaservicio/new', component: LineaservicioNewAdminRoutedComponent},

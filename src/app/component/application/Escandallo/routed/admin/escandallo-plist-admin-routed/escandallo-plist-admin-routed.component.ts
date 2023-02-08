@@ -21,7 +21,7 @@ export class EscandalloPlistAdminRoutedComponent {
   page: number = 0;
   sortField: string = "";
   sortDirection: string = "";
-
+  id_escandallo: number = 0;
 
   faEye = faEye;
   faUserPen = faUserPen;
