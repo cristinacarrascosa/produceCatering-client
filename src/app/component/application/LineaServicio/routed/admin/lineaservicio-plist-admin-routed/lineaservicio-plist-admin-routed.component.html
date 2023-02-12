@@ -38,6 +38,7 @@
             <th (click)="setOrder('servicio.id')">Servicio</th>
             <th (click)="setOrder('fecha')">Fecha</th>
             <th (click)="setOrder('salon.id')">Salon</th>
+            <th (click)="setOrder('espacio.nombre')">Espacio</th>
 
             <th (click)="setOrder('pax')">Pax</th>
             <th>Acciones</th>
@@ -58,10 +59,11 @@
 
             <td>{{lineaservicio.servicio.fechaHora | date: 'dd/MM/yy HH:mm'}}</td>
 
-            <td (click)="setFilterBySalon(lineaservicio.servicio.salon.nombre)">
-              {{lineaservicio.servicio.salon.nombre}}</td>
+            <td (click)="setFilterBySalon(lineaservicio.servicio.salon.id)">
+               {{lineaservicio.servicio.salon.nombre}}</td>
 
-
+              <td (click)="setFilter(lineaservicio.servicio.salon.espacio.nombre)">
+                {{lineaservicio.servicio.salon.espacio.nombre}}</td>
 
             <td>{{lineaservicio.pax}}</td>
 
