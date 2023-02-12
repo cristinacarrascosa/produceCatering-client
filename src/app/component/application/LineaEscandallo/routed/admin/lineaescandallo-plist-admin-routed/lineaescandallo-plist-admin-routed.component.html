@@ -15,10 +15,10 @@
       <div class="col-md text-start">
         <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
         <button class="btn btn-outline-danger" *ngIf="id_escandallo!=0" (click)="setFilterByEscandallo(0)">
-          <i class="bi bi-x-circle"></i> Reset escandallo {{id_escandallo}} filter</button>
+          <i class="bi bi-x-circle"></i> Quitar filtro id escandallo nº{{id_escandallo}}</button>
 
         <button class="btn btn-outline-danger" *ngIf="id_referencia!=0" (click)="setFilterByReferencia(0)">
-          <i class="bi bi-x-circle"></i> Reset referencia {{id_referencia}} filter</button>
+          <i class="bi bi-x-circle"></i> Quitar filtro id referencia nº{{id_referencia}}</button>
       </div>
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
@@ -32,6 +32,8 @@
             </th>
             <th (click)="setOrder('escandallo.id')">Escandallo</th>
             <th (click)="setOrder('referencia.id')">Referencia</th>
+            <th>Referencias que hay en este escandallo</th>
+            <th>Servicios que contienen este escandallo</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -40,8 +42,13 @@
             <td>{{lineaescandallo.id}}</td>
             <td (click)="setFilterByEscandallo(lineaescandallo.escandallo.id)">
               {{lineaescandallo.escandallo.id}} - {{lineaescandallo.escandallo.nombre}}</td>
+
               <td (click)="setFilterByReferencia(lineaescandallo.referencia.id)">
                {{lineaescandallo.referencia.nombre}}</td>
+
+               <td>{{lineaescandallo.escandallo.lineasEscandallo}}</td>
+
+               <td>{{lineaescandallo.escandallo.lineasServicio}}</td>
 
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">

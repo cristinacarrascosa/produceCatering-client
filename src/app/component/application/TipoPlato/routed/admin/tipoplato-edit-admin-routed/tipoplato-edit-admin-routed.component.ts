@@ -53,7 +53,7 @@ export class TipoplatoEditAdminRoutedComponent implements OnInit {
         console.log("datos: "+data);
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id, [Validators.required]],
-          nombre: [data.nombre, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+          nombre: [data.nombre, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
 
         });
 
@@ -92,7 +92,7 @@ export class TipoplatoEditAdminRoutedComponent implements OnInit {
     this.myModal.show()
   }
 
- 
+
 
 }
 

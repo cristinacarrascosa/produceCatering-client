@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Lista de Lineas de Servicio</h1>
+      <h1 class="text-center mb-5">Listado de Lineas de Servicio</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
         <a [routerLink]="['/admin/lineaservicio/new']" class="btn btn-primary mx-3">Nueva Linea de Servicio</a>
         <app-search-unrouted [placeHolder]="'Buscar '" (onSearch)="setFilter( $event )"></app-search-unrouted>
@@ -19,6 +19,9 @@
 
         <button class="btn btn-outline-danger" *ngIf="id_servicio!=0" (click)="setFilterByServicio(0)">
           <i class="bi bi-x-circle"></i> Reset servicio {{id_servicio}} filter</button>
+
+          <!-- <button class="btn btn-outline-danger" *ngIf="salon!=''" (click)="setFilterBySalon('')">
+            <i class="bi bi-x-circle"></i> Reset salon {{salon}} filter</button> -->
       </div>
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
@@ -31,7 +34,11 @@
               <fa-icon *ngIf="sortField=='id'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
             <th (click)="setOrder('escandallo.id')">Escandallo</th>
+            <th (click)="setOrder('lineasServicio')">Escandallos que contiene el Servicio</th>
             <th (click)="setOrder('servicio.id')">Servicio</th>
+            <th (click)="setOrder('fecha')">Fecha</th>
+            <th (click)="setOrder('salon.id')">Salon</th>
+
             <th (click)="setOrder('pax')">Pax</th>
             <th>Acciones</th>
           </tr>
@@ -39,13 +46,22 @@
         <tbody>
           <tr *ngFor="let lineaservicio of responseFromServer.content">
 
-            <td>{{lineaservicio.id}}</td>
+            <td>{{lineaservicio.id}} </td>
 
             <td (click)="setFilterByEscandallo(lineaservicio.escandallo.id)">
-              {{lineaservicio.escandallo.id}} - {{lineaservicio.escandallo.nombre}}</td>
+              ID {{lineaservicio.escandallo.id}} - {{lineaservicio.escandallo.nombre}}</td>
+
+            <td>{{lineaservicio.servicio.lineasServicio}}</td>
 
             <td (click)="setFilterByServicio(lineaservicio.servicio.id)">
               {{lineaservicio.servicio.id}}</td>
+
+            <td>{{lineaservicio.servicio.fechaHora | date: 'dd/MM/yy HH:mm'}}</td>
+
+            <td (click)="setFilterBySalon(lineaservicio.servicio.salon.nombre)">
+              {{lineaservicio.servicio.salon.nombre}}</td>
+
+
 
             <td>{{lineaservicio.pax}}</td>
 

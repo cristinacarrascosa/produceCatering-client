@@ -57,7 +57,7 @@ export class EscandalloEditAdminRoutedComponent implements OnInit {
         console.log("datos: "+data);
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id, [Validators.required]],
-          nombre: [data.nombre, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+          nombre: [data.nombre, [Validators.required, Validators.minLength(5), Validators.maxLength(300)]],
           id_tipoplato: [data.tipoplato.id, [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
 
         });

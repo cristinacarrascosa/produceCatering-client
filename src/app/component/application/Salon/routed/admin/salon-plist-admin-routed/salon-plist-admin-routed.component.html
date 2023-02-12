@@ -15,7 +15,7 @@
       <div class="col-md text-start">
         <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
         <button class="btn btn-outline-danger" *ngIf="id_espacio!=0" (click)="setFilterByTipousuario(0)">
-          <i class="bi bi-x-circle"></i> Reset usertype {{id_espacio}} filter</button>
+          <i class="bi bi-x-circle"></i> Quitar filtro espacio {{id_espacio}} id</button>
       </div>
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
@@ -29,6 +29,8 @@
             </th>
             <th (click)="setOrder('espacio.id')">Espacio</th>
             <th (click)="setOrder('nombre')">Salon</th>
+
+            <th>Servicios que tiene el salon</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -36,8 +38,10 @@
           <tr *ngFor="let salon of responseFromServer.content">
             <td>{{salon.id}}</td>
             <td (click)="setFilterByTipousuario(salon.espacio.id)">
-              {{salon.espacio.nombre}}-{{salon.espacio.id}}</td>
+              {{salon.espacio.nombre}}</td>
             <td>{{salon.nombre}}</td>
+           
+            <td>{{salon.servicios}}</td>
             <td>
               <!--  -->
               <div class="btn-group" role="group" aria-label="Herramientas">

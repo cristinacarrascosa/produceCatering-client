@@ -18,6 +18,7 @@ export class LineaservicioPlistAdminRoutedComponent {
   strTermFilter: string = "";
   id_servicio: number = 0;
   id_escandallo: number = 0;
+  salon: string = "";
   numberOfElements: number = 5;
   page: number = 0;
   sortField: string = "";
@@ -81,6 +82,11 @@ export class LineaservicioPlistAdminRoutedComponent {
 
   setFilterByServicio(id: number): void {
     this.id_servicio = id;
+    this.getPage();
+  }
+
+  setFilterBySalon(nombre: string): void {
+    this.salon = nombre;
     this.getPage();
   }
 

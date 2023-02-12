@@ -15,10 +15,10 @@
       <div class="col-md text-start">
         <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
         <button class="btn btn-outline-danger" *ngIf="id_usuario!=0" (click)="setFilterByUsuario(0)">
-          <i class="bi bi-x-circle"></i> Reset usertype {{id_usuario}} filter</button>
+          <i class="bi bi-x-circle"></i> Quitar filtro id {{id_usuario}} usuario</button>
 
         <button class="btn btn-outline-danger" *ngIf="id_salon!=0" (click)="setFilterBySalon(0)">
-          <i class="bi bi-x-circle"></i> Reset usertype {{id_salon}} filter</button>
+          <i class="bi bi-x-circle"></i> Quitar filtro id {{id_salon}} salon</button>
       </div>
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
@@ -30,8 +30,10 @@
               <fa-icon *ngIf="sortField=='id'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
               <fa-icon *ngIf="sortField=='id'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
-            <th (click)="setOrder('usuario.id')">Usuario</th>
+            <th (click)="setOrder('usuario.id')">Responsable</th>
             <th (click)="setOrder('salon.id')">Salon</th>
+            <th (click)="setOrder('salon.espacio.nombre')">Espacio</th>
+            <th (click)="setOrder('lineasServicio')">Platos que tiene el servicio</th>
             <th (click)="setOrder('comensales')">Comensales</th>
             <th (click)="setOrder('fechaHora')">Fecha y Hora</th>
             <th>Acciones</th>
@@ -44,6 +46,8 @@
               {{servicio.usuario.nombre}} {{servicio.usuario.apellidos}}</td>
               <td (click)="setFilterBySalon(servicio.salon.id)">
                {{servicio.salon.nombre}}</td>
+            <td>{{servicio.salon.espacio.nombre}}</td>
+            <td>{{servicio.lineasServicio}}</td>
             <td>{{servicio.comensales}}</td>
             <td>{{servicio.fechaHora | date: 'dd/MM/yy HH:mm'}}</td>
             <td>

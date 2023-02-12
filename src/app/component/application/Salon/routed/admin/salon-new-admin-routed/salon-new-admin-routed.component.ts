@@ -43,7 +43,7 @@ export class SalonNewAdminRoutedComponent implements OnInit {
   ngOnInit(): void {
     this.oForm = <FormGroup>this.oFormBuilder.group({
       id: [""],
-      nombre: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+      nombre: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       id_espacio: ["", [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
     });
   }

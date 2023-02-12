@@ -28,6 +28,7 @@
               <fa-icon *ngIf="sortField=='id'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
             <th (click)="setOrder('nombre')">Nombre</th>
+            <th>Escandallos que la contienen</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -35,6 +36,7 @@
           <tr *ngFor="let referencia of responseFromServer.content">
             <td>{{referencia.id}}</td>
             <td>{{referencia.nombre}}</td>
+            <td>{{referencia.lineasEscandallo}}</td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
               <button class="btn btn-outline-primary" [routerLink]="['/admin/referencia/view',referencia.id]">

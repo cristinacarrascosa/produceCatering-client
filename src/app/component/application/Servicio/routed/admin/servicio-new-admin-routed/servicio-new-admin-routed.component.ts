@@ -53,7 +53,7 @@ fechahora: Date;
     this.oForm = <FormGroup>this.oFormBuilder.group({
       id: [""],
       comensales: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(4)]],
-      fechahora: ["", [Validators.required]],
+      fechaHora: ["", [Validators.required]],
       id_usuario: ["", [Validators.required, Validators.pattern(/^\d{1,6}$/)]],
       id_salon: ["", [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
     });
