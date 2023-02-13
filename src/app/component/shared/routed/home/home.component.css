@@ -11,3 +11,26 @@
   text-align: center;
 }
 
+.jumbotron{
+  margin-top: 15%;
+
+}
+
+h1{
+  font-size: 3em;
+  font-weight: 900;
+  color: black;
+}
+
+p{
+  margin-top: 2em;
+  font-size: 2em;
+  font-weight: 900;
+  color: black;
+}
+
+.registro{
+
+  color: #ce3305;
+}
+
