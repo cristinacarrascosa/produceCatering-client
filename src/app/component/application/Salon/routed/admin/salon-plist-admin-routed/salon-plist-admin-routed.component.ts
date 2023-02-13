@@ -79,7 +79,7 @@ export class SalonPlistAdminRoutedComponent {
     this.getPage();
   }
 
-  setFilterByTipousuario(id: number): void {
+  setFilterByEspacio(id: number): void {
     this.id_espacio = id;
     this.getPage();
   }
