@@ -4,6 +4,7 @@ import { IPage } from 'src/app/model/shared-interface';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { ServicioService } from 'src/app/service/servicio.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -16,8 +17,10 @@ export class ServicioPlistAdminRoutedComponent {
   responseFromServer: IPage<IServicio>;
 
   strTermFilter: string = "";
-  id_salon: number = 0;
-  id_usuario: number = 0;
+  //Claves Ajenas
+  id_SalonFilter: number = 0;
+  id_UsuarioFilter: number = 0;
+  //
   numberOfElements: number = 5;
   page: number = 0;
   sortField: string = "";
@@ -30,16 +33,23 @@ export class ServicioPlistAdminRoutedComponent {
   faArrowDown = faArrowDown;
 
   constructor(
-    private oServicioService: ServicioService
-  ) { }
+    private oServicioService: ServicioService,
+    private oActivatedRoute: ActivatedRoute
+  ) {
+    // this.id_UsuarioFilter = oActivatedRoute.snapshot.params['id'];
+
+    // if(this.id_usuario == undefined)
+    // {
+    //   this.id_usuario = 0;
+    // }
+   }
 
   ngOnInit(): void {
     this.getPage();
   }
 
   getPage() {
-    this.oServicioService.getServicioPlist(this.page, this.numberOfElements,
-      this.strTermFilter, this.id_salon, this.id_usuario,this.sortField, this.sortDirection)
+    this.oServicioService.getServicioPlist(this.page, this.numberOfElements, this.strTermFilter, this.id_UsuarioFilter, this.id_SalonFilter,this.sortField, this.sortDirection)
       .subscribe({
         next: (resp: IPage<IServicio>) => {
           this.responseFromServer = resp;
@@ -53,15 +63,10 @@ export class ServicioPlistAdminRoutedComponent {
       })
   }
 
-
-
-
   setPage(e: number) {
     this.page = e - 1;
     this.getPage();
   }
-
-
 
   setRpp(rpp: number) {
     this.numberOfElements = rpp;
@@ -74,13 +79,13 @@ export class ServicioPlistAdminRoutedComponent {
     this.getPage();
   }
 
-  setFilterByUsuario(id: number): void {
-    this.id_usuario = id;
+  setFilterByUsuario(id_UsuarioFilter: number): void {
+    this.id_UsuarioFilter = id_UsuarioFilter;
     this.getPage();
   }
 
-  setFilterBySalon(id: number): void {
-    this.id_salon = id;
+  setFilterBySalon(id_SalonFilter: number): void {
+    this.id_SalonFilter = id_SalonFilter;
     this.getPage();
   }
 

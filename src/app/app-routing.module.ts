@@ -82,6 +82,7 @@ const routes: Routes = [
   { path: 'admin/salon/edit/:id', component: SalonEditAdminRoutedComponent},
   // servicio
   { path: 'admin/servicio/plist', component: ServicioPlistAdminRoutedComponent},
+  { path: 'admin/servicio/plist/usuario/:id', component: ServicioPlistAdminRoutedComponent},
   { path: 'admin/servicio/view/:id', component: ServicioViewAdminRoutedComponent},
   { path: 'admin/servicio/remove/:id', component: ServicioRemoveAdminRoutedComponent},
   { path: 'admin/servicio/new', component: ServicioNewAdminRoutedComponent},
