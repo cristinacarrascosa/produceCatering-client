@@ -1,11 +1,11 @@
-.container-fluid{
+/* .container-fluid{
   height: 100vh;
   width: 100vw;
   background-image: url(../../../../../../assets/img/56616-cocina.jpg);
-  background-size: cover;
+  background-size: cover; */
   /* que la imagen se adapte al contenedor */
 
-  background-position: center;
+/*   background-position: center; */
   /* para que muestre el centro de la imagen cuando reducimos */
-
-}
+/*
+} */
