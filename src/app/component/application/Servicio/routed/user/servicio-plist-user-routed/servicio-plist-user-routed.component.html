@@ -4,6 +4,7 @@
       <h1 class="text-center mb-5">Lista de Servicios</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
 
+        <!-- new -->
         <a [routerLink]="['/user/servicio/new']" class="btn btn-primary mx-3">Nuevo Servicio</a>
         <app-search-unrouted [placeHolder]="'Filtrar por fecha'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.size"
@@ -63,7 +64,7 @@
                 <fa-icon [icon]="faEye"></fa-icon>
               </button>
               <!-- edit -->
-              <button class="btn btn-outline-warning" [routerLink]="['/admin/servicio/edit',servicio.id]">
+              <button class="btn btn-outline-warning" [routerLink]="['/user/servicio/edit',servicio.id]">
                 <fa-icon [icon]="faUserPen"></fa-icon>
               </button>
 

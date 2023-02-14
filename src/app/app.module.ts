@@ -101,6 +101,7 @@ import { UsuarioViewUserRoutedComponent } from './component/application/Usuario/
 import { ServicioPlistUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-plist-user-routed/servicio-plist-user-routed.component';
 import { ServicioViewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-view-user-routed/servicio-view-user-routed.component';
 import { ServicioNewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-new-user-routed/servicio-new-user-routed.component';
+import { ServicioEditUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-edit-user-routed/servicio-edit-user-routed.component';
 
 
 @NgModule({
@@ -177,6 +178,7 @@ import { ServicioNewUserRoutedComponent } from './component/application/Servicio
     ServicioPlistUserRoutedComponent,
     ServicioViewUserRoutedComponent,
     ServicioNewUserRoutedComponent,
+    ServicioEditUserRoutedComponent,
 
 
 
