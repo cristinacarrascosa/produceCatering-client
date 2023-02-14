@@ -98,6 +98,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { CryptoService } from './service/crypto.service';
 import { showDateTimePipe } from './pipes/show-date-time.pipe';
 import { UsuarioViewUserRoutedComponent } from './component/application/Usuario/routed/user/usuario-view-user-routed/usuario-view-user-routed.component';
+import { ServicioPlistUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-plist-user-routed/servicio-plist-user-routed.component';
 
 
 @NgModule({
@@ -171,6 +172,7 @@ import { UsuarioViewUserRoutedComponent } from './component/application/Usuario/
     FooterComponent,
     showDateTimePipe,
     UsuarioViewUserRoutedComponent,
+    ServicioPlistUserRoutedComponent,
 
 
 

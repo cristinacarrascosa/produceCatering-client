@@ -40,8 +40,8 @@
 
         <!-- gestion de espacios-->
         <li class="nav-item dropdown" *ngIf="strUserName">
-          <a class="nav link-3 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-            aria-expanded="false" *ngIf="strUserName=='admin'">Gestión de Espacios</a>
+          <a class="nav link-3 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"
+            *ngIf="strUserName=='admin'">Gestión de Espacios</a>
           <ul class="dropdown-menu">
             <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active"
                 routerLink="admin/espacio/plist">Espacios</a></li>
@@ -55,10 +55,19 @@
         <li class="nav-item dropdown" *ngIf="strUserName">
           <a class="nav link-3 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
             aria-expanded="false">Gestión de Eventos</a>
+
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/servicio/plist">Servicio</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active" routerLink="admin/servicio/plist">
+                Servicio</a>
+            </li>
+            <li><a class="dropdown-item" routerLinkActive="active" routerLink="user/servicio/plist">
+              Servicio</a>
+          </li>
             <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active"
-              routerLink="admin/lineaservicio/plist">Lineas-Servicio</a></li>
+                routerLink="admin/lineaservicio/plist">
+                Lineas-Servicio</a>
+            </li>
+
           </ul>
         </li>
 
@@ -70,8 +79,8 @@
           <ul class="dropdown-menu">
             <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active"
                 routerLink="admin/escandallo/plist">Escandallos</a></li>
-                <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active"
-                  routerLink="admin/lineaescandallo/plist">Lineas-Escandallo</a></li>
+            <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active"
+                routerLink="admin/lineaescandallo/plist">Lineas-Escandallo</a></li>
             <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active"
                 routerLink="admin/referencia/plist">Referencias</a></li>
 
@@ -80,7 +89,7 @@
             </li>
 
             <li *ngIf="strUserName=='admin'"><a class="dropdown-item" routerLinkActive="active"
-              routerLink="admin/tipoplato/plist">Tipos de Plato</a></li>
+                routerLink="admin/tipoplato/plist">Tipos de Plato</a></li>
           </ul>
         </li>
 
@@ -90,17 +99,17 @@
       <!-- Muestra el nombre cuando estás logeado -->
 
 
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="usuario"
-              *ngIf="strUserName">Logged
-              in as: {{strUserName}}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="logout"
-              *ngIf="strUserName">Logout</a>
-          </li>
-        </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="usuario"
+            *ngIf="strUserName">Logged
+            in as: {{strUserName}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="logout"
+            *ngIf="strUserName">Logout</a>
+        </li>
+      </ul>
 
 
 

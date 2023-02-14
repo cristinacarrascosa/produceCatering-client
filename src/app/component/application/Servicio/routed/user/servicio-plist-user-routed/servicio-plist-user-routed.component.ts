@@ -1,18 +1,17 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IServicio } from 'src/app/model/servicio-interface';
 import { IPage } from 'src/app/model/shared-interface';
-import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { ServicioService } from 'src/app/service/servicio.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
-
 
 @Component({
-  selector: 'app-servicio-plist-admin-routed',
-  templateUrl: './servicio-plist-admin-routed.component.html',
-  styleUrls: ['./servicio-plist-admin-routed.component.css']
+  selector: 'app-servicio-plist-user-routed',
+  templateUrl: './servicio-plist-user-routed.component.html',
+  styleUrls: ['./servicio-plist-user-routed.component.css']
 })
-export class ServicioPlistAdminRoutedComponent {
+export class ServicioPlistUserRoutedComponent {
 
   responseFromServer: IPage<IServicio>;
 
@@ -36,7 +35,13 @@ export class ServicioPlistAdminRoutedComponent {
     private oServicioService: ServicioService,
     private oActivatedRoute: ActivatedRoute
   ) {
-    
+    /** para cuando quiera hacer el plist enrutado
+     this.id_UsuarioFilter = oActivatedRoute.snapshot.params['id'];
+
+     if(this.id_usuario == undefined)
+     {
+      this.id_usuario = 0;
+     }  */
    }
 
   ngOnInit(): void {
@@ -93,8 +98,5 @@ export class ServicioPlistAdminRoutedComponent {
     }
     this.getPage();
   }
-
-
-
 
 }
