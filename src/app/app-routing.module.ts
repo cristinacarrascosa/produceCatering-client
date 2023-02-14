@@ -52,6 +52,7 @@ import { LineaservicioEditAdminRoutedComponent } from './component/application/L
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 import { UsuarioViewUserRoutedComponent } from './component/application/Usuario/routed/user/usuario-view-user-routed/usuario-view-user-routed.component';
 import { ServicioPlistUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-plist-user-routed/servicio-plist-user-routed.component';
+import { ServicioViewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-view-user-routed/servicio-view-user-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -86,6 +87,7 @@ const routes: Routes = [
   { path: 'user/servicio/plist', component: ServicioPlistUserRoutedComponent},
   { path: 'admin/servicio/plist/usuario/:id', component: ServicioPlistAdminRoutedComponent},
   { path: 'admin/servicio/view/:id', component: ServicioViewAdminRoutedComponent},
+  { path: 'user/servicio/view/:id', component: ServicioViewUserRoutedComponent},
   { path: 'admin/servicio/remove/:id', component: ServicioRemoveAdminRoutedComponent},
   { path: 'admin/servicio/new', component: ServicioNewAdminRoutedComponent},
   { path: 'admin/servicio/edit/:id', component: ServicioEditAdminRoutedComponent},

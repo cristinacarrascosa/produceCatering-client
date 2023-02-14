@@ -99,6 +99,7 @@ import { CryptoService } from './service/crypto.service';
 import { showDateTimePipe } from './pipes/show-date-time.pipe';
 import { UsuarioViewUserRoutedComponent } from './component/application/Usuario/routed/user/usuario-view-user-routed/usuario-view-user-routed.component';
 import { ServicioPlistUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-plist-user-routed/servicio-plist-user-routed.component';
+import { ServicioViewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-view-user-routed/servicio-view-user-routed.component';
 
 
 @NgModule({
@@ -173,6 +174,7 @@ import { ServicioPlistUserRoutedComponent } from './component/application/Servic
     showDateTimePipe,
     UsuarioViewUserRoutedComponent,
     ServicioPlistUserRoutedComponent,
+    ServicioViewUserRoutedComponent,
 
 
 
