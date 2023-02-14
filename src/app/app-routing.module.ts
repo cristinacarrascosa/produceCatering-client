@@ -53,6 +53,7 @@ import { LogoutComponent } from './component/shared/routed/logout/logout.compone
 import { UsuarioViewUserRoutedComponent } from './component/application/Usuario/routed/user/usuario-view-user-routed/usuario-view-user-routed.component';
 import { ServicioPlistUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-plist-user-routed/servicio-plist-user-routed.component';
 import { ServicioViewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-view-user-routed/servicio-view-user-routed.component';
+import { ServicioNewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-new-user-routed/servicio-new-user-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -60,9 +61,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent},
   { path: 'logout', component: LogoutComponent},
-
   { path: 'admin/random/load', component: GenerateComponent},
+
+  //tipoUsuario
   { path: 'admin/tipousuario/plist', component: TipousuarioPlistAdminRoutedComponent },
+
   //usuario
   { path: 'admin/usuario/view/:id', component: UsuarioViewAdminRoutedComponent },
   { path: 'admin/usuario/plist', component: UsuarioPlistAdminRoutedComponent},
@@ -70,51 +73,62 @@ const routes: Routes = [
   { path: 'admin/usuario/new', component: UsuarioNewAdminRoutedComponent},
   { path: 'admin/usuario/edit/:id', component: UsuarioEditAdminRoutedComponent},
   { path: 'user/usuario/view/:id', component: UsuarioViewUserRoutedComponent },
+
   //espacio
   { path: 'admin/espacio/view/:id', component: EspacioViewAdminRoutedComponent },
   { path: 'admin/espacio/plist' , component: EspacioPlistAdminRoutedComponent},
   { path: 'admin/espacio/remove/:id', component: EspacioRemoveAdminRoutedComponent},
   { path: 'admin/espacio/new', component: EspacioNewAdminRoutedComponent},
   { path: 'admin/espacio/edit/:id', component: EspacioEditAdminRoutedComponent},
+
   // salon
   { path: 'admin/salon/plist', component: SalonPlistAdminRoutedComponent},
   { path: 'admin/salon/view/:id', component: SalonViewAdminRoutedComponent},
   { path: 'admin/salon/remove/:id', component: SalonRemoveAdminRoutedComponent},
   { path: 'admin/salon/new', component: SalonNewAdminRoutedComponent},
   { path: 'admin/salon/edit/:id', component: SalonEditAdminRoutedComponent},
+
   // servicio
+  // admin
   { path: 'admin/servicio/plist', component: ServicioPlistAdminRoutedComponent},
-  { path: 'user/servicio/plist', component: ServicioPlistUserRoutedComponent},
   { path: 'admin/servicio/plist/usuario/:id', component: ServicioPlistAdminRoutedComponent},
   { path: 'admin/servicio/view/:id', component: ServicioViewAdminRoutedComponent},
-  { path: 'user/servicio/view/:id', component: ServicioViewUserRoutedComponent},
   { path: 'admin/servicio/remove/:id', component: ServicioRemoveAdminRoutedComponent},
   { path: 'admin/servicio/new', component: ServicioNewAdminRoutedComponent},
   { path: 'admin/servicio/edit/:id', component: ServicioEditAdminRoutedComponent},
+  // user
+  { path: 'user/servicio/plist', component: ServicioPlistUserRoutedComponent},
+  { path: 'user/servicio/view/:id', component: ServicioViewUserRoutedComponent},
+  { path: 'user/servicio/new', component: ServicioNewUserRoutedComponent},
+
   // tipoplato
   { path: 'admin/tipoplato/plist', component: TipoplatoPlistAdminRoutedComponent},
   { path: 'admin/tipoplato/view/:id', component: TipoplatoViewAdminRoutedComponent},
   { path: 'admin/tipoplato/remove/:id', component: TipoplatoRemoveAdminRoutedComponent},
   { path: 'admin/tipoplato/new', component: TipoplatoNewAdminRoutedComponent},
   { path: 'admin/tipoplato/edit/:id', component: TipoplatoEditAdminRoutedComponent},
+
   // escandallo
   { path: 'admin/escandallo/plist', component: EscandalloPlistAdminRoutedComponent},
   { path: 'admin/escandallo/view/:id', component: EscandalloViewAdminRoutedComponent},
   { path: 'admin/escandallo/remove/:id', component: EscandalloRemoveAdminRoutedComponent},
   { path: 'admin/escandallo/new', component: EscandalloNewAdminRoutedComponent},
   { path: 'admin/escandallo/edit/:id', component: EscandalloEditAdminRoutedComponent},
+
   // referencia
   { path: 'admin/referencia/plist', component: ReferenciaPlistAdminRoutedComponent},
   { path: 'admin/referencia/view/:id', component: ReferenciaViewAdminRoutedComponent},
   { path: 'admin/referencia/remove/:id', component: ReferenciaRemoveAdminRoutedComponent},
   { path: 'admin/referencia/new', component: ReferenciaNewAdminRoutedComponent},
   { path: 'admin/referencia/edit/:id', component: ReferenciaEditAdminRoutedComponent},
+
   // lineaescandallo
   { path: 'admin/lineaescandallo/plist', component: LineaescandalloPlistAdminRoutedComponent},
   { path: 'admin/lineaescandallo/view/:id', component: LineaescandalloViewAdminRoutedComponent},
   { path: 'admin/lineaescandallo/remove/:id', component: LineaescandalloRemoveAdminRoutedComponent},
   { path: 'admin/lineaescandallo/new', component: LineaescandalloNewAdminRoutedComponent},
   { path: 'admin/lineaescandallo/edit/:id', component: LineaescandalloEditAdminRoutedComponent},
+  
   // lineaservicio
   { path: 'admin/lineaservicio/plist', component: LineaservicioPlistAdminRoutedComponent},
   { path: 'admin/lineaservicio/plist/servicio:id_servicio', component: LineaservicioPlistAdminRoutedComponent},//para ver las lineas de un servicio
