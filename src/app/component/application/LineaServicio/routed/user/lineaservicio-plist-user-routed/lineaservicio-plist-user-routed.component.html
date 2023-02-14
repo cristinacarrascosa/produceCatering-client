@@ -1,0 +1,93 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Listado de Lineas de Servicio</h1>
+      <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
+        <a [routerLink]="['/admin/lineaservicio/new']" class="btn btn-primary mx-3">Nueva Linea de Servicio</a>
+        <app-search-unrouted [placeHolder]="'Buscar '" (onSearch)="setFilter( $event )"></app-search-unrouted>
+        <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.size" (eeRpp)="this.setRpp($event)">
+        </app-dropdown-register-page>
+      </div>
+      <div class="col-md text-center">
+        <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
+          (eePage)="setPage($event)"></app-pagination-unrouted>
+      </div>
+      <div class="col-md text-start">
+        <h5 class="text-muted" *ngIf="strTermFilter!=''">Filtrando por {{strTermFilter}} (borrar para resetear)</h5>
+        <button class="btn btn-outline-danger" *ngIf="id_escandallo!=0" (click)="setFilterByEscandallo(0)">
+          <i class="bi bi-x-circle"></i> Reset escandallo {{id_escandallo}} filter</button>
+
+        <button class="btn btn-outline-danger" *ngIf="id_servicio!=0" (click)="setFilterByServicio(0)">
+          <i class="bi bi-x-circle"></i> Reset servicio {{id_servicio}} filter</button>
+
+          <!-- <button class="btn btn-outline-danger" *ngIf="salon!=''" (click)="setFilterBySalon('')">
+            <i class="bi bi-x-circle"></i> Reset salon {{salon}} filter</button> -->
+      </div>
+      <div class="col-md text-end">
+        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th (click)="setOrder('id')">ID
+              <fa-icon *ngIf="sortField=='id'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
+              <fa-icon *ngIf="sortField=='id'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
+            </th>
+            <th (click)="setOrder('escandallo.id')">Escandallo</th>
+            <th (click)="setOrder('lineasServicio')">Escandallos que contiene el Servicio</th>
+            <th (click)="setOrder('servicio.id')">Servicio</th>
+            <th (click)="setOrder('fecha')">Fecha</th>
+            <th (click)="setOrder('salon.id')">Salon</th>
+            <th (click)="setOrder('espacio.nombre')">Espacio</th>
+
+            <th (click)="setOrder('pax')">Pax</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lineaservicio of responseFromServer.content">
+
+            <td>{{lineaservicio.id}} </td>
+
+            <td (click)="setFilterByEscandallo(lineaservicio.escandallo.id)">
+              ID {{lineaservicio.escandallo.id}} - {{lineaservicio.escandallo.nombre}}</td>
+
+            <td>{{lineaservicio.servicio.lineasServicio}}</td>
+
+            <td (click)="setFilterByServicio(lineaservicio.servicio.id)">
+              {{lineaservicio.servicio.id}}</td>
+
+            <td>{{lineaservicio.servicio.fechaHora | date: 'dd/MM/yy HH:mm'}}</td>
+
+            <td (click)="setFilterBySalon(lineaservicio.servicio.salon.id)">
+               {{lineaservicio.servicio.salon.nombre}}</td>
+
+              <td (click)="setFilter(lineaservicio.servicio.salon.espacio.nombre)">
+                {{lineaservicio.servicio.salon.espacio.nombre}}</td>
+
+            <td>{{lineaservicio.pax}}</td>
+
+            <td>
+              <div class="btn-group" role="group" aria-label="Herramientas">
+                <!--  -->
+                <button class="btn btn-outline-primary" [routerLink]="['/admin/lineaservicio/view',lineaservicio.id]">
+                  <fa-icon [icon]="faEye"></fa-icon>
+                </button>
+                <!--  -->
+                <button class="btn btn-outline-warning" [routerLink]="['/admin/lineaservicio/edit',lineaservicio.id]">
+                  <fa-icon [icon]="faUserPen"></fa-icon>
+                </button>
+                <!--  -->
+                <button class="btn btn-outline-danger"
+                  [routerLink]="['/admin','lineaservicio','remove',lineaservicio.id]">
+                  <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

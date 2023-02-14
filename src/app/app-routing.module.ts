@@ -55,6 +55,7 @@ import { ServicioPlistUserRoutedComponent } from './component/application/Servic
 import { ServicioViewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-view-user-routed/servicio-view-user-routed.component';
 import { ServicioNewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-new-user-routed/servicio-new-user-routed.component';
 import { ServicioEditUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-edit-user-routed/servicio-edit-user-routed.component';
+import { LineaservicioPlistUserRoutedComponent } from './component/application/LineaServicio/routed/user/lineaservicio-plist-user-routed/lineaservicio-plist-user-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -132,12 +133,15 @@ const routes: Routes = [
   { path: 'admin/lineaescandallo/edit/:id', component: LineaescandalloEditAdminRoutedComponent},
 
   // lineaservicio
+  // admin
   { path: 'admin/lineaservicio/plist', component: LineaservicioPlistAdminRoutedComponent},
   { path: 'admin/lineaservicio/plist/servicio:id_servicio', component: LineaservicioPlistAdminRoutedComponent},//para ver las lineas de un servicio
   { path: 'admin/lineaservicio/view/:id', component: LineaservicioViewAdminRoutedComponent},
   { path: 'admin/lineaservicio/remove/:id', component: LineaservicioRemoveAdminRoutedComponent},
   { path: 'admin/lineaservicio/new', component: LineaservicioNewAdminRoutedComponent},
   { path: 'admin/lineaservicio/edit/:id', component: LineaservicioEditAdminRoutedComponent},
+  // user
+  { path: 'user/lineaservicio/plist', component: LineaservicioPlistUserRoutedComponent},
 
 ];
 

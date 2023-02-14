@@ -102,6 +102,7 @@ import { ServicioPlistUserRoutedComponent } from './component/application/Servic
 import { ServicioViewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-view-user-routed/servicio-view-user-routed.component';
 import { ServicioNewUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-new-user-routed/servicio-new-user-routed.component';
 import { ServicioEditUserRoutedComponent } from './component/application/Servicio/routed/user/servicio-edit-user-routed/servicio-edit-user-routed.component';
+import { LineaservicioPlistUserRoutedComponent } from './component/application/LineaServicio/routed/user/lineaservicio-plist-user-routed/lineaservicio-plist-user-routed.component';
 
 
 @NgModule({
@@ -179,6 +180,7 @@ import { ServicioEditUserRoutedComponent } from './component/application/Servici
     ServicioViewUserRoutedComponent,
     ServicioNewUserRoutedComponent,
     ServicioEditUserRoutedComponent,
+    LineaservicioPlistUserRoutedComponent,
 
 
 
