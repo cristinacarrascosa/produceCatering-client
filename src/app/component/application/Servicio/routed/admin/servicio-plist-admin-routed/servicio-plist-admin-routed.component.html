@@ -53,7 +53,11 @@
               <td (click)="setFilterBySalon(servicio.salon.id)">
                {{servicio.salon.nombre}}</td>
             <td>{{servicio.salon.espacio.nombre}}</td>
-            <td>{{servicio.lineasServicio}}</td>
+            <td>
+              <button class="btn btn-outline-secondary btn-sm"
+              [routerLink]="['/admin','lineaservicio','plist',servicio.id]"
+              [disabled]="servicio.lineasServicio<=0">
+              {{servicio.lineasServicio}}</button></td>
             <td>{{servicio.comensales}}</td>
             <td>{{servicio.fechaHora | date: 'dd/MM/yy HH:mm'}}</td>
             <td>

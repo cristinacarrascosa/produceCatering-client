@@ -93,7 +93,7 @@ const routes: Routes = [
   // servicio
   // admin
   { path: 'admin/servicio/plist', component: ServicioPlistAdminRoutedComponent},
-  { path: 'admin/servicio/plist/usuario/:id', component: ServicioPlistAdminRoutedComponent},
+  { path: 'admin/servicio/plist/salon/:id', component: ServicioPlistAdminRoutedComponent},
   { path: 'admin/servicio/view/:id', component: ServicioViewAdminRoutedComponent},
   { path: 'admin/servicio/remove/:id', component: ServicioRemoveAdminRoutedComponent},
   { path: 'admin/servicio/new', component: ServicioNewAdminRoutedComponent},
@@ -135,7 +135,7 @@ const routes: Routes = [
   // lineaservicio
   // admin
   { path: 'admin/lineaservicio/plist', component: LineaservicioPlistAdminRoutedComponent},
-  { path: 'admin/lineaservicio/plist/servicio:id_servicio', component: LineaservicioPlistAdminRoutedComponent},//para ver las lineas de un servicio
+  { path: 'admin/lineaservicio/plist/servicio/:id_servicio', component: LineaservicioPlistAdminRoutedComponent, title:'listado de lineas filtrado por servicio'},
   { path: 'admin/lineaservicio/view/:id', component: LineaservicioViewAdminRoutedComponent},
   { path: 'admin/lineaservicio/remove/:id', component: LineaservicioRemoveAdminRoutedComponent},
   { path: 'admin/lineaservicio/new', component: LineaservicioNewAdminRoutedComponent},

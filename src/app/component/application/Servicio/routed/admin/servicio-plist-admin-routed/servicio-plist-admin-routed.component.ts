@@ -4,7 +4,7 @@ import { IPage } from 'src/app/model/shared-interface';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { ServicioService } from 'src/app/service/servicio.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -34,17 +34,24 @@ export class ServicioPlistAdminRoutedComponent {
 
   constructor(
     private oServicioService: ServicioService,
-    private oActivatedRoute: ActivatedRoute
+    private oActivatedRoute: ActivatedRoute,
+    private oRouter: Router,
+
   ) {
-    
-   }
+    const id_salon =  this.oActivatedRoute.snapshot.params['id'];
+    if(id_salon == null){
+      this.id_SalonFilter = 0;
+  }else{
+      this.id_SalonFilter = id_salon;
+  }
+  }
 
   ngOnInit(): void {
     this.getPage();
   }
 
   getPage() {
-    this.oServicioService.getServicioPlist(this.page, this.numberOfElements, this.strTermFilter, this.id_UsuarioFilter, this.id_SalonFilter,this.sortField, this.sortDirection)
+    this.oServicioService.getServicioPlist(this.page, this.numberOfElements, this.strTermFilter, this.id_UsuarioFilter, this.id_SalonFilter, this.sortField, this.sortDirection)
       .subscribe({
         next: (resp: IPage<IServicio>) => {
           this.responseFromServer = resp;
