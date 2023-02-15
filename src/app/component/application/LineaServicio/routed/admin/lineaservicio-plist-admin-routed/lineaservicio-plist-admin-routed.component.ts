@@ -4,6 +4,7 @@ import { LineaservicioService } from 'src/app/service/lineaservicio.service';
 import { ILineaservicio } from '../../../../../../model/lineaservicio-interface';
 import { IPage } from 'src/app/model/shared-interface';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LineaservicioPlistAdminRoutedComponent {
   responseFromServer: IPage<ILineaservicio>;
 
   strTermFilter: string = "";
-  id_servicio: number = 0;
+  id_servicioFilter : number = 0;
   id_escandallo: number = 0;
   id_salon: number = 0;
   numberOfElements: number = 5;
@@ -31,8 +32,17 @@ export class LineaservicioPlistAdminRoutedComponent {
   faArrowDown = faArrowDown;
 
   constructor(
-    private oLineaservicioService: LineaservicioService
-  ) { }
+    private oLineaservicioService: LineaservicioService,
+    private oActivatedRoute: ActivatedRoute,
+    private oRouter: Router,
+  ) {
+    const id_servicio  =  this.oActivatedRoute.snapshot.params['id_servicio'];
+    if(id_servicio == null){
+      this.id_servicioFilter = 0;
+  }else{
+      this.id_servicioFilter = id_servicio;
+  }
+   }
 
   ngOnInit(): void {
     this.getPage();
@@ -40,7 +50,7 @@ export class LineaservicioPlistAdminRoutedComponent {
 
   getPage() {
     this.oLineaservicioService.getLineaservicioPlist(this.page, this.numberOfElements,
-      this.strTermFilter, this.id_servicio, this.id_escandallo,this.sortField, this.sortDirection)
+      this.strTermFilter, this.id_servicioFilter  , this.id_escandallo,this.sortField, this.sortDirection)
       .subscribe({
         next: (resp: IPage<ILineaservicio>) => {
           this.responseFromServer = resp;
@@ -81,7 +91,7 @@ export class LineaservicioPlistAdminRoutedComponent {
   }
 
   setFilterByServicio(id: number): void {
-    this.id_servicio = id;
+    this.id_servicioFilter   = id;
     this.getPage();
   }
 

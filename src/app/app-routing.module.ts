@@ -93,7 +93,7 @@ const routes: Routes = [
   // servicio
   // admin
   { path: 'admin/servicio/plist', component: ServicioPlistAdminRoutedComponent},
-  { path: 'admin/servicio/plist/salon/:id', component: ServicioPlistAdminRoutedComponent},
+  { path: 'admin/servicio/plist/lineaservicio/:id', component: ServicioPlistAdminRoutedComponent},
   { path: 'admin/servicio/view/:id', component: ServicioViewAdminRoutedComponent},
   { path: 'admin/servicio/remove/:id', component: ServicioRemoveAdminRoutedComponent},
   { path: 'admin/servicio/new', component: ServicioNewAdminRoutedComponent},
@@ -118,6 +118,7 @@ const routes: Routes = [
   { path: 'admin/escandallo/new', component: EscandalloNewAdminRoutedComponent},
   { path: 'admin/escandallo/edit/:id', component: EscandalloEditAdminRoutedComponent},
 
+
   // referencia
   { path: 'admin/referencia/plist', component: ReferenciaPlistAdminRoutedComponent},
   { path: 'admin/referencia/view/:id', component: ReferenciaViewAdminRoutedComponent},
@@ -140,6 +141,7 @@ const routes: Routes = [
   { path: 'admin/lineaservicio/remove/:id', component: LineaservicioRemoveAdminRoutedComponent},
   { path: 'admin/lineaservicio/new', component: LineaservicioNewAdminRoutedComponent},
   { path: 'admin/lineaservicio/edit/:id', component: LineaservicioEditAdminRoutedComponent},
+  { path: 'admin/lineaservicio/plist/escandallo/:id_escandallo', component: LineaservicioPlistAdminRoutedComponent, title:'listado de lineas filtrado por servicio'},
   // user
   { path: 'user/lineaservicio/plist', component: LineaservicioPlistUserRoutedComponent},
 

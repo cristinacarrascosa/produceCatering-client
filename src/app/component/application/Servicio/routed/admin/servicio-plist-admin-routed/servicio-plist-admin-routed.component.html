@@ -55,7 +55,7 @@
             <td>{{servicio.salon.espacio.nombre}}</td>
             <td>
               <button class="btn btn-outline-secondary btn-sm"
-              [routerLink]="['/admin','lineaservicio','plist',servicio.id]"
+              [routerLink]="['/admin','lineaservicio','plist','servicio',servicio.id]"
               [disabled]="servicio.lineasServicio<=0">
               {{servicio.lineasServicio}}</button></td>
             <td>{{servicio.comensales}}</td>
