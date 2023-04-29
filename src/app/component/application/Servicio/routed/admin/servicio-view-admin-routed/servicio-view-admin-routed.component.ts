@@ -80,8 +80,13 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
     const doc = new jsPDF();
     console.log('length: ' + this.oReferencia.length);
     let y = 10;
+    let cont = 0;
+    let x = 10;
+
+
+
     //const lines = doc.splitTextToSize(text, 80);
-    
+
     /**ESTO IMPRIME UNA ETIQUETA CON EL ESCANDALLO Y LAS REFERENCIAS */
     // for (let index = 0; index < this.oReferencia.length; index++) {
 
@@ -100,30 +105,35 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
 
     for (let i = 0; i < this.oReferencia.length; i++) {
       for (let j = 0; j < this.oReferencia[i].length; j++) {
-
+        if(cont >= 10){
+          x+= 50;
+          doc.addPage();
+        }
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(12);
         doc.text(
           this.oServicio.id + ' - ' + this.oServicio.salon.nombre,
-          10,
+          x,
           y
         );
         doc.text(
           'Fecha: ' + this.oLineaServicio[i].servicio.fechaHora,
-          10,
+          x,
           (y += 7)
         );
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(10);
-        doc.text('Pax: ' + this.oLineaServicio[i].pax, 10, (y += 5));
+        doc.text('Pax: ' + this.oLineaServicio[i].pax, x, (y += 5));
         doc.text(
           'Escandallo: ' + this.oLineaServicio[i].escandallo.nombre,
-          10,
+          x,
           (y += 5)
         );
-        doc.text("Referencia: " + this.oReferencia[i][j].referencia.nombre, 10, y += 5);
+        doc.text("Referencia: " + this.oReferencia[i][j].referencia.nombre, x, y += 5);
         y += 10;
+        cont++;
       }
+
     }
 
     /** ESTO IMPRIME SOLO UNA ETIQUETA CON EL ESCANDALLO Y LA PRIMERA REFERENCIA */
