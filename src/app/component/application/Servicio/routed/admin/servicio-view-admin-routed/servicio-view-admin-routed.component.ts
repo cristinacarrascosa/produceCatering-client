@@ -10,6 +10,7 @@ import { LineaservicioService } from 'src/app/service/lineaservicio.service';
 import { ILineaservicio } from '../../../../../../model/lineaservicio-interface';
 import { LineaescandalloService } from '../../../../../../service/lineaescandallo.service';
 import { IReferencia } from '../../../../../../model/referencia-interface';
+import { filter } from 'rxjs';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
   id: number = 0;
   oServicio!: IServicio;
   oLineaServicio: ILineaservicio;
-  oReferencia: IReferencia[] = [];
+  oReferencia: any[] = [];
 
   constructor(
     protected oLocation: Location,
@@ -72,11 +73,22 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
         }
       });
     });
+    this.oReferencia.map((item: any) => {
+     // console.log("item: "+item);
+
+      item.map((item2: any) => {
+       // console.log("item2: "+item2);
+      });
+    });
     //console.log(this.oReferencia);
   }
 
   imprimirEtiquetas() {
     const doc = new jsPDF();
+    console.log("length: "+this.oReferencia.length);
+
+    let y = 10;
+
     doc.text(this.oServicio.id+ " - "+ this.oServicio.salon.nombre, 10, 10);
     doc.setFontSize(12);
     doc.text("Fecha: " + this.oLineaServicio[0].servicio.fechaHora, 10, 17);

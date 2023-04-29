@@ -89,6 +89,7 @@ const routes: Routes = [
   { path: 'admin/salon/remove/:id', component: SalonRemoveAdminRoutedComponent},
   { path: 'admin/salon/new', component: SalonNewAdminRoutedComponent},
   { path: 'admin/salon/edit/:id', component: SalonEditAdminRoutedComponent},
+  { path: 'admin/salon/plist/espacio/:id_espacio', component: SalonPlistAdminRoutedComponent, title: 'plist filtrado por espacio'},
 
   // servicio
   // admin
@@ -98,7 +99,7 @@ const routes: Routes = [
   { path: 'admin/servicio/remove/:id', component: ServicioRemoveAdminRoutedComponent},
   { path: 'admin/servicio/new', component: ServicioNewAdminRoutedComponent},
   { path: 'admin/servicio/edit/:id', component: ServicioEditAdminRoutedComponent},
-  
+
   // user
   { path: 'user/servicio/plist', component: ServicioPlistUserRoutedComponent},
   { path: 'user/servicio/view/:id', component: ServicioViewUserRoutedComponent},

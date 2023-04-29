@@ -4,6 +4,7 @@ import { IPage } from 'src/app/model/shared-interface';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { EspacioService } from 'src/app/service/espacio.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class EspacioPlistAdminRoutedComponent {
   page: number = 0;
   sortField: string = "";
   sortDirection: string = "";
+  id_EspacioFilter: number = 0;
 
   faEye = faEye;
   faUserPen = faUserPen;
@@ -28,8 +30,17 @@ export class EspacioPlistAdminRoutedComponent {
   faArrowDown = faArrowDown;
 
   constructor(
-    private oEspacioService: EspacioService
-  ) { }
+    private oEspacioService: EspacioService,
+    private oActivatedRoute: ActivatedRoute,
+    private oRouter: Router
+  ) {
+    const id_espacio =  this.oActivatedRoute.snapshot.params['id'];
+    if(id_espacio == null){
+      this.id_EspacioFilter = 0;
+  }else{
+      this.id_EspacioFilter = id_espacio;
+  }
+   }
 
   ngOnInit(): void {
     this.getPage();

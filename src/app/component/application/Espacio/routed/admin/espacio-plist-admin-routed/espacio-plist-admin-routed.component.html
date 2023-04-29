@@ -36,7 +36,10 @@
             <td>{{espacio.nombre}}</td>
             <td>{{espacio.direccion}}</td>
             <td>{{espacio.telefono}}</td>
-            <td>{{espacio.salones}}</td>
+            <td><button class="btn btn-outline-secondary btn-sm"
+              [routerLink]="['/admin','salon','plist','espacio',espacio.id]"
+              [disabled]="espacio.salones<=0">
+              {{espacio.salones}}</button></td>
 
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">

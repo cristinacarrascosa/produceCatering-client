@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { SalonService } from 'src/app/service/salon.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-salon-plist-admin-routed',
@@ -20,7 +21,7 @@ export class SalonPlistAdminRoutedComponent {
   responseFromServer: IPage<ISalon>;
   //
   strTermFilter: string = '';
-  id_espacio: number = 0;
+  id_espacioFilter: number = 0;
   numberOfElements: number = 5;
   page: number = 0;
   sortField: string = '';
@@ -32,7 +33,13 @@ export class SalonPlistAdminRoutedComponent {
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
 
-  constructor(private oSalonService: SalonService) {}
+  constructor(
+    private oSalonService: SalonService,
+    private oActivatedRoute: ActivatedRoute,
+    private oRouter: Router
+    ) {
+      
+    }
 
   ngOnInit(): void {
     this.getPage();
@@ -44,7 +51,7 @@ export class SalonPlistAdminRoutedComponent {
         this.page,
         this.numberOfElements,
         this.strTermFilter,
-        this.id_espacio,
+        this.id_espacioFilter,
         this.sortField,
         this.sortDirection
       )
@@ -80,7 +87,7 @@ export class SalonPlistAdminRoutedComponent {
   }
 
   setFilterByEspacio(id: number): void {
-    this.id_espacio = id;
+    this.id_espacioFilter = id;
     this.getPage();
   }
 
