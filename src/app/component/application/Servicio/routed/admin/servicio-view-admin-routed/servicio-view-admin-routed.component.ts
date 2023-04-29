@@ -5,21 +5,19 @@ import { ActivatedRoute } from '@angular/router';
 import { MetadataService } from 'src/app/service/metadata.service';
 import { ServicioService } from 'src/app/service/servicio.service';
 import jsPDF from 'jspdf';
-import  autotable from 'jspdf-autotable';
+import autotable from 'jspdf-autotable';
 import { LineaservicioService } from 'src/app/service/lineaservicio.service';
 import { ILineaservicio } from '../../../../../../model/lineaservicio-interface';
 import { LineaescandalloService } from '../../../../../../service/lineaescandallo.service';
 import { IReferencia } from '../../../../../../model/referencia-interface';
 import { filter } from 'rxjs';
 
-
 @Component({
   selector: 'app-servicio-view-admin-routed',
   templateUrl: './servicio-view-admin-routed.component.html',
-  styleUrls: ['./servicio-view-admin-routed.component.css']
+  styleUrls: ['./servicio-view-admin-routed.component.css'],
 })
 export class ServicioViewAdminRoutedComponent implements OnInit {
-
   id: number = 0;
   oServicio!: IServicio;
   oLineaServicio: ILineaservicio;
@@ -34,9 +32,9 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
     private oLineaEscandalloService: LineaescandalloService
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
-   }
+  }
 
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.getOne();
     this.getLineaservicio();
   }
@@ -47,37 +45,39 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
         this.oServicio = data;
         console.log(data);
         //this.oLocation.back();
-      }
-    })
+      },
+    });
   }
 
   getLineaservicio() {
-    this.oLineaservicioService.getLineaservicioPlist(0, 9999, null, this.id, 0, "", "")
-    .subscribe({
-      next: (data: any) => {
-        //console.log(data.content);
-        this.oLineaServicio = data.content;
-        this.getReferencia();
-      }
-    });
+    this.oLineaservicioService
+      .getLineaservicioPlist(0, 9999, null, this.id, 0, '', '')
+      .subscribe({
+        next: (data: any) => {
+          //console.log(data.content);
+          this.oLineaServicio = data.content;
+          this.getReferencia();
+        },
+      });
   }
 
   getReferencia() {
     let lineasServicio: any = this.oLineaServicio;
-    lineasServicio.forEach(element => {
+    lineasServicio.forEach((element) => {
       //console.log(element);
-      this.oLineaEscandalloService.getLineaescandalloPlist(0, 9999, '', element.escandallo.id, 0, '', '')
-      .subscribe({
-        next: (data: any) => {
-          this.oReferencia.push(data.content);
-        }
-      });
+      this.oLineaEscandalloService
+        .getLineaescandalloPlist(0, 9999, '', element.escandallo.id, 0, '', '')
+        .subscribe({
+          next: (data: any) => {
+            this.oReferencia.push(data.content);
+          },
+        });
     });
     this.oReferencia.map((item: any) => {
-     // console.log("item: "+item);
+      // console.log("item: "+item);
 
       item.map((item2: any) => {
-       // console.log("item2: "+item2);
+        // console.log("item2: "+item2);
       });
     });
     //console.log(this.oReferencia);
@@ -85,19 +85,58 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
 
   imprimirEtiquetas() {
     const doc = new jsPDF();
-    console.log("length: "+this.oReferencia.length);
+    console.log('length: ' + this.oReferencia.length);
 
     let y = 10;
 
-    doc.text(this.oServicio.id+ " - "+ this.oServicio.salon.nombre, 10, 10);
-    doc.setFontSize(12);
-    doc.text("Fecha: " + this.oLineaServicio[0].servicio.fechaHora, 10, 17);
-    doc.text("Pax: " + this.oLineaServicio[0].pax, 10, 22);
-    doc.text("Escandallo: " + this.oLineaServicio[0].escandallo.nombre, 10, 27);
-    doc.text("Referencia: " + this.oReferencia[0][0].referencia.nombre, 10, 32);
+    /**ESTO IMPRIME UNA ETIQUETA CON EL ESCANDALLO Y LAS REFERENCIAS */
+    // for (let index = 0; index < this.oReferencia.length; index++) {
+
+    //   doc.text(this.oServicio.id+ " - "+ this.oServicio.salon.nombre, 10, y);
+    //   doc.setFontSize(12);
+    //   doc.text("Fecha: " + this.oLineaServicio[index].servicio.fechaHora, 10, y+=7);
+    //   doc.text("Pax: " + this.oLineaServicio[index].pax, 10, y+=5);
+    //   doc.text("Escandallo: " + this.oLineaServicio[index].escandallo.nombre, 10, y+=5);
+
+    //   for (let j = 0; j < this.oReferencia[index].length; j++) {
+    //     doc.text("Referencia: " + this.oReferencia[index][j].referencia.nombre, 10, y+=5);
+
+    //   }
+    //   y+=10;
+    // }
+
+    for (let i = 0; i < this.oReferencia.length; i++) {
+      for (let j = 0; j < this.oReferencia[i].length; j++) {
+        doc.text(
+          this.oServicio.id + ' - ' + this.oServicio.salon.nombre,
+          10,
+          y
+        );
+        doc.setFontSize(12);
+        doc.text(
+          'Fecha: ' + this.oLineaServicio[i].servicio.fechaHora,
+          10,
+          (y += 7)
+        );
+        doc.text('Pax: ' + this.oLineaServicio[i].pax, 10, (y += 5));
+        doc.text(
+          'Escandallo: ' + this.oLineaServicio[i].escandallo.nombre,
+          10,
+          (y += 5)
+        );
+        doc.text("Referencia: " + this.oReferencia[i][j].referencia.nombre, 10, y += 5);
+        y += 10;
+      }
+    }
+
+    /** ESTO IMPRIME SOLO UNA ETIQUETA CON EL ESCANDALLO Y LA PRIMERA REFERENCIA */
+    // doc.text(this.oServicio.id+ " - "+ this.oServicio.salon.nombre, 10, 10);
+    // doc.setFontSize(12);
+    // doc.text("Fecha: " + this.oLineaServicio[0].servicio.fechaHora, 10, 17);
+    // doc.text("Pax: " + this.oLineaServicio[0].pax, 10, 22);
+    // doc.text("Escandallo: " + this.oLineaServicio[0].escandallo.nombre, 10, 27);
+    // doc.text("Referencia: " + this.oReferencia[0][0].referencia.nombre, 10, 32);
     //doc.text(this..pax+ "", 10, 24);
     doc.save('a4.pdf');
   }
 }
-
-
