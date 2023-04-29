@@ -73,14 +73,7 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
           },
         });
     });
-    this.oReferencia.map((item: any) => {
-      // console.log("item: "+item);
-
-      item.map((item2: any) => {
-        // console.log("item2: "+item2);
-      });
-    });
-    //console.log(this.oReferencia);
+   
   }
 
   imprimirEtiquetas() {
