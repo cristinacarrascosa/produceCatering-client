@@ -5,6 +5,9 @@ import { ILineaservicio } from '../../../../../../model/lineaservicio-interface'
 import { IPage } from 'src/app/model/shared-interface';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { MetadataService } from 'src/app/service/metadata.service';
+
 
 
 @Component({
@@ -32,9 +35,11 @@ export class LineaservicioPlistAdminRoutedComponent {
   faArrowDown = faArrowDown;
 
   constructor(
+    protected oLocation: Location,
     private oLineaservicioService: LineaservicioService,
     private oActivatedRoute: ActivatedRoute,
     private oRouter: Router,
+    public oMetadataService: MetadataService
   ) {
     const id_servicio  =  this.oActivatedRoute.snapshot.params['id_servicio'];
     if(id_servicio == null){

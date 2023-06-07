@@ -73,7 +73,6 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
           },
         });
     });
-
   }
 
   imprimirEtiquetas() {
@@ -82,8 +81,6 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
     let y = 10;
     let cont = 0;
     let x = 10;
-
-
 
     //const lines = doc.splitTextToSize(text, 80);
 
@@ -105,17 +102,13 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
 
     for (let i = 0; i < this.oReferencia.length; i++) {
       for (let j = 0; j < this.oReferencia[i].length; j++) {
-        if(cont >= 10){
-          x+= 50;
+        if (cont >= 10) {
+          x += 50;
           doc.addPage();
         }
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(12);
-        doc.text(
-          this.oServicio.id + ' - ' + this.oServicio.salon.nombre,
-          x,
-          y
-        );
+        doc.text(this.oServicio.id + ' - ' + this.oServicio.salon.nombre+" - Plato "+(i+1)+" de "+this.oReferencia.length, x, y);
         doc.text(
           'Fecha: ' + this.oLineaServicio[i].servicio.fechaHora,
           x,
@@ -123,17 +116,22 @@ export class ServicioViewAdminRoutedComponent implements OnInit {
         );
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(10);
-        doc.text('Pax: ' + this.oLineaServicio[i].pax, x, (y += 5));
+        doc.text('Pax: ' +this.oLineaServicio[i].pax, x, (y += 5));
         doc.text(
-          'Escandallo: ' + this.oLineaServicio[i].escandallo.nombre,
+          'Escandallo Id:' + this.oLineaServicio[i].escandallo.id+" - " +this.oLineaServicio[i].escandallo.nombre,
           x,
           (y += 5)
         );
-        doc.text("Referencia: " + this.oReferencia[i][j].referencia.nombre, x, y += 5);
+        doc.text(
+          'Referencia '+(j+1)+" de "+this.oReferencia[i].length +" - "+ this.oReferencia[i][j].referencia.nombre+' - IDEscandallo' + this.oReferencia[i][j].escandallo.id,
+          x,
+          (y += 5)
+        );
+        console.log(this.oReferencia[i][j].escandallo.id+" - "+this.oReferencia[i][j].escandallo.nombre);
+
         y += 10;
         cont++;
       }
-
     }
 
     /** ESTO IMPRIME SOLO UNA ETIQUETA CON EL ESCANDALLO Y LA PRIMERA REFERENCIA */
