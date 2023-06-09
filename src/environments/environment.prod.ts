@@ -12,4 +12,3 @@ export const HTTP_OPTIONS = {
   withCredentials: true
 };
 
-export const baseURL="producecatering-db-production.up.railway.app"
