@@ -2,7 +2,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, Subject, catchError, filter, map, retry, tap, throwError } from 'rxjs';
 import { baseURL, httpOptions } from 'src/environments/environment';
-import { environment } from 'src/environments/environment.prod';
 import { CryptoService } from './crypto.service';
 import { DecodeService } from './decode.service';
 import { IToken } from '../model/token-interface';
