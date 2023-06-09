@@ -5,7 +5,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
 
@@ -196,7 +195,6 @@ import { LineaservicioPlistUserRoutedComponent } from './component/application/L
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatSlideToggleModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FontAwesomeModule,
