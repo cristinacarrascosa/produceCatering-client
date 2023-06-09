@@ -34,6 +34,7 @@ export class SessionService {
 
   login(strLogin: string, strPassword: string): Observable<string> {
     const loginData = JSON.stringify({ login: strLogin, password: this.oCryptoService.getSHA256(strPassword) });
+    console.log(this.sURL)
     return this.oHttpClient.post<string>(this.sURL, loginData, httpOptions);
   }
 
